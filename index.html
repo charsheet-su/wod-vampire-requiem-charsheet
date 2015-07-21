@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU">
+
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--<script src="x-editable/jquery-1.9.1.min.js"></script>-->
+    <script src="x-editable/jquery-2.1.4.min.js"></script>
+    <script src="x-editable/jquery.mockjax.js"></script>
+
+    <!-- momentjs -->
+    <script src="x-editable/moment.min.js"></script>
+
+    <!-- select2 -->
+    <link href="x-editable/select2.css" rel="stylesheet">
+    <script src="x-editable/select2.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="x-editable/html5.js"></script>
+    <![endif]-->
+
+
+    <!-- poshytip -->
+    <link href="x-editable/tip-yellowsimple.css" rel="stylesheet">
+    <script src="x-editable/jquery.poshytip.js"></script>
+
+    <!-- jqueryui dateicker -->
+    <link href="x-editable/jquery-ui-1.10.1.custom.css" rel="stylesheet">
+    <script src="x-editable/jquery-ui-1.10.3.custom.js"></script>
+
+    <!-- x-editable (jquery) -->
+    <link href="x-editable/jquery-editable.css" rel="stylesheet">
+    <script src="x-editable/jquery-editable-poshytip.js"></script>
+
+    <link href="x-editable/demo.css" rel="stylesheet">
+
+    <script>
+        var f = 'plain';
+        $.fn.editable.defaults.mode = 'popup';
+    </script>
+
+    <!-- address input -->
+    <link href="x-editable/address.css" rel="stylesheet">
+    <link href="css/dots.css" rel="stylesheet">
+    <script src="x-editable/address.js"></script>
+    <script src="barrating/jquery.barrating.js"></script>
+    <style>
+
+        @font-face {
+            font-family: Percolator;
+            src: url(fonts/Percolator.otf);
+        }
+
+        @font-face {
+            font-family: "Percolator expert";
+            src: url("fonts/Percolator-expert.otf");
+        }
+
+        @font-face {
+            font-family: "Goudy Old Style";
+            src: url("fonts/Goudy Old Style Regular.ttf");
+        }
+
+        .main-header {
+            font-family: Percolator;
+            text-align: center;
+            font-size: 40px;
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+
+        .header-sub {
+            font-family: "Percolator expert";
+            text-align: center;
+            font-size: 28px;
+            line-height: 22px;
+        }
+
+        .prop {
+            font-family: "Percolator expert";
+            display: inline-block;
+            width: 16%;
+            text-align: left;
+            font-size: 20px;
+
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .prop-value {
+            font-family: "Percolator expert";
+            font-style: italic;
+            display: inline-block;
+            width: 16%;
+            text-align: left;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            font-size: 18px;
+        }
+
+        .attr {
+            font-family: "Goudy Old Style";
+            display: inline-block;
+            width: 16%;
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .attr-value {
+            display: inline-block;
+            width: 16%;
+            text-align: left;
+        }
+
+        .abl {
+            font-family: "Goudy Old Style";
+            display: inline-block;
+            width: 16%;
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 20px;
+        }
+
+        .abl-value {
+            line-height: 20px;
+            display: inline-block;
+            width: 16%;
+            text-align: left;
+        }
+
+        .prop-header {
+            font-family: "Percolator expert";
+            display: inline-block;
+            width: 32%;
+            text-align: center;
+            font-size: 22px;
+            padding-bottom: 4px;
+            padding-left: 3px;
+            padding-right: 3px;
+            line-height: 18px;
+        }
+
+        .list {
+            background-image: url(back.png);
+            width: 782px;
+            height: 1020px;
+            display: block;
+        }
+
+        .list-inner {
+            padding: 60px;
+        }
+
+        .prop-value input {
+            width: 100px;
+        }
+
+        .prop-value select {
+            width: 100px;
+        }
+
+        .attributes {
+            width: 100%;
+            text-align: center;
+        }
+
+        .abilities {
+            width: 100%;
+            text-align: center;
+        }
+
+        .props {
+            width: 100%;
+            padding-left: 5px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="list">
+    <div class="list-inner">
+        <div class="main-header">MORTALS</div>
+        <div class="props">
+            <div class="prop">Name:
+            </div>
+            <div class="prop-value"><span id="char_name" data-type="text" data-pk="1"
+                                          data-title="Enter name">Jessika</span>
+            </div>
+
+
+            <div class="prop">Nature:
+            </div>
+            <div class="prop-value">
+            <span id="nature" data-type="select" data-pk="1" data-value="5" data-source="get/nature"
+                  data-title="Select nature">Fanatic</span>
+            </div>
+
+
+            <div class="prop">Age:
+            </div>
+            <div class="prop-value"><span id="age" data-type="text" data-pk="1" data-title="Enter age">18</span></div>
+
+
+            <div class="prop">Player:
+            </div>
+            <div class="prop-value"><span id="player_name" data-type="text" data-pk="1"
+                                          data-title="Enter name">Michael</span></div>
+
+            <div class="prop">Demeanor:
+            </div>
+            <div class="prop-value">
+            <span id="demeanor" data-type="select" data-pk="1" data-value="5" data-source="get/nature"
+                  data-title="Select Demeanor">Child</span></div>
+
+            <div class="prop">Sex:
+            </div>
+            <div class="prop-value"><span id="sex" data-type="select" data-pk="1" data-value=""
+                                          data-title="Select sex"></span></div>
+
+            <div class="prop">Chronicle:
+            </div>
+            <div class="prop-value"><span id="chronicle" data-type="text" data-pk="1" data-title="Enter chronicle name">Bloodlines</span>
+            </div>
+
+            <div class="prop">Concept:
+            </div>
+            <div class="prop-value"><span id="concept" data-type="text" data-pk="1"
+                                          data-title="Enter concept">All is fine</span>
+            </div>
+
+            <div class="prop">Residence:
+            </div>
+            <div class="prop-value"><span id="residence" data-type="text" data-pk="1"
+                                          data-title="Enter residence">Omsk</span>
+            </div>
+        </div>
+
+        <div class="header-sub" style="padding-top: 8px;">Attributes</div>
+
+        <div class="prop-header">Physical</div>
+        <div class="prop-header">Social</div>
+        <div class="prop-header">Mental</div>
+
+        <div class="attributes">
+        </div>
+
+
+        <div class="header-sub">Abilities</div>
+
+        <div class="prop-header">Talents</div>
+        <div class="prop-header">Skills</div>
+        <div class="prop-header">Knowledges</div>
+
+        <div class="abilities">
+        </div>
+
+
+        <div class="header-sub">Advantages</div>
+
+        <div class="prop-header">Numina</div>
+        <div class="prop-header">Backgrounds</div>
+        <div class="prop-header">Virtues</div>
+
+        <div class="advantages">
+        </div>
+    </div>
+</div>
+
+<script src="x-editable/demo-mock.js"></script>
+<script src="x-editable/demo.js"></script>
+<script type="text/javascript">
+
+    // To be able to pass an array of promises
+    if (jQuery.when.all === undefined) {
+        jQuery.when.all = function (deferreds) {
+            var deferred = new jQuery.Deferred();
+            $.when.apply(jQuery, deferreds).then(
+                    function () {
+                        deferred.resolve(Array.prototype.slice.call(arguments));
+                    },
+                    function () {
+                        deferred.fail(Array.prototype.slice.call(arguments));
+                    });
+
+            return deferred;
+        }
+    }
+
+    function create_attr(id, val, el_class) {
+        el_class = el_class || 'attr';
+        return '<div class="' + el_class + '">' + val + '</div><div class="' + el_class + '-value"><select id="' + id + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>';
+    }
+
+    function set_data(list,el_class,main_container)
+    {
+        var data = {};
+        //function get_data(deferred, path) {
+        //}
+        var deferreds = [];
+        $.each(list, function (i, path) {
+            var deferred = new $.Deferred();
+            deferreds.push(deferred);
+            //get_data(deferred, item);
+
+            var jqxhr = $.get("get/" + path)
+                    .success(function (res) {
+                        data[path] = res;
+                    })
+                    .error(function () {
+                        alert("Error getting "+path+"!");
+                    })
+                    .complete(function () {
+                        deferred.resolve();
+                    });
+        });
+        $.when.all(deferreds).then(function () {
+            $.each(data[list[0]], function (i) {//only take item index. could be a simple loop
+                $.each(list, function (index, arr) {
+                    var item = data[arr][i];
+                    var id = item.replace(/ /g, '_');
+                    $(main_container).append(create_attr(id, item, el_class));
+                    $('#' + id).barrating('show', {
+                        wrapperClass: 'br-wrapper-f',
+                        showSelectedRating: false
+                    });
+                });
+            })
+        })
+    }
+    //set abilities
+    set_data(['abilities/talents.json', 'abilities/skills.json', 'abilities/knowledges.json'],'abl','.abilities');
+    //set attributes
+    set_data(['attributes/physical.json', 'attributes/social.json', 'attributes/mental.json'],'attr','.attributes');
+
+    /*var jqxhr = $.get("get/abilities/")
+     .success(function (data) {
+     //alert("Успешное выполнение");
+     $.each(data, function (i, item) {
+     //alert(data[i]);
+     var id = item.replace(/ /g, '_');
+     $(".abilities").append(create_attr(id, item, 'abl'));
+
+     $('#' + id).barrating('show', {
+     wrapperClass: 'br-wrapper-f',
+     showSelectedRating: false
+     });
+     })
+     //alert(data);
+     })
+     .error(function () {
+     alert("Error getting abilities!");
+     })
+     .complete(function () {
+     //alert("Завершение выполнения");
+     });*/
+</script>
+</body>
+</html>
