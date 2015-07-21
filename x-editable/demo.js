@@ -4,9 +4,10 @@ $(function(){
    $.fn.editable.defaults.url = '/post'; 
 
     //enable / disable
+    /*
    $('#enable').click(function() {
        $('#user .editable').editable('toggleDisabled');
-   });    
+   });*/
     
     //editables 
     $('#char_name').editable({
@@ -69,6 +70,7 @@ $(function(){
     });
 
 
+
     $('#age').editable({
         url: '/post',
         type: 'text',
@@ -76,18 +78,18 @@ $(function(){
         name: 'age',
         title: 'Enter character age'
     });
-         
+
+
    $('#user .editable').on('hidden', function(e, reason){
         if(reason === 'save' || reason === 'nochange') {
             var $next = $(this).closest('tr').next().find('.editable');
-            if($('#autoopen').is(':checked')) {
-                setTimeout(function() {
+            if ($('#autoopen').is(':checked')) {
+                setTimeout(function () {
                     $next.editable('show');
-                }, 300); 
+                }, 300);
             } else {
                 $next.focus();
-            } 
-        }
-   });
-   
+            }
+        }})
+
 });
