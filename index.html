@@ -262,7 +262,7 @@
             <div class="prop">Nature:
             </div>
             <div class="prop-value">
-            <span id="nature" data-type="select" data-pk="1" data-value="5" data-source="get/nature"
+            <span id="nature" data-type="select" data-pk="1" data-value="5" data-source="get/basic/nature.json"
                   data-title="Select nature">Fanatic</span>
             </div>
 
@@ -280,7 +280,7 @@
             <div class="prop">Demeanor:
             </div>
             <div class="prop-value">
-            <span id="demeanor" data-type="select" data-pk="1" data-value="5" data-source="get/nature"
+            <span id="demeanor" data-type="select" data-pk="1" data-value="5" data-source="get/basic/nature.json"
                   data-title="Select Demeanor">Child</span></div>
 
             <div class="prop">Sex:
@@ -371,7 +371,7 @@
 
     function create_attr(id, val, el_class) {
         el_class = el_class || 'attr';
-        return '<div class="' + el_class + '">' + val + '</div><div class="' + el_class + '-value"><select id="' + id + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>';
+        return '<div class="' + el_class + '">' + val + '</div><div class="' + el_class + '-value"><select id="' + id + '"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>';
     }
 
     function set_data(list, el_class, main_container) {
@@ -420,24 +420,12 @@
     $(document).ready(function () {
         var i = 0;
         for (i = 0; i < 6; i++) {
-            $.when($('.numina').append('<div class="numina-val"><span id="numina[' + i + ']" data-type="select" data-pk="1" data-value="5" data-source="get/advantages/numina.json"  data-title="Select numina" class="editable editable-click">None</span></div>')).then(function () {
-                //console.log('making ' + '#numina[' + i + '] editable');
-                $('#numina[' + i + ']').editable({
-                    showbuttons: false
-                })
-            });
+            $('.numina').append('<div class="numina-val"><span id="numina[' + i + ']" data-type="select" data-pk="1" data-value="5" data-source="get/advantages/numina.json"  data-title="Select numina">None</span></div>')
         }
         for (i = 0; i < 6; i++) {
-            $.when($('.backgrounds').append('<div class="background-val"><span id="background[' + i + ']" data-type="select" data-pk="1" data-value="5" data-source="get/advantages/backgrounds.json"  data-title="Select background" class="editable editable-click">None</span></div>')).then(function () {
-                $('#background[' + i + ']').editable({
-                    showbuttons: false
-                });//$('#background[' + i + ']').remove();console.log('background removed');
-            });
+            $('.backgrounds').append('<div class="background-val"><span id="background[' + i + ']" data-type="select" data-pk="1" data-value="5" data-source="get/advantages/backgrounds.json"  data-title="Select background">None</span></div>')
         }
-
         reloadEditable();
-
-
     });
     function reloadEditable() {         //apply editable to parent div
         $('.backgrounds').editable({
@@ -454,27 +442,7 @@
             pk: 1
         });
     }
-    /*var jqxhr = $.get("get/abilities/")
-     .success(function (data) {
-     //alert("Успешное выполнение");
-     $.each(data, function (i, item) {
-     //alert(data[i]);
-     var id = item.replace(/ /g, '_');
-     $(".abilities").append(create_attr(id, item, 'abl'));
 
-     $('#' + id).barrating('show', {
-     wrapperClass: 'br-wrapper-f',
-     showSelectedRating: false
-     });
-     })
-     //alert(data);
-     })
-     .error(function () {
-     alert("Error getting abilities!");
-     })
-     .complete(function () {
-     //alert("Завершение выполнения");
-     });*/
 </script>
 </body>
 </html>
