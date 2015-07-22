@@ -18,6 +18,15 @@ $(function(){
         title: 'Enter character name'
     });
 
+
+    $('#experience').editable({
+        url: '/post',
+        type: 'text',
+        pk: 1,
+        name: 'experience',
+        title: 'Enter experience'
+    });
+
     $('#player_name').editable({
         url: '/post',
         type: 'text',
@@ -60,6 +69,18 @@ $(function(){
     });
 
 
+    $('.health-table').find('span').editable({
+        //$('#health[0]').editable({
+            //prepend: "□",
+            source: [
+                {value: 1, text: '□'},
+                {value: 2, text: '/'},
+                {value: 3, text: 'X'},
+                {value: 4, text: '*'}
+            ]
+    });
+
+
     $('#nature').editable({
         showbuttons: false
     });
@@ -78,6 +99,7 @@ $(function(){
         name: 'age',
         title: 'Enter character age'
     });
+
 
 
    $('#user .editable').on('hidden', function(e, reason){

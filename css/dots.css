@@ -1,6 +1,7 @@
 /******* EXAMPLE F *******/
 .br-wrapper-f .br-widget {
     height: 15px;
+    display: inline-block;
 }
 .br-wrapper-f .br-widget a {
     background-image: url("../img/dot.png");
@@ -41,3 +42,41 @@
     margin: 0px 0 0 -76px;
     left: 50%;
 }*/
+
+/* for pseudo checkbox*/
+
+.br-wrapper-f2 .br-widget {
+    height: 15px;
+    display: inline-block;
+}
+.br-wrapper-f2 .br-widget a {
+    background-image: url("../img/checkbox.png");
+    width: 15px;
+    height: 15px;
+    display: block;
+    float: left;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .br-wrapper-f2 .br-widget a {
+        background-image: url("../img/checkbox@2x.png");
+        background-size: 15px 30px;
+    }
+}
+.br-wrapper-f2 .br-widget a:hover,
+.br-wrapper-f2 .br-widget a.br-active,
+.br-wrapper-f2 .br-widget a.br-selected {
+    background-position: 0 15px;
+}
+.br-wrapper-f2 .br-widget .br-current-rating {
+    clear: both;
+    width: 330px;
+    text-align: center;
+    font-weight: 600;
+    display: block;
+    padding: .5em 0;
+    color: #646464;
+}
+.br-wrapper-f2 .br-readonly a.br-active,
+.br-wrapper-f2 .br-readonly a.br-selected {
+    background-color: #50e3c2;
+}
