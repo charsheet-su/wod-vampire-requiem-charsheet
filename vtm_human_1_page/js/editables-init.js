@@ -1,7 +1,7 @@
 $(function () {
 
     //defaults
-    $.fn.editable.defaults.url = '/save';
+    $.fn.editable.defaults.url = '/save/';
 
     //enable / disable
     /*
@@ -57,9 +57,11 @@ $(function () {
 
     $('#sex').editable({
         prepend: "not selected",
+        autotext: 'never',
+        name: 'sex',
         source: [
-            {value: 1, text: 'M'},
-            {value: 2, text: 'F'}
+            {value: 'M', text: 'M'},
+            {value: 'F', text: 'F'}
         ]
     });
 
@@ -68,11 +70,14 @@ $(function () {
         //$('#health[0]').editable({
         //prepend: "□",
         emptytext: '&nbsp;',
+        title: 'select damage',
+        pk: 1,
+        type: 'select',
         source: [
-            {value: 1, text: ' '},
-            {value: 2, text: '/'},
-            {value: 3, text: 'X'},
-            {value: 4, text: '*'}
+            {value: ' ',text: ' '},
+            {value: '/',text: '/'},
+            {value: 'X',text: 'X'},
+            {value: '*',text: '*'}
         ]
     });
 

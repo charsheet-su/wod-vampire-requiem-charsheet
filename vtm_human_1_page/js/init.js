@@ -76,7 +76,8 @@ function load_numina() {
     sp.attr('data-title', 'Select numina');
     sp.attr('data-type', 'select');
     sp.attr('data-pk', '1');
-    sp.attr('data-value', '5');
+    //sp.attr('data-name', '1');
+    //sp.attr('data-value', '5');
     sp.attr('data-source', 'get/advantages/numina.json');
     var div = $('<div></div>');
     div.attr('class', 'numina_name');
@@ -85,8 +86,8 @@ function load_numina() {
         var div2 = div.clone();
         div2.editable({
             selector: 'span',
-            url: '/post',
-            pk: 1
+            pk: 1,
+            name: 'numina['+i+']'
         });
         $('.numina').append(div2);
         create_attr($('.numina'), '', 'numina');
@@ -98,13 +99,8 @@ function load_backgrounds() {
     sp.attr('data-title', 'Select background');
     sp.attr('data-type', 'select');
     sp.attr('data-pk', '1');
-    sp.attr('data-value', '5');
+    //sp.attr('data-value', '5');
     sp.attr('data-source', 'get/advantages/backgrounds.json');
-    sp.editable({
-        selector: 'span',
-        url: '/post',
-        pk: 1
-    });
 
     var div = $('<div></div>');
     div.attr('class', 'background_name');
@@ -113,7 +109,7 @@ function load_backgrounds() {
         var div2 = div.clone();
         div2.editable({
             selector: 'span',
-            url: '/post',
+            name: 'background['+i+']',
             pk: 1
         });
         $('.backgrounds').append(div2);
@@ -126,7 +122,7 @@ function set_traits(secondary) {
     sp.attr('data-title', 'Select trait');
     sp.attr('data-type', 'select');
     sp.attr('data-pk', '1');
-    sp.attr('data-value', '5');
+    //sp.attr('data-value', '5');
     //console.log(secondary);
     //console.log(secondary.toString());
     //sp.attr('source', secondary);
@@ -138,8 +134,10 @@ function set_traits(secondary) {
         div2.editable({
             prepend: "None",
             selector: 'span',
-            url: '/post',
-            source: secondary
+            source: secondary,
+            name: 'trait',
+            type: 'select',
+            name: 'trait['+i+']'
         });
         $('.other_traits').append(div2);
         create_attr($('.other_traits'), '', 'trait');
@@ -169,13 +167,11 @@ function load_traits() {
     });
     $.when.all(deferreds).then(function () {
         var res = [];
-        var z = 1;
         $.each(list, function (index, arr) {
             res.push({text: '---'});
             $.each(data[list[index]], function (i) { //only take item index. could be a simple loop
                 var item = data[arr][i];
-                res.push({text: item, value: z})
-                z++;
+                res.push({text: item, value: item})
                 //console.log(item);
             });
         });
