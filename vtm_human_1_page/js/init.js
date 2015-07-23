@@ -14,11 +14,35 @@ if (jQuery.when.all === undefined) {
     }
 }
 
-function create_attr(main_container, val, el_class) {
+function send_dots(attr, value) {
+    //var data = {};
+    //attr=attr.replace('[','%5B').replace(']','%5D');
+    //data[attr] = value;
+
+    var data = new FormData();
+    data.append('name',attr);
+    data.append('value',value);
+    $.ajax({
+        url: '/save/',
+        type: 'post',
+        data: data,
+        contentType: false,
+        processData: false,
+        type: 'POST',
+        success: function (data) {
+            console.info(data);
+        },
+        error: function (data) {
+            alert("Error saving " + attr + "!");
+        }
+    });
+}
+
+function create_attr(main_container, name, el_class, caption) {
     el_class = el_class || 'attr';
     //name near the select
-    if (val != undefined && val != '') {
-        var div1 = $('<div>' + val + '</div>');
+    if (caption != undefined && caption != '') {
+        var div1 = $('<div>' + caption + '</div>');
         div1.attr('class', el_class);
         main_container.append(div1);
     }
@@ -29,7 +53,10 @@ function create_attr(main_container, val, el_class) {
 
     div2.find('select').barrating('show', {
         wrapperClass: 'br-wrapper-f',
-        showSelectedRating: false
+        showSelectedRating: false,
+        onSelect: function (value, text) {
+            send_dots(name, value);
+        }
     });
     main_container.append(div2);
 }
@@ -60,7 +87,7 @@ function set_data(list, el_class, main_container) {
             $.each(list, function (index, arr) {
                 var item = data[arr][i];
                 //var id = item.replace(/ /g, '_');
-                $(main_container).append(create_attr($(main_container), item, el_class));
+                $(main_container).append(create_attr($(main_container), item, el_class, item));
             });
         })
     })
@@ -87,10 +114,10 @@ function load_numina() {
         div2.editable({
             selector: 'span',
             pk: 1,
-            name: 'numina['+i+']'
+            name: 'numina[' + i + ']'
         });
         $('.numina').append(div2);
-        create_attr($('.numina'), '', 'numina');
+        create_attr($('.numina'), 'numina_value[' + i + ']', 'numina');
     }
 }
 
@@ -109,11 +136,11 @@ function load_backgrounds() {
         var div2 = div.clone();
         div2.editable({
             selector: 'span',
-            name: 'background['+i+']',
+            name: 'background[' + i + ']',
             pk: 1
         });
         $('.backgrounds').append(div2);
-        create_attr($('.backgrounds'), '', 'background');
+        create_attr($('.backgrounds'), 'background_value[' + i + ']', 'background');
     }
 }
 
@@ -137,10 +164,10 @@ function set_traits(secondary) {
             source: secondary,
             name: 'trait',
             type: 'select',
-            name: 'trait['+i+']'
+            name: 'trait[' + i + ']'
         });
         $('.other_traits').append(div2);
-        create_attr($('.other_traits'), '', 'trait');
+        create_attr($('.other_traits'), 'trait_value[' + i + ']', 'trait');
     }
 }
 function load_traits() {
@@ -198,18 +225,27 @@ function load_all() {
 
     $('#Humanity').barrating('show', {
         wrapperClass: 'br-wrapper-f',
-        showSelectedRating: false
+        showSelectedRating: false,
+        onSelect: function (value, text) {
+            send_dots('Humanity', value);
+        }
     });
 
 
     $('#Willpower').barrating('show', {
         wrapperClass: 'br-wrapper-f',
-        showSelectedRating: false
+        showSelectedRating: false,
+        onSelect: function (value, text) {
+            send_dots('Willpower', value);
+        }
     });
 
     $('#Willpower_current').barrating('show', {
         wrapperClass: 'br-wrapper-f2',
-        showSelectedRating: false
+        showSelectedRating: false,
+        onSelect: function (value, text) {
+            send_dots('Willpower_current', value);
+        }
     });
 
     /*var IDs = $(".health-table span[id]")         // find spans with ID attribute
