@@ -2,367 +2,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU">
 
 <head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script src="js/jquery-1.9.1.min.js"></script>
-<!--<script src="x-editable/jquery-2.1.4.min.js"></script>-->
-<script src="x-editable/jquery.mockjax.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!--<script src="x-editable/jquery-2.1.4.min.js"></script>-->
+    <script src="x-editable/jquery.mockjax.js"></script>
 
-<!-- momentjs -->
-<script src="x-editable/moment.min.js"></script>
+    <!-- momentjs -->
+    <script src="x-editable/moment.min.js"></script>
 
-<!-- select2 -->
-<link href="x-editable/select2.css" rel="stylesheet">
-<script src="x-editable/select2.js"></script>
+    <!-- select2 -->
+    <link href="x-editable/select2.css" rel="stylesheet">
+    <script src="x-editable/select2.js"></script>
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-<!--[if lt IE 9]>
-<script src="x-editable/html5.js"></script>
-<![endif]-->
-
-
-<!-- poshytip -->
-<link href="x-editable/tip-yellowsimple.css" rel="stylesheet">
-<script src="x-editable/jquery.poshytip.js"></script>
-
-<!-- jqueryui dateicker -->
-<link href="x-editable/jquery-ui-1.10.1.custom.css" rel="stylesheet">
-<script src="x-editable/jquery-ui-1.10.3.custom.js"></script>
-
-<!-- x-editable (jquery) -->
-<link href="x-editable/jquery-editable.css" rel="stylesheet">
-<script src="x-editable/jquery-editable-poshytip.js"></script>
-
-<script>
-    var f = 'plain';
-    $.fn.editable.defaults.mode = 'popup';
-</script>
-
-<link href="css/dots.css" rel="stylesheet">
-<script src="barrating/jquery.barrating.js"></script>
-<style>
-
-@font-face {
-    font-family: Percolator;
-    src: url(fonts/Percolator.otf);
-}
-
-@font-face {
-    font-family: "Percolator expert";
-    src: url("fonts/Percolator-expert.otf");
-}
-
-@font-face {
-    font-family: "Goudy Old Style";
-    src: url("fonts/Goudy Old Style Regular.ttf");
-}
-
-.main-header {
-    font-family: Percolator;
-    text-align: center;
-    font-size: 40px;
-    padding-top: 5px;
-}
-
-.header-sub {
-    font-family: "Percolator expert";
-    text-align: center;
-    font-size: 28px;
-    line-height: 22px;
-    background-image: url("img/h1_bg_big.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="x-editable/html5.js"></script>
+    <![endif]-->
 
 
-.header-sub span{
-    background-color: #fff;
-    padding-left: 3px;
-    padding-right: 3px;
-}
+    <!-- poshytip -->
+    <link href="x-editable/tip-yellowsimple.css" rel="stylesheet">
+    <script src="x-editable/jquery.poshytip.js"></script>
 
-.prop {
-    font-family: "Percolator expert";
-    display: inline-block;
-    width: 16%;
-    text-align: left;
-    font-size: 20px;
+    <!-- jqueryui dateicker -->
+    <link href="x-editable/jquery-ui-1.10.1.custom.css" rel="stylesheet">
+    <script src="x-editable/jquery-ui-1.10.3.custom.js"></script>
 
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
+    <!-- x-editable (jquery) -->
+    <link href="x-editable/jquery-editable.css" rel="stylesheet">
+    <script src="x-editable/jquery-editable-poshytip.js"></script>
 
-.prop_value {
-    font-family: "Percolator expert";
-    font-style: italic;
-    display: inline-block;
-    width: 16%;
-    text-align: left;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    font-size: 18px;
-}
+    <link href="css/list1.css" rel="stylesheet">
+    <script>
+        var f = 'plain';
+        $.fn.editable.defaults.mode = 'popup';
+    </script>
 
-.attr {
-    font-family: "Goudy Old Style";
-    display: inline-block;
-    width: 16%;
-    text-align: left;
-    font-size: 18px;
-}
+    <link href="css/dots.css" rel="stylesheet">
+    <link href="css/charlist.css" rel="stylesheet">
+    <script src="barrating/jquery.barrating.js"></script>
+    <style>
 
-.attr_value {
-    display: inline-block;
-    width: 16%;
-}
-
-.virtue {
-    font-family: "Goudy Old Style";
-    display: inline-block;
-    width: 50%;
-    text-align: left;
-    font-size: 18px;
-    line-height: 40px;
-}
-
-.virtue_value {
-    line-height: 40px;
-    display: inline-block;
-    width: 50%;
-    text-align: center;
-}
-
-.abl {
-    font-family: "Goudy Old Style";
-    display: inline-block;
-    width: 16%;
-    text-align: left;
-    font-size: 18px;
-    line-height: 20px;
-}
-
-.abl_value {
-    line-height: 20px;
-    display: inline-block;
-    width: 16%;
-}
-
-.prop-header {
-    font-family: "Percolator expert";
-    display: inline-block;
-    width: 32%;
-    text-align: center;
-    font-size: 22px;
-    padding-bottom: 4px;
-    line-height: 18px;
-
-    background-image: url("img/h2_bg_big.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.prop-header span{
-    background-color: #fff;
-    padding-left: 3px;
-    padding-right: 3px;
-}
-
-.list {
-    /*background-image: url(back.png);*/
-    width: 750px;
-    height: 1000px;
-
-
-    background-image: url(img/back_big.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    /*width: 2441px;
-    height: 3211px;*/
-    display: block;
-}
-
-.list-inner {
-    padding: 60px;
-}
-
-.prop_value input {
-    width: 100px;
-}
-
-.prop_value select {
-    width: 100px;
-}
-
-.attributes {
-    width: 100%;
-    text-align: center;
-}
-
-.abilities {
-    width: 100%;
-    text-align: center;
-}
-
-.props {
-    width: 100%;
-    padding-left: 5px;
-    text-align: center;
-}
-
-.advantages {
-    width: 100%;
-    text-align: center;
-}
-
-.numina {
-    width: 32%;
-    display: inline-block;
-}
-
-.backgrounds {
-    display: inline-block;
-    width: 32%;
-}
-
-.virtues {
-    display: inline-block;
-    width: 32%;
-}
-
-.background_name {
-    font-family: "Goudy Old Style";
-    font-size: 18px;
-    line-height: 18px;
-    display: inline-block;
-    width: 50%;
-    text-align: left;
-}
-
-.background_value {
-    display: inline-block;
-    width: 50%;
-}
-
-.numina_name {
-    font-family: "Goudy Old Style";
-    text-align: left;
-    font-size: 18px;
-    line-height: 18px;
-    display: inline-block;
-    width: 50%;
-}
-
-.numina_value {
-    display: inline-block;
-    width: 50%;
-}
-
-.trait_name {
-    font-family: "Goudy Old Style";
-    text-align: left;
-    font-size: 18px;
-    line-height: 16px;
-    display: inline-block;
-    width: 50%;
-}
-
-.trait_value {
-    display: inline-block;
-    width: 50%;
-    line-height: 16px;
-}
-
-.other_traits_container {
-    width: 30%;
-    text-align: center;
-    display: inline-block;
-}
-
-.humanity_willpower_container {
-    width: 35%;
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.health_exp_container {
-    width: 31%;
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.other {
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-}
-
-.health-table {
-    width: 100%;
-    display: inline-block;
-    font-family: "Goudy Old Style";
-    font-size: 18px;
-}
-
-.health-value {
-    display: inline-block;
-    width: 60%;
-    text-align: left;
-}
-
-.health-sub {
-    display: inline-block;
-    width: 20%;
-}
-
-.health-control {
-    text-align: center;
-    display: inline-block;
-    width: 15%;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.experience {
-    font-family: "Goudy Old Style";
-    font-size: 18px;
-
-    background-image: url("img/bg-exp.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-@page {
-    size: 21cm 29.7cm;
-    margin: 0; /* change the margins as you want them to be. */
-}
-body
-{
-    margin: 0;
-}
-
-.checkbox
-{
-    background-image: url("img/checkbox_big.png");
-    width: 12px;
-    height: 12px;
-    display: inline-block;
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;
-    vertical-align: middle;
-}
-.checkbox span {
-    vertical-align: top;
-    line-height: 12px;
-    font-size: 10px;
-}
-
-</style>
+    </style>
 </head>
 <body>
 <div class="list">
@@ -534,32 +215,46 @@ body
         <div class="health-table" style="margin-top: 10px;">
             <div class="health-value">Bruised</div>
             <div class="health-sub"></div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
             <div class="health-value">Hurt</div>
             <div class="health-sub">-1</div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
             <div class="health-value">Injured</div>
             <div class="health-sub">-1</div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
             <div class="health-value">Wounded</div>
             <div class="health-sub">-2</div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
             <div class="health-value">Mauled</div>
             <div class="health-sub">-2</div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
             <div class="health-value">Crippled</div>
             <div class="health-sub">-5</div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
             <div class="health-value">Incapacitated</div>
             <div class="health-sub"></div>
-            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage"> </span></div></div>
+            <div class="health-control">
+                <div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                             data-title="Select damage"> </span></div>
+            </div>
         </div>
         <div class="prop-header" style="margin-top: 20px;width: 100%"><span>Experience</span></div>
         <div class="experience" style="margin-top: 5px">
@@ -572,257 +267,6 @@ body
 
 <script src="js/demo-mock.js"></script>
 <script src="js/editables-init.js"></script>
-<script type="text/javascript">
-// To be able to pass an array of promises
-if (jQuery.when.all === undefined) {
-    jQuery.when.all = function (deferreds) {
-        var deferred = new jQuery.Deferred();
-        $.when.apply(jQuery, deferreds).then(
-                function () {
-                    deferred.resolve(Array.prototype.slice.call(arguments));
-                },
-                function () {
-                    deferred.fail(Array.prototype.slice.call(arguments));
-                });
-
-        return deferred;
-    }
-}
-
-function create_attr(main_container, val, el_class) {
-    el_class = el_class || 'attr';
-    //name near the select
-    if (val != undefined && val != '') {
-        var div1 = $('<div>' + val + '</div>');
-        div1.attr('class', el_class);
-        main_container.append(div1);
-    }
-    var select = $('<select><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>');
-    var div2 = $('<div></div>');
-    div2.attr('class', el_class + '_value');
-    div2.append(select);
-
-    div2.find('select').barrating('show', {
-        wrapperClass: 'br-wrapper-f',
-        showSelectedRating: false
-    });
-    main_container.append(div2);
-}
-
-function set_data(list, el_class, main_container) {
-    var data = {};
-    //function get_data(deferred, path) {
-    //}
-    var deferreds = [];
-    $.each(list, function (i, path) {
-        var deferred = new $.Deferred();
-        deferreds.push(deferred);
-        //get_data(deferred, item);
-
-        var jqxhr = $.get("get/" + path)
-                .success(function (res) {
-                    data[path] = res;
-                })
-                .error(function () {
-                    alert("Error getting " + path + "!");
-                })
-                .complete(function () {
-                    deferred.resolve();
-                });
-    });
-    $.when.all(deferreds).then(function () {
-        $.each(data[list[0]], function (i) {//only take item index. could be a simple loop
-            $.each(list, function (index, arr) {
-                var item = data[arr][i];
-                //var id = item.replace(/ /g, '_');
-                $(main_container).append(create_attr($(main_container), item, el_class));
-            });
-        })
-    })
-}
-
-
-
-$(document).ready(function () {
-    load_all();
-});
-
-function load_numina() {
-    var sp = $('<span>None</span>');
-    sp.attr('data-title', 'Select numina');
-    sp.attr('data-type', 'select');
-    sp.attr('data-pk', '1');
-    sp.attr('data-value', '5');
-    sp.attr('data-source', 'get/advantages/numina.json');
-    var div = $('<div></div>');
-    div.attr('class', 'numina_name');
-    div.append(sp);
-    for (i = 0; i < 6; i++) {
-        var div2 = div.clone();
-        div2.editable({
-            selector: 'span',
-            url: '/post',
-            pk: 1
-        });
-        $('.numina').append(div2);
-        create_attr($('.numina'), '', 'numina');
-    }
-}
-
-function load_backgrounds() {
-    var sp = $('<span>None</span>');
-    sp.attr('data-title', 'Select background');
-    sp.attr('data-type', 'select');
-    sp.attr('data-pk', '1');
-    sp.attr('data-value', '5');
-    sp.attr('data-source', 'get/advantages/backgrounds.json');
-    sp.editable({
-        selector: 'span',
-        url: '/post',
-        pk: 1
-    });
-
-    var div = $('<div></div>');
-    div.attr('class', 'background_name');
-    div.append(sp);
-    for (i = 0; i < 6; i++) {
-        var div2 = div.clone();
-        div2.editable({
-            selector: 'span',
-            url: '/post',
-            pk: 1
-        });
-        $('.backgrounds').append(div2);
-        create_attr($('.backgrounds'), '', 'background');
-    }
-}
-
-function set_traits(secondary) {
-    var sp = $('<span>None</span>');
-    sp.attr('data-title', 'Select trait');
-    sp.attr('data-type', 'select');
-    sp.attr('data-pk', '1');
-    sp.attr('data-value', '5');
-    //console.log(secondary);
-    //console.log(secondary.toString());
-    //sp.attr('source', secondary);
-    var div = $('<div></div>');
-    div.attr('class', 'trait_name');
-    div.append(sp);
-    for (i = 0; i < 12; i++) {
-        var div2 = div.clone();
-        div2.editable({
-            prepend: "None",
-            selector: 'span',
-            url: '/post',
-            source: secondary
-        });
-        $('.other_traits').append(div2);
-        create_attr($('.other_traits'), '', 'trait');
-    }
-}
-function load_traits() {
-    var list=['secondary/talents.json', 'secondary/skills.json', 'secondary/knowledges.json'];
-    var data = {};
-    //function get_data(deferred, path) {
-    //}
-    var deferreds = [];
-    $.each(list, function (i, path) {
-        var deferred = new $.Deferred();
-        deferreds.push(deferred);
-        //get_data(deferred, item);
-
-        var jqxhr = $.get("get/" + path)
-                .success(function (res) {
-                    data[path] = res;
-                })
-                .error(function () {
-                    alert("Error getting " + path + "!");
-                })
-                .complete(function () {
-                    deferred.resolve();
-                });
-    });
-    $.when.all(deferreds).then(function () {
-        var res = [];
-        var z = 1;
-        $.each(list, function (index, arr) {
-            res.push({text: '---'});
-            $.each(data[list[index]], function (i) { //only take item index. could be a simple loop
-                var item = data[arr][i];
-                res.push({text: item, value: z})
-                z++;
-                //console.log(item);
-            });
-        });
-        return res;
-    }).then(function (res) {
-        //console.log(res);
-        //return res;
-        set_traits(res);
-    })
-
-}
-function load_all() {
-
-    //set abilities
-    set_data(['abilities/talents.json', 'abilities/skills.json', 'abilities/knowledges.json'], 'abl', '.abilities');
-    //set attributes
-    set_data(['attributes/physical.json', 'attributes/social.json', 'attributes/mental.json'], 'attr', '.attributes');
-    //set virtues
-    set_data(['advantages/virtues.json'], 'virtue', '.virtues');
-
-    load_numina();
-    load_backgrounds();
-    load_traits();
-
-    $('#Humanity').barrating('show', {
-        wrapperClass: 'br-wrapper-f',
-        showSelectedRating: false
-    });
-
-
-    $('#Willpower').barrating('show', {
-        wrapperClass: 'br-wrapper-f',
-        showSelectedRating: false
-    });
-
-    $('#Willpower_current').barrating('show', {
-        wrapperClass: 'br-wrapper-f2',
-        showSelectedRating: false
-    });
-
-    /*var IDs = $(".health-table span[id]")         // find spans with ID attribute
-     .map(function() { this.editable({
-     //prepend: "□",
-     source: [
-     {value: 1, text: '□'},
-     {value: 2, text: '/'},
-     {value: 3, text: 'X'},
-     {value: 4, text: '*'}
-     ]
-     }); }) // convert to set of IDs*/
-
-
-}
-
-/*
- function reloadEditable() {
- //apply editable to parent div
- $('.backgrounds').editable({
- selector: 'span',
- url: '/post',
- pk: 1
- });
-
- //apply editable to parent div
- $('.numina').editable({
- selector: 'span',
- url: '/post',
- pk: 1
- });
- }*/
-
-</script>
+<script src="js/init.js"></script>
 </body>
 </html>
