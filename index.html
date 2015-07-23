@@ -3,7 +3,7 @@
 
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script src="x-editable/jquery-1.9.1.min.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
 <!--<script src="x-editable/jquery-2.1.4.min.js"></script>-->
 <script src="x-editable/jquery.mockjax.js"></script>
 
@@ -32,17 +32,12 @@
 <link href="x-editable/jquery-editable.css" rel="stylesheet">
 <script src="x-editable/jquery-editable-poshytip.js"></script>
 
-<link href="x-editable/demo.css" rel="stylesheet">
-
 <script>
     var f = 'plain';
     $.fn.editable.defaults.mode = 'popup';
 </script>
 
-<!-- address input -->
-<link href="x-editable/address.css" rel="stylesheet">
 <link href="css/dots.css" rel="stylesheet">
-<script src="x-editable/address.js"></script>
 <script src="barrating/jquery.barrating.js"></script>
 <style>
 
@@ -66,7 +61,6 @@
     text-align: center;
     font-size: 40px;
     padding-top: 5px;
-    padding-bottom: 10px;
 }
 
 .header-sub {
@@ -74,6 +68,17 @@
     text-align: center;
     font-size: 28px;
     line-height: 22px;
+    background-image: url("img/h1_bg_big.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+.header-sub span{
+    background-color: #fff;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .prop {
@@ -104,7 +109,6 @@
     width: 16%;
     text-align: left;
     font-size: 18px;
-    font-weight: bold;
 }
 
 .attr_value {
@@ -118,7 +122,6 @@
     width: 50%;
     text-align: left;
     font-size: 18px;
-    font-weight: bold;
     line-height: 40px;
 }
 
@@ -126,7 +129,7 @@
     line-height: 40px;
     display: inline-block;
     width: 50%;
-    text-align: left;
+    text-align: center;
 }
 
 .abl {
@@ -135,7 +138,6 @@
     width: 16%;
     text-align: left;
     font-size: 18px;
-    font-weight: bold;
     line-height: 20px;
 }
 
@@ -152,15 +154,31 @@
     text-align: center;
     font-size: 22px;
     padding-bottom: 4px;
+    line-height: 18px;
+
+    background-image: url("img/h2_bg_big.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.prop-header span{
+    background-color: #fff;
     padding-left: 3px;
     padding-right: 3px;
-    line-height: 18px;
 }
 
 .list {
-    background-image: url(back.png);
-    width: 782px;
-    height: 1020px;
+    /*background-image: url(back.png);*/
+    width: 750px;
+    height: 1000px;
+
+
+    background-image: url(img/back_big.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*width: 2441px;
+    height: 3211px;*/
     display: block;
 }
 
@@ -215,7 +233,6 @@
 .background_name {
     font-family: "Goudy Old Style";
     font-size: 18px;
-    font-weight: bold;
     line-height: 18px;
     display: inline-block;
     width: 50%;
@@ -231,7 +248,6 @@
     font-family: "Goudy Old Style";
     text-align: left;
     font-size: 18px;
-    font-weight: bold;
     line-height: 18px;
     display: inline-block;
     width: 50%;
@@ -246,7 +262,6 @@
     font-family: "Goudy Old Style";
     text-align: left;
     font-size: 18px;
-    font-weight: bold;
     line-height: 16px;
     display: inline-block;
     width: 50%;
@@ -278,12 +293,6 @@
     vertical-align: top;
 }
 
-.prop-header span {
-    background-color: white;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
 .other {
     width: 100%;
     display: inline-block;
@@ -293,10 +302,8 @@
 .health-table {
     width: 100%;
     display: inline-block;
-    padding-left: 20px;
     font-family: "Goudy Old Style";
     font-size: 18px;
-    font-weight: bold;
 }
 
 .health-value {
@@ -311,15 +318,48 @@
 }
 
 .health-control {
-    text-align: left;
+    text-align: center;
     display: inline-block;
     width: 15%;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .experience {
     font-family: "Goudy Old Style";
     font-size: 18px;
-    font-weight: bold;
+
+    background-image: url("img/bg-exp.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+@page {
+    size: 21cm 29.7cm;
+    margin: 0; /* change the margins as you want them to be. */
+}
+body
+{
+    margin: 0;
+}
+
+.checkbox
+{
+    background-image: url("img/checkbox_big.png");
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    vertical-align: middle;
+}
+.checkbox span {
+    vertical-align: top;
+    line-height: 12px;
+    font-size: 10px;
 }
 
 </style>
@@ -383,31 +423,31 @@
     </div>
 </div>
 
-<div class="header-sub" style="padding-top: 8px;">Attributes</div>
+<div class="header-sub" style="margin-top: 8px;margin-bottom: 4px;"><span>Attributes</span></div>
 
-<div class="prop-header">Physical</div>
-<div class="prop-header">Social</div>
-<div class="prop-header">Mental</div>
+<div class="prop-header"><span>Physical</span></div>
+<div class="prop-header"><span>Social</span></div>
+<div class="prop-header"><span>Mental</span></div>
 
 <div class="attributes">
 </div>
 
 
-<div class="header-sub">Abilities</div>
+<div class="header-sub" style="margin-bottom: 4px;"><span>Abilities<span></div>
 
-<div class="prop-header">Talents</div>
-<div class="prop-header">Skills</div>
-<div class="prop-header">Knowledges</div>
+<div class="prop-header"><span>Talents</span></div>
+<div class="prop-header"><span>Skills</span></div>
+<div class="prop-header"><span>Knowledges</span></div>
 
 <div class="abilities">
 </div>
 
 
-<div class="header-sub">Advantages</div>
+<div class="header-sub" style="margin-bottom: 4px;"><span>Advantages</span></div>
 
-<div class="prop-header">Numina</div>
-<div class="prop-header">Backgrounds</div>
-<div class="prop-header">Virtues</div>
+<div class="prop-header"><span>Numina</span></div>
+<div class="prop-header"><span>Backgrounds</span></div>
+<div class="prop-header"><span>Virtues</span></div>
 
 <div class="advantages">
 
@@ -427,14 +467,14 @@
 
     <div class="other_traits_container">
 
-        <div class="prop-header" style="margin-top: 15px;width: 100%"><span>Other Traits</span>
+        <div class="prop-header" style="width: 100%"><span>Other Traits</span>
         </div>
         <div class="other_traits">
         </div>
 
     </div>
     <div class="humanity_willpower_container">
-        <div class="prop-header" style="margin-top: 50px;width: 100%"><span>Humanity</span>
+        <div class="prop-header" style="margin-top: 45px;width: 100%"><span>Humanity</span>
         </div>
         <div style="margin-top: 10px;">
             <select id="Humanity">
@@ -453,7 +493,7 @@
         </div>
 
 
-        <div class="prop-header" style="margin-top: 105px;width: 100%"><span>Willpower</span>
+        <div class="prop-header" style="margin-top: 85px;width: 100%"><span>Willpower</span>
         </div>
         <div style="margin-top: 8px;">
             <select id="Willpower">
@@ -490,38 +530,38 @@
     </div>
 
     <div class="health_exp_container">
-        <div class="prop-header" style="margin-top: 15px;width: 100%"><span>Health</span></div>
-        <div class="health-table">
+        <div class="prop-header" style="width: 100%"><span>Health</span></div>
+        <div class="health-table" style="margin-top: 10px;">
             <div class="health-value">Bruised</div>
             <div class="health-sub"></div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
             <div class="health-value">Hurt</div>
             <div class="health-sub">-1</div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
             <div class="health-value">Injured</div>
             <div class="health-sub">-1</div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
             <div class="health-value">Wounded</div>
             <div class="health-sub">-2</div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
             <div class="health-value">Mauled</div>
             <div class="health-sub">-2</div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
             <div class="health-value">Crippled</div>
             <div class="health-sub">-5</div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
             <div class="health-value">Incapacitated</div>
             <div class="health-sub"></div>
-            <div class="health-control"><span data-type="select" data-pk="1" data-value=""
-                                              data-title="Select damage">□</span></div>
+            <div class="health-control"><div class="checkbox"> <span data-type="select" data-pk="1" data-value=""
+                                              data-title="Select damage"> </span></div></div>
         </div>
-        <div class="prop-header" style="margin-top: 10px;width: 100%"><span>Experience</span></div>
+        <div class="prop-header" style="margin-top: 20px;width: 100%"><span>Experience</span></div>
         <div class="experience" style="margin-top: 5px">
             <span id="experience" data-type="text" data-pk="1" data-title="Enter experience">0</span>
         </div>
@@ -530,8 +570,8 @@
 </div>
 </div>
 
-<script src="x-editable/demo-mock.js"></script>
-<script src="x-editable/demo.js"></script>
+<script src="js/demo-mock.js"></script>
+<script src="js/editables-init.js"></script>
 <script type="text/javascript">
 // To be able to pass an array of promises
 if (jQuery.when.all === undefined) {
@@ -601,46 +641,7 @@ function set_data(list, el_class, main_container) {
     })
 }
 
-function load_traits_data(list) {
-    var data = {};
-    //function get_data(deferred, path) {
-    //}
-    var deferreds = [];
-    $.each(list, function (i, path) {
-        var deferred = new $.Deferred();
-        deferreds.push(deferred);
-        //get_data(deferred, item);
 
-        var jqxhr = $.get("get/" + path)
-                .success(function (res) {
-                    data[path] = res;
-                })
-                .error(function () {
-                    alert("Error getting " + path + "!");
-                })
-                .complete(function () {
-                    deferred.resolve();
-                });
-    });
-    $.when.all(deferreds).then(function () {
-        var res = [];
-        var z = 1;
-        $.each(list, function (index, arr) {
-            res.push({text: '---'});
-            $.each(data[list[index]], function (i) { //only take item index. could be a simple loop
-                var item = data[arr][i];
-                res.push({text: item, value: z})
-                z++;
-                //console.log(item);
-            });
-        });
-        return res;
-    }).then(function (res) {
-        //console.log(res);
-        //return res;
-        load_traits_2(res);
-    })
-}
 
 $(document).ready(function () {
     load_all();
@@ -696,7 +697,7 @@ function load_backgrounds() {
     }
 }
 
-function load_traits_2(secondary) {
+function set_traits(secondary) {
     var sp = $('<span>None</span>');
     sp.attr('data-title', 'Select trait');
     sp.attr('data-type', 'select');
@@ -721,7 +722,45 @@ function load_traits_2(secondary) {
     }
 }
 function load_traits() {
-    load_traits_data(['secondary/talents.json', 'secondary/skills.json', 'secondary/knowledges.json']);
+    var list=['secondary/talents.json', 'secondary/skills.json', 'secondary/knowledges.json'];
+    var data = {};
+    //function get_data(deferred, path) {
+    //}
+    var deferreds = [];
+    $.each(list, function (i, path) {
+        var deferred = new $.Deferred();
+        deferreds.push(deferred);
+        //get_data(deferred, item);
+
+        var jqxhr = $.get("get/" + path)
+                .success(function (res) {
+                    data[path] = res;
+                })
+                .error(function () {
+                    alert("Error getting " + path + "!");
+                })
+                .complete(function () {
+                    deferred.resolve();
+                });
+    });
+    $.when.all(deferreds).then(function () {
+        var res = [];
+        var z = 1;
+        $.each(list, function (index, arr) {
+            res.push({text: '---'});
+            $.each(data[list[index]], function (i) { //only take item index. could be a simple loop
+                var item = data[arr][i];
+                res.push({text: item, value: z})
+                z++;
+                //console.log(item);
+            });
+        });
+        return res;
+    }).then(function (res) {
+        //console.log(res);
+        //return res;
+        set_traits(res);
+    })
 
 }
 function load_all() {

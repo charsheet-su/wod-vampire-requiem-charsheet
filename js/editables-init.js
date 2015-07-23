@@ -20,6 +20,7 @@ $(function(){
 
 
     $('#experience').editable({
+        emptytext: '&nbsp;',
         url: '/post',
         type: 'text',
         pk: 1,
@@ -72,8 +73,9 @@ $(function(){
     $('.health-table').find('span').editable({
         //$('#health[0]').editable({
             //prepend: "□",
+        emptytext: '&nbsp;',
             source: [
-                {value: 1, text: '□'},
+                {value: 1, text: ' '},
                 {value: 2, text: '/'},
                 {value: 3, text: 'X'},
                 {value: 4, text: '*'}

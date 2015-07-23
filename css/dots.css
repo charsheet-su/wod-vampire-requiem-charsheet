@@ -1,25 +1,23 @@
 /******* EXAMPLE F *******/
+
 .br-wrapper-f .br-widget {
-    height: 15px;
+    height: 12px;
     display: inline-block;
 }
 .br-wrapper-f .br-widget a {
-    background-image: url("../img/dot.png");
-    width: 15px;
-    height: 15px;
+    background-image: url("../img/dot_big.png");
+    width: 12px;
+    height: 12px;
     display: block;
     float: left;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .br-wrapper-f .br-widget a {
-        background-image: url("../img/dot@2x.png");
-        background-size: 15px 30px;
-    }
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
 }
 .br-wrapper-f .br-widget a:hover,
 .br-wrapper-f .br-widget a.br-active,
 .br-wrapper-f .br-widget a.br-selected {
-    background-position: 0 15px;
+    background-position: bottom;
 }
 .br-wrapper-f .br-widget .br-current-rating {
     clear: both;
@@ -37,7 +35,7 @@
 /* Center in container */
 /*WTF?
 .br-wrapper-f {
-    width: 152px;
+    width: 122px;
     position: absolute;
     margin: 0px 0 0 -76px;
     left: 50%;
@@ -46,26 +44,25 @@
 /* for pseudo checkbox*/
 
 .br-wrapper-f2 .br-widget {
-    height: 15px;
+    height: 12px;
     display: inline-block;
 }
 .br-wrapper-f2 .br-widget a {
-    background-image: url("../img/checkbox.png");
-    width: 15px;
-    height: 15px;
+    background-image: url("../img/checkbox_big.png");
+    width: 12px;
+    height: 12px;
     display: block;
     float: left;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .br-wrapper-f2 .br-widget a {
-        background-image: url("../img/checkbox@2x.png");
-        background-size: 15px 30px;
-    }
-}
+
 .br-wrapper-f2 .br-widget a:hover,
 .br-wrapper-f2 .br-widget a.br-active,
 .br-wrapper-f2 .br-widget a.br-selected {
-    background-position: 0 15px;
+    background-position: bottom;
 }
 .br-wrapper-f2 .br-widget .br-current-rating {
     clear: both;
