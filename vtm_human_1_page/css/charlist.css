@@ -48,6 +48,7 @@
     /*width: 2441px;
     height: 3211px;*/
     display: block;
+    line-height: 1;
 }
 
 .list-inner {
@@ -63,7 +64,7 @@ body {
     margin: 0;
 }
 
-.checkbox {
+.checkbox_vtm {
     background-image: url("../img/checkbox_big.png");
     width: 12px;
     height: 12px;
@@ -75,7 +76,7 @@ body {
     vertical-align: middle;
 }
 
-.checkbox span {
+.checkbox_vtm span {
     vertical-align: top;
     line-height: 12px;
     font-size: 10px;

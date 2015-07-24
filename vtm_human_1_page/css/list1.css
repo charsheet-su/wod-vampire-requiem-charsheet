@@ -92,6 +92,11 @@
     display: inline-block;
 }
 
+.other_traits
+{
+    line-height: 1.4;
+}
+
 .humanity_willpower_container {
     width: 35%;
     text-align: center;
@@ -117,6 +122,7 @@
     display: inline-block;
     font-family: "Goudy Old Style";
     font-size: 18px;
+    line-height: 1.4;
 }
 
 .health-value {
@@ -136,6 +142,7 @@
     width: 15%;
     font-size: 14px;
     font-weight: bold;
+    height: 6px;
 }
 
 .experience {

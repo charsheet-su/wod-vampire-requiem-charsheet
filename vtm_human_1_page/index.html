@@ -14,27 +14,28 @@
     <link href="x-editable/select2.css" rel="stylesheet">
     <script src="x-editable/select2.js"></script>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="x-editable/html5.js"></script>
-    <![endif]-->
 
+    <link href="x-editable/bootstrap.css" rel="stylesheet">
+    <script src="x-editable/bootstrap.js"></script>
 
-    <!-- poshytip -->
-    <link href="x-editable/tip-yellowsimple.css" rel="stylesheet">
-    <script src="x-editable/jquery.poshytip.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <link href="x-editable/datetimepicker.css" rel="stylesheet">
+    <script src="x-editable/bootstrap-datetimepicker.js"></script>
 
-    <!-- jqueryui dateicker -->
-    <link href="x-editable/jquery-ui-1.10.1.custom.css" rel="stylesheet">
-    <script src="x-editable/jquery-ui-1.10.3.custom.js"></script>
+    <!-- x-editable (bootstrap 3) -->
+    <link href="x-editable/bootstrap-editable.css" rel="stylesheet">
+    <script src="x-editable/bootstrap-editable.js"></script>
 
-    <!-- x-editable (jquery) -->
-    <link href="x-editable/jquery-editable.css" rel="stylesheet">
-    <script src="x-editable/jquery-editable-poshytip.js"></script>
+    <!-- select2 bootstrap -->
+    <link href="x-editable/select2-bootstrap.css" rel="stylesheet">
+
+    <!-- typeaheadjs -->
+    <link href="x-editable/typeahead.js-bootstrap.css" rel="stylesheet">
+    <script src="x-editable/typeahead.js"></script>
 
     <link href="css/list1.css" rel="stylesheet">
     <script>
-        var f = 'plain';
+        var f = 'bootstrap3';
         $.fn.editable.defaults.mode = 'popup';
     </script>
 
@@ -42,7 +43,9 @@
     <link href="css/charlist.css" rel="stylesheet">
     <script src="barrating/jquery.barrating.js"></script>
     <style>
-
+        .editable-click, a.editable-click, a.editable-click:hover {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
@@ -174,7 +177,7 @@
         </div>
 
 
-        <div class="prop-header" style="margin-top: 85px;width: 100%"><span>Willpower</span>
+        <div class="prop-header" style="margin-top: 90px;width: 100%"><span>Willpower</span>
         </div>
         <div style="margin-top: 8px;">
             <select id="Willpower">
@@ -192,7 +195,7 @@
             </select>
         </div>
 
-        <div style="margin-top: 8px;">
+        <div style="margin-top: 12px;">
             <select id="Willpower_current">
                 <option value=""></option>
                 <option value="1">1</option>
@@ -212,41 +215,41 @@
 
     <div class="health_exp_container">
         <div class="prop-header" style="width: 100%"><span>Health</span></div>
-        <div class="health-table" style="margin-top: 10px;">
+        <div class="health-table">
             <div class="health-value">Bruised</div>
             <div class="health-sub"></div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[0]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[0]"> </span></div>
             </div>
             <div class="health-value">Hurt</div>
             <div class="health-sub">-1</div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[1]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[1]"> </span></div>
             </div>
             <div class="health-value">Injured</div>
             <div class="health-sub">-1</div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[2]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[2]"> </span></div>
             </div>
             <div class="health-value">Wounded</div>
             <div class="health-sub">-2</div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[3]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[3]"> </span></div>
             </div>
             <div class="health-value">Mauled</div>
             <div class="health-sub">-2</div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[4]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[4]"> </span></div>
             </div>
             <div class="health-value">Crippled</div>
             <div class="health-sub">-5</div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[5]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[5]"> </span></div>
             </div>
             <div class="health-value">Incapacitated</div>
             <div class="health-sub"></div>
             <div class="health-control">
-                <div class="checkbox"> <span data-name="health[6]"> </span></div>
+                <div class="checkbox_vtm"> <span data-name="health[6]"> </span></div>
             </div>
         </div>
         <div class="prop-header" style="margin-top: 20px;width: 100%"><span>Experience</span></div>
