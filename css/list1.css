@@ -1,0 +1,243 @@
+
+.prop_value input {
+    width: 100px;
+}
+
+.prop_value select {
+    width: 100px;
+}
+
+.attributes {
+    width: 100%;
+    text-align: center;
+}
+
+.abilities {
+    width: 100%;
+    text-align: center;
+}
+
+.props {
+    width: 100%;
+    padding-left: 5px;
+    text-align: center;
+}
+
+.advantages {
+    width: 100%;
+    text-align: center;
+}
+
+.numina {
+    width: 32%;
+    display: inline-block;
+}
+
+.backgrounds {
+    display: inline-block;
+    width: 32%;
+}
+
+.virtues {
+    display: inline-block;
+    width: 32%;
+}
+
+.background_name {
+    font-family: "Goudy Old Style";
+    font-size: 18px;
+    line-height: 18px;
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+.background_value {
+    display: inline-block;
+    width: 50%;
+}
+
+.numina_name {
+    font-family: "Goudy Old Style";
+    text-align: left;
+    font-size: 18px;
+    line-height: 18px;
+    display: inline-block;
+    width: 50%;
+}
+
+.numina_value {
+    display: inline-block;
+    width: 50%;
+}
+
+.trait_name {
+    font-family: "Goudy Old Style";
+    text-align: left;
+    font-size: 18px;
+    line-height: 16px;
+    display: inline-block;
+    width: 50%;
+}
+
+.trait_value {
+    display: inline-block;
+    width: 50%;
+    line-height: 16px;
+}
+
+.other_traits_container {
+    width: 30%;
+    text-align: center;
+    display: inline-block;
+}
+
+.other_traits
+{
+    line-height: 1.4;
+}
+
+.humanity_willpower_container {
+    width: 35%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.health_exp_container {
+    width: 31%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.other {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.health-table {
+    width: 100%;
+    display: inline-block;
+    font-family: "Goudy Old Style";
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.health-value {
+    display: inline-block;
+    width: 60%;
+    text-align: left;
+}
+
+.health-sub {
+    display: inline-block;
+    width: 20%;
+}
+
+.health-control {
+    text-align: center;
+    display: inline-block;
+    width: 15%;
+    font-size: 14px;
+    font-weight: bold;
+    height: 6px;
+}
+
+.experience {
+    font-family: "Goudy Old Style";
+    font-size: 18px;
+
+    background-image: url("../img/bg-exp.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.prop {
+    font-family: "Percolator expert";
+    display: inline-block;
+    width: 16%;
+    text-align: left;
+    font-size: 20px;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.prop_value {
+    font-family: "Percolator expert";
+    font-style: italic;
+    display: inline-block;
+    width: 16%;
+    text-align: left;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 18px;
+}
+
+.attr {
+    font-family: "Goudy Old Style";
+    display: inline-block;
+    width: 16%;
+    text-align: left;
+    font-size: 18px;
+}
+
+.attr_value {
+    display: inline-block;
+    width: 16%;
+}
+
+.virtue {
+    font-family: "Goudy Old Style";
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.virtue_value {
+    line-height: 40px;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+
+.abl {
+    font-family: "Goudy Old Style";
+    display: inline-block;
+    width: 16%;
+    text-align: left;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.abl_value {
+    line-height: 20px;
+    display: inline-block;
+    width: 16%;
+}
+
+.prop-header {
+    font-family: "Percolator expert";
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 4px;
+    line-height: 18px;
+
+    background-image: url("../img/h2_bg_big.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.prop-header span {
+    background-color: #fff;
+    padding-left: 3px;
+    padding-right: 3px;
+}
