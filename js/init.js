@@ -20,10 +20,10 @@ function send_dots(attr, value) {
     //data[attr] = value;
 
     var data = new FormData();
-    data.append('name',attr);
-    data.append('value',value);
+    data.append('name', attr);
+    data.append('value', value);
     $.ajax({
-        url: '/save/',
+        url: '/api/save/',
         type: 'post',
         data: data,
         contentType: false,
@@ -57,11 +57,12 @@ function create_attr(main_container, name, el_class, caption) {
         onSelect: function (value, text) {
             send_dots(name, value);
         }
-    });
+    })
+        .attr('name', name);
     main_container.append(div2);
 }
 
-function set_data(list, el_class, main_container) {
+function set_data(list, el_class, main_container, complete) {
     var data = {};
     //function get_data(deferred, path) {
     //}
@@ -90,6 +91,7 @@ function set_data(list, el_class, main_container) {
                 $(main_container).append(create_attr($(main_container), item, el_class, item));
             });
         })
+        complete.resolve();
     })
 }
 
@@ -98,7 +100,7 @@ $(document).ready(function () {
     load_all();
 });
 
-function load_numina() {
+function load_numina(complete) {
     var sp = $('<span>None</span>');
     sp.attr('data-title', 'Select numina');
     sp.attr('data-type', 'select');
@@ -112,16 +114,20 @@ function load_numina() {
     for (i = 0; i < 6; i++) {
         var div2 = div.clone();
         div2.editable({
+            emptytext: 'None',
+            prepend: "None",
             selector: 'span',
             pk: 1,
-            name: 'numina[' + i + ']'
+            name: 'numina_name[' + i + ']'
         });
+        div2.find('span').attr('name', 'numina_name[' + i + ']');
         $('.numina').append(div2);
         create_attr($('.numina'), 'numina_value[' + i + ']', 'numina');
     }
+    complete.resolve();
 }
 
-function load_backgrounds() {
+function load_backgrounds(complete) {
     var sp = $('<span>None</span>');
     sp.attr('data-title', 'Select background');
     sp.attr('data-type', 'select');
@@ -135,16 +141,20 @@ function load_backgrounds() {
     for (i = 0; i < 6; i++) {
         var div2 = div.clone();
         div2.editable({
+            emptytext: 'None',
+            prepend: "None",
             selector: 'span',
-            name: 'background[' + i + ']',
+            name: 'background_name[' + i + ']',
             pk: 1
         });
+        div2.find('span').attr('name', 'background_name[' + i + ']');
         $('.backgrounds').append(div2);
         create_attr($('.backgrounds'), 'background_value[' + i + ']', 'background');
     }
+    complete.resolve();
 }
 
-function set_traits(secondary) {
+function set_traits(secondary,complete) {
     var sp = $('<span>None</span>');
     sp.attr('data-title', 'Select trait');
     sp.attr('data-type', 'select');
@@ -159,18 +169,20 @@ function set_traits(secondary) {
     for (i = 0; i < 12; i++) {
         var div2 = div.clone();
         div2.editable({
+            emptytext: 'None',
             prepend: "None",
             selector: 'span',
             source: secondary,
-            name: 'trait',
             type: 'select',
-            name: 'trait[' + i + ']'
+            name: 'trait_name[' + i + ']'
         });
+        div2.find('span').attr('name', 'trait_name[' + i + ']');
         $('.other_traits').append(div2);
         create_attr($('.other_traits'), 'trait_value[' + i + ']', 'trait');
     }
+    complete.resolve();
 }
-function load_traits() {
+function load_traits(complete) {
     var list = ['secondary/talents.json', 'secondary/skills.json', 'secondary/knowledges.json'];
     var data = {};
     //function get_data(deferred, path) {
@@ -206,22 +218,39 @@ function load_traits() {
     }).then(function (res) {
         //console.log(res);
         //return res;
-        set_traits(res);
+        set_traits(res,complete);
     })
 
 }
 function load_all() {
 
+    var deferreds = [];
     //set abilities
-    set_data(['abilities/talents.json', 'abilities/skills.json', 'abilities/knowledges.json'], 'abl', '.abilities');
+    var a = new $.Deferred();
+    deferreds.push(a);
+    set_data(['abilities/talents.json', 'abilities/skills.json', 'abilities/knowledges.json'], 'abl', '.abilities', a);
     //set attributes
-    set_data(['attributes/physical.json', 'attributes/social.json', 'attributes/mental.json'], 'attr', '.attributes');
+    a = new $.Deferred();
+    deferreds.push(a);
+    set_data(['attributes/physical.json', 'attributes/social.json', 'attributes/mental.json'], 'attr', '.attributes', a);
     //set virtues
-    set_data(['advantages/virtues.json'], 'virtue', '.virtues');
+    a = new $.Deferred();
+    deferreds.push(a);
+    set_data(['advantages/virtues.json'], 'virtue', '.virtues', a);
 
-    load_numina();
-    load_backgrounds();
-    load_traits();
+    a = new $.Deferred();
+    deferreds.push(a);
+    load_numina(a);
+
+
+    a = new $.Deferred();
+    deferreds.push(a);
+    load_backgrounds(a);
+
+
+    a = new $.Deferred();
+    deferreds.push(a);
+    load_traits(a);
 
     $('#Humanity').barrating('show', {
         wrapperClass: 'br-wrapper-f',
@@ -248,20 +277,40 @@ function load_all() {
         }
     });
 
-    /*var IDs = $(".health-table span[id]")         // find spans with ID attribute
-     .map(function() { this.editable({
-     //prepend: "□",
-     source: [
-     {value: 1, text: '□'},
-     {value: 2, text: '/'},
-     {value: 3, text: 'X'},
-     {value: 4, text: '*'}
-     ]
-     }); }) // convert to set of IDs*/
+    //when all settings are loaded, we load charsheet data:
+    $.when.all(deferreds).then(function () {
+        load_saved();
+    });
+}
+function load_saved() {
+    var jqxhr = $.get("/api/load")
+        .success(function (data) {
+            $.each(data, function (index, val) {
+                console.log(index);
+                console.log(val);
+                //load editables
 
+                var a = $('span[data-name="' + index + '"]');
+                if (a != undefined && val) {
+                    a.editable('setValue', val);
+                }
+                // a.attr('value',val)
+                //try to set dots
+                a = $('select[name="' + index + '"]');
+                //console.log(a);
+
+                //if (!a.is('select')) {
+                //    $.error('select is not select!');
+                //}
+                if (a != undefined) {
+                    console.log('setting dots: ' + index + ' = ' + val);
+                    a.barrating('set', val);
+                }
+            })
+        }
+    )
 
 }
-
 /*
  function reloadEditable() {
  //apply editable to parent div

@@ -24,7 +24,6 @@
     font-family: "Percolator expert";
     text-align: center;
     font-size: 28px;
-    line-height: 22px;
     background-image: url("../img/h1_bg_big.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -66,14 +65,15 @@ body {
 
 .checkbox_vtm {
     background-image: url("../img/checkbox_big.png");
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     vertical-align: middle;
+    line-height: 1;
 }
 
 .checkbox_vtm span {

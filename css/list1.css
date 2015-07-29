@@ -153,14 +153,17 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    display: inline-block;
+    width: 200px;
+    height: 20px;
 }
 
 .prop {
     font-family: "Percolator expert";
     display: inline-block;
-    width: 16%;
+    width: 14%;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
 
     padding-top: 4px;
     padding-bottom: 4px;
@@ -170,7 +173,7 @@
     font-family: "Percolator expert";
     font-style: italic;
     display: inline-block;
-    width: 16%;
+    width: 18%;
     text-align: left;
     padding-top: 4px;
     padding-bottom: 4px;

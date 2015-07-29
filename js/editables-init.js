@@ -1,7 +1,7 @@
 $(function () {
 
     //defaults
-    $.fn.editable.defaults.url = '/save/';
+    $.fn.editable.defaults.url = '/api/save/';
 
     //enable / disable
     /*
@@ -10,53 +10,18 @@ $(function () {
      });*/
 
     //editables 
-    $('#char_name').editable({
-        type: 'text',
-        pk: 1,
-        name: 'char_name',
-        title: 'Enter character name'
+    $('span[data-name="char_name"]').editable();
+    $('span[data-name="player_name"]').editable();
+    $('span[data-name="chronicle"]').editable();
+    $('span[data-name="concept"]').editable();
+    $('span[data-name="residence"]').editable();
+    $('span[data-name="experience"]').editable({
+        emptytext: '&nbsp;'
     });
 
 
-    $('#experience').editable({
-        emptytext: '&nbsp;',
-        type: 'text',
-        pk: 1,
-        name: 'experience',
-        title: 'Enter experience'
-    });
 
-    $('#player_name').editable({
-        type: 'text',
-        pk: 1,
-        name: 'player_name',
-        title: 'Enter player name'
-    });
-
-    $('#chronicle').editable({
-        type: 'text',
-        pk: 1,
-        name: 'chronicle',
-        title: 'Enter chronicle'
-    });
-
-    $('#concept').editable({
-        type: 'text',
-        pk: 1,
-        name: 'concept',
-        title: 'Enter concept'
-    });
-
-    $('#residence').editable({
-        type: 'text',
-        pk: 1,
-        name: 'residence',
-        title: 'Enter residence'
-    });
-
-
-    $('#sex').editable({
-        prepend: "not selected",
+    $('span[data-name="sex"]').editable({
         autotext: 'never',
         name: 'sex',
         source: [
@@ -82,22 +47,11 @@ $(function () {
     });
 
 
-    $('#nature').editable({
-        showbuttons: false
-    });
+    $('span[data-name="nature"]').editable();
+    $('span[data-name="demeanor"]').editable();
 
 
-    $('#demeanor').editable({
-        showbuttons: false
-    });
-
-
-    $('#age').editable({
-        type: 'text',
-        pk: 1,
-        name: 'age',
-        title: 'Enter character age'
-    });
+    $('span[data-name="age"]').editable();
 
 
     $('#user .editable').on('hidden', function (e, reason) {
