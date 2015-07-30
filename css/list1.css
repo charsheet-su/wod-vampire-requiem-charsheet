@@ -63,12 +63,12 @@
     font-size: 18px;
     line-height: 18px;
     display: inline-block;
-    width: 50%;
+    width: 65%;
 }
 
 .numina_value {
     display: inline-block;
-    width: 50%;
+    width: 35%;
 }
 
 .trait_name {
@@ -77,17 +77,17 @@
     font-size: 18px;
     line-height: 16px;
     display: inline-block;
-    width: 50%;
+    width: 65%;
 }
 
 .trait_value {
     display: inline-block;
-    width: 50%;
+    width: 35%;
     line-height: 16px;
 }
 
 .other_traits_container {
-    width: 30%;
+    width: 32%;
     text-align: center;
     display: inline-block;
 }
@@ -98,14 +98,14 @@
 }
 
 .humanity_willpower_container {
-    width: 35%;
+    width: 32%;
     text-align: center;
     display: inline-block;
     vertical-align: top;
 }
 
 .health_exp_container {
-    width: 31%;
+    width: 32%;
     text-align: center;
     display: inline-block;
     vertical-align: top;
@@ -174,7 +174,7 @@
     font-style: italic;
     display: inline-block;
     width: 18%;
-    text-align: left;
+    text-align: center;
     padding-top: 4px;
     padding-bottom: 4px;
     font-size: 18px;

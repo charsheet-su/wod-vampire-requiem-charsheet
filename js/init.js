@@ -14,6 +14,33 @@ if (jQuery.when.all === undefined) {
     }
 }
 
+var loadingPannel;
+loadingPannel = loadingPannel || (function () {
+    var lpDialog = $("" +
+    "<div class='modal' id='lpDialog' data-backdrop='static' data-keyboard='false'>" +
+    "<div class='modal-dialog' >" +
+    "<div class='modal-content'>" +
+    "<div class='modal-header'><b>Loading...</b></div>" +
+    "<div class='modal-body'>" +
+    "<div class='progress'>" +
+    "<div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='100' aria-valuemin='100' aria-valuemax='100' style='width:100%'> " +
+    "Please Wait..." +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>");
+    return {
+        show: function () {
+            lpDialog.modal('show');
+        },
+        hide: function () {
+            lpDialog.modal('hide');
+        }
+    };
+})();
+
 function send_dots(attr, value) {
     //var data = {};
     //attr=attr.replace('[','%5B').replace(']','%5D');
@@ -38,7 +65,7 @@ function send_dots(attr, value) {
     });
 }
 
-function create_attr(main_container, name, el_class, caption) {
+function create_dots(main_container, name, el_class, caption) {
     el_class = el_class || 'attr';
     //name near the select
     if (caption != undefined && caption != '') {
@@ -88,7 +115,7 @@ function set_data(list, el_class, main_container, complete) {
             $.each(list, function (index, arr) {
                 var item = data[arr][i];
                 //var id = item.replace(/ /g, '_');
-                $(main_container).append(create_attr($(main_container), item, el_class, item));
+                $(main_container).append(create_dots($(main_container), item, el_class, item));
             });
         })
         complete.resolve();
@@ -101,84 +128,71 @@ $(document).ready(function () {
 });
 
 function load_numina(complete) {
-    var sp = $('<span>None</span>');
-    sp.attr('data-title', 'Select numina');
-    sp.attr('data-type', 'select');
-    sp.attr('data-pk', '1');
-    //sp.attr('data-name', '1');
-    //sp.attr('data-value', '5');
-    sp.attr('data-source', 'get/advantages/numina.json');
+    var sp = $('<span></span>');
+    sp.attr('data-title', 'Select numina')
+        .attr('data-type', 'select')
+        .attr('data-pk', '1')
+        .attr('data-prepend', 'None')
+        .attr('data-emptytext', 'None')
+        .attr('data-emptyclass', '')
+        .attr('data-source', 'get/advantages/numina.json');
     var div = $('<div></div>');
     div.attr('class', 'numina_name');
     div.append(sp);
     for (i = 0; i < 6; i++) {
         var div2 = div.clone();
-        div2.editable({
-            emptytext: 'None',
-            prepend: "None",
-            selector: 'span',
-            pk: 1,
-            name: 'numina_name[' + i + ']'
-        });
-        div2.find('span').attr('name', 'numina_name[' + i + ']');
+        div2.find('span')
+            .attr('data-name', 'numina_name[' + i + ']')
+            .editable();
         $('.numina').append(div2);
-        create_attr($('.numina'), 'numina_value[' + i + ']', 'numina');
+        create_dots($('.numina'), 'numina_value[' + i + ']', 'numina');
     }
     complete.resolve();
 }
 
 function load_backgrounds(complete) {
-    var sp = $('<span>None</span>');
-    sp.attr('data-title', 'Select background');
-    sp.attr('data-type', 'select');
-    sp.attr('data-pk', '1');
-    //sp.attr('data-value', '5');
-    sp.attr('data-source', 'get/advantages/backgrounds.json');
+    var sp = $('<span></span>');
+    sp.attr('data-title', 'Select background')
+        .attr('data-type', 'select')
+        .attr('data-pk', '1')
+        .attr('data-prepend', 'None')
+        .attr('data-emptytext', 'None')
+        .attr('data-emptyclass', '')
+        .attr('data-source', 'get/advantages/backgrounds.json');
 
     var div = $('<div></div>');
     div.attr('class', 'background_name');
     div.append(sp);
     for (i = 0; i < 6; i++) {
         var div2 = div.clone();
-        div2.editable({
-            emptytext: 'None',
-            prepend: "None",
-            selector: 'span',
-            name: 'background_name[' + i + ']',
-            pk: 1
-        });
-        div2.find('span').attr('name', 'background_name[' + i + ']');
+        div2.find('span')
+            .attr('data-name', 'background_name[' + i + ']')
+            .editable();
+
         $('.backgrounds').append(div2);
-        create_attr($('.backgrounds'), 'background_value[' + i + ']', 'background');
+        create_dots($('.backgrounds'), 'background_value[' + i + ']', 'background');
     }
     complete.resolve();
 }
 
-function set_traits(secondary,complete) {
-    var sp = $('<span>None</span>');
-    sp.attr('data-title', 'Select trait');
-    sp.attr('data-type', 'select');
-    sp.attr('data-pk', '1');
-    //sp.attr('data-value', '5');
-    //console.log(secondary);
-    //console.log(secondary.toString());
-    //sp.attr('source', secondary);
+function set_traits(secondary, complete) {
+    var sp = $('<span></span>');
+    sp.attr('data-title', 'Select trait')
+        .attr('data-type', 'select')
+        .attr('data-pk', '1')
+        .attr('data-prepend', 'None')
+        .attr('data-emptytext', 'None')
+        .attr('data-emptyclass', '');
     var div = $('<div></div>');
     div.attr('class', 'trait_name');
     div.append(sp);
     for (i = 0; i < 12; i++) {
         var div2 = div.clone();
-        div2.editable({
-            emptytext: 'None',
-            prepend: "None",
-            selector: 'span',
-            source: secondary,
-            type: 'select',
-            name: 'trait_name[' + i + ']'
-        });
-        div2.find('span').attr('name', 'trait_name[' + i + ']');
+        div2.find('span')
+            .attr('data-name', 'trait_name[' + i + ']')
+            .editable({'source': secondary});
         $('.other_traits').append(div2);
-        create_attr($('.other_traits'), 'trait_value[' + i + ']', 'trait');
+        create_dots($('.other_traits'), 'trait_value[' + i + ']', 'trait');
     }
     complete.resolve();
 }
@@ -218,12 +232,12 @@ function load_traits(complete) {
     }).then(function (res) {
         //console.log(res);
         //return res;
-        set_traits(res,complete);
+        set_traits(res, complete);
     })
 
 }
 function load_all() {
-
+    loadingPannel.show();
     var deferreds = [];
     //set abilities
     var a = new $.Deferred();
@@ -252,7 +266,7 @@ function load_all() {
     deferreds.push(a);
     load_traits(a);
 
-    $('#Humanity').barrating('show', {
+    $('select[name="Humanity"]').barrating('show', {
         wrapperClass: 'br-wrapper-f',
         showSelectedRating: false,
         onSelect: function (value, text) {
@@ -261,7 +275,7 @@ function load_all() {
     });
 
 
-    $('#Willpower').barrating('show', {
+    $('select[name="Willpower"]').barrating('show', {
         wrapperClass: 'br-wrapper-f',
         showSelectedRating: false,
         onSelect: function (value, text) {
@@ -269,7 +283,7 @@ function load_all() {
         }
     });
 
-    $('#Willpower_current').barrating('show', {
+    $('select[name="Willpower_current"]').barrating('show', {
         wrapperClass: 'br-wrapper-f2',
         showSelectedRating: false,
         onSelect: function (value, text) {
@@ -280,14 +294,15 @@ function load_all() {
     //when all settings are loaded, we load charsheet data:
     $.when.all(deferreds).then(function () {
         load_saved();
+        loadingPannel.hide();
     });
 }
 function load_saved() {
     var jqxhr = $.get("/api/load")
         .success(function (data) {
             $.each(data, function (index, val) {
-                console.log(index);
-                console.log(val);
+                //console.log(index);
+                //console.log(val);
                 //load editables
 
                 var a = $('span[data-name="' + index + '"]');
@@ -303,7 +318,7 @@ function load_saved() {
                 //    $.error('select is not select!');
                 //}
                 if (a != undefined) {
-                    console.log('setting dots: ' + index + ' = ' + val);
+                    //console.log('setting dots: ' + index + ' = ' + val);
                     a.barrating('set', val);
                 }
             })
