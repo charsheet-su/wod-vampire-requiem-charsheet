@@ -280,9 +280,29 @@
     <div class="input-group">
         <input class="form-control" type="text" placeholder="Enter some comment" name="revision_comment">
 <span class="input-group-btn">
-<button class="btn btn-success" onclick="" type="button">Save</button>
+<button class="btn btn-success" onclick="save_revision()" type="button">Save</button>
 </span>
     </div>
+
+    <table class="table table-striped revisions">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th>Comment</th>
+            <th>Compare this</th>
+            <th>Compare with</th>
+            <th>View</th>
+            <th>Restore</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div align="right">
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="compare_revisions()">Compare</button></div>
+    <div class="compare_revisions"></div>
 
     <h2>Comments</h2>
 
@@ -291,12 +311,27 @@
     <div class="input-group">
         <input class="form-control" type="text" placeholder="Enter some comment" name="comment">
 <span class="input-group-btn">
-<button class="btn btn-success" onclick="" type="button">Add comment</button>
+<button class="btn btn-success" onclick="add_comment()" type="button">Add comment</button>
 </span>
     </div>
+
+    <table class="table table-striped comments">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 <script src="js/editables-init.js"></script>
 <script src="js/init.js"></script>
 <script src="js/mode.js"></script>
+<script src="js/revisions.js"></script>
+<script src="js/comments.js"></script>
 </body>
 </html>

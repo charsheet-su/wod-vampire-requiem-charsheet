@@ -41,6 +41,36 @@ loadingPannel = loadingPannel || (function () {
     };
 })();
 
+var ErrorPannel;
+ErrorPannel = ErrorPannel || (function () {
+    var lpDialog = $("" +
+    "<div class='modal' id='lpDialog' data-backdrop='static' data-keyboard='false'>" +
+    "<div class='modal-dialog' >" +
+    "<div class='modal-content'>" +
+    "<div class='modal-header'><b>Error!</b></div>" +
+    "<div class='modal-body'>" +
+    "<div class='alert alert-danger' role='alert'> " +
+    "Some error text" +
+    "</div>" +
+    "<div class='modal-footer'>" +
+    "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>");
+    return {
+        show: function (error) {
+
+            lpDialog.find('.alert').html(error);
+            lpDialog.modal('show');
+        },
+        hide: function () {
+            lpDialog.modal('hide');
+        }
+    };
+})();
+
 function send_dots(attr, value) {
     //var data = {};
     //attr=attr.replace('[','%5B').replace(']','%5D');
@@ -300,6 +330,10 @@ function load_all() {
 function load_saved() {
     var jqxhr = $.get("/api/load")
         .success(function (data) {
+            if (data.error != undefined) {
+                ErrorPannel.show(data.error);
+                return;
+            }
             $.each(data, function (index, val) {
                 //console.log(index);
                 //console.log(val);

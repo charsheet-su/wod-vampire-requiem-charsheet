@@ -54,6 +54,9 @@
     padding: 60px; /*for background */
 }
 
+ins {color:green;background:#dfd;text-decoration:none}
+del {color:red;background:#fdd;text-decoration:none}
+
 @page {
     size: 21cm 29.7cm;
     margin: 0; /* change the margins as you want them to be. */

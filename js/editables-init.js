@@ -2,14 +2,12 @@ $(function () {
 
     //defaults
     $.fn.editable.defaults.url = '/api/save/';
+    $.fn.editable.defaults.success = function (response, newValue) {
+        if (response.error != undefined)
+            ErrorPannel.show(response.error);
+        return response;
+    };
 
-    //enable / disable
-    /*
-     $('#enable').click(function() {
-     $('#user .editable').editable('toggleDisabled');
-     });*/
-
-    //editables 
     $('span[data-name="char_name"]').editable();
     $('span[data-name="player_name"]').editable();
     $('span[data-name="chronicle"]').editable();
@@ -18,7 +16,6 @@ $(function () {
     $('span[data-name="experience"]').editable({
         emptytext: '&nbsp;'
     });
-
 
 
     $('span[data-name="sex"]').editable({
@@ -39,10 +36,10 @@ $(function () {
         pk: 1,
         type: 'select',
         source: [
-            {value: ' ',text: ' '},
-            {value: '/',text: '/'},
-            {value: 'X',text: 'X'},
-            {value: '*',text: '*'}
+            {value: ' ', text: ' '},
+            {value: '/', text: '/'},
+            {value: 'X', text: 'X'},
+            {value: '*', text: '*'}
         ]
     });
 
