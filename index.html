@@ -3,9 +3,7 @@
 
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <!--<script src="x-editable/jquery-2.1.4.min.js"></script>
-    <script src="x-editable/jquery.mockjax.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <!-- momentjs -->
     <script src="x-editable/moment.min.js"></script>
@@ -23,10 +21,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <!-- bootstrap-datetimepicker -->
+    <!-- bootstrap-datetimepicker
     <link href="x-editable/datetimepicker.css" rel="stylesheet">
     <script src="x-editable/bootstrap-datetimepicker.js"></script>
-
+    -->
     <!-- x-editable (bootstrap 3) -->
     <link href="x-editable/bootstrap-editable.css" rel="stylesheet">
     <script src="x-editable/bootstrap-editable.js"></script>
@@ -47,11 +45,6 @@
     <link href="css/dots.css" rel="stylesheet">
     <link href="css/charlist.css" rel="stylesheet">
     <script src="barrating/jquery.barrating.js"></script>
-    <style>
-        .editable-click, a.editable-click, a.editable-click:hover {
-            border-bottom: none;
-        }
-    </style>
 </head>
 <body>
 <div class="list">
@@ -122,7 +115,7 @@
 </div>
 
 
-<div class="header-sub" style="margin-bottom: 4px;"><span>Abilities<span></div>
+<div class="header-sub" style="margin-bottom: 4px;"><span>Abilities</span></div>
 
 <div class="prop-header"><span>Talents</span></div>
 <div class="prop-header"><span>Skills</span></div>
@@ -266,9 +259,44 @@
 </div>
 </div>
 </div>
+<div class="container theme-showcase non-printable" role="main" style="margin-top: 200px">
+    <h1>Useful things</h1>
 
-<!--<script src="js/demo-mock.js"></script>-->
+    <h2>Change viewing mode</h2>
+
+    <p>Print mode removes empty elements (as "none", or empty dots) and temporary values which you can change during
+        session - such as willpower, health, exp, etc.</p>
+
+    <p>Everything after "useful things" won't be printed anyway.</p>
+
+    <button class="btn btn-default" type="button" onclick="change_mode(1)">Print mode</button>
+    <button class="btn btn-default" type="button" onclick="change_mode(0)">Edit mode</button>
+
+    <h2>Revisions</h2>
+
+    <p>It'a really cool staff. You can save named versions of your character sheets and compare them. Especially useful
+        for shared editing.</p>
+    You can save current version as revision - just type some comment to remember, why you did it.
+    <div class="input-group">
+        <input class="form-control" type="text" placeholder="Enter some comment" name="revision_comment">
+<span class="input-group-btn">
+<button class="btn btn-success" onclick="" type="button">Save</button>
+</span>
+    </div>
+
+    <h2>Comments</h2>
+
+    <p>If you want to discuss your character sheet with your master or your friends, you can easily do it here!</p>
+
+    <div class="input-group">
+        <input class="form-control" type="text" placeholder="Enter some comment" name="comment">
+<span class="input-group-btn">
+<button class="btn btn-success" onclick="" type="button">Add comment</button>
+</span>
+    </div>
+</div>
 <script src="js/editables-init.js"></script>
 <script src="js/init.js"></script>
+<script src="js/mode.js"></script>
 </body>
 </html>

@@ -51,7 +51,7 @@
 }
 
 .list-inner {
-    padding: 60px;
+    padding: 60px; /*for background */
 }
 
 @page {
@@ -80,4 +80,18 @@ body {
     vertical-align: top;
     line-height: 12px;
     font-size: 10px;
+}
+
+@media print {
+    .non-printable {
+        display: none;
+    }
+
+    .list {
+        page-break-inside: avoid;
+    }
+}
+
+.editable-click, a.editable-click, a.editable-click:hover {
+    border-bottom: none;
 }

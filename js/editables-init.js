@@ -49,22 +49,6 @@ $(function () {
 
     $('span[data-name="nature"]').editable();
     $('span[data-name="demeanor"]').editable();
-
-
     $('span[data-name="age"]').editable();
-
-
-    $('#user .editable').on('hidden', function (e, reason) {
-        if (reason === 'save' || reason === 'nochange') {
-            var $next = $(this).closest('tr').next().find('.editable');
-            if ($('#autoopen').is(':checked')) {
-                setTimeout(function () {
-                    $next.editable('show');
-                }, 300);
-            } else {
-                $next.focus();
-            }
-        }
-    })
 
 });

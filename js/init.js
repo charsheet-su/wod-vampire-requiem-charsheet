@@ -326,19 +326,3 @@ function load_saved() {
     )
 
 }
-/*
- function reloadEditable() {
- //apply editable to parent div
- $('.backgrounds').editable({
- selector: 'span',
- url: '/post',
- pk: 1
- });
-
- //apply editable to parent div
- $('.numina').editable({
- selector: 'span',
- url: '/post',
- pk: 1
- });
- }*/
