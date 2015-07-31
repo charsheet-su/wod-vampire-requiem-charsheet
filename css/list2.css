@@ -1,0 +1,63 @@
+
+.merits {
+    width: 49%;
+    display: inline-block;
+}
+
+.flaws {
+    width: 49%;
+    display: inline-block;
+}
+
+.merit_name, .flaw_name {
+    display: inline-block;
+    font-family: "Goudy Old Style";
+    font-size: 18px;
+    line-height: 16px;
+    text-align: left;
+    width: 60%;
+    text-align: left;
+}
+
+.merit_value, .flaw_value {
+    line-height: 20px;
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+.header-lit {
+    font-family: "Percolator expert";
+    font-size: 20px;
+    text-align: center;
+}
+.custom_prop_name
+{
+    display: inline-block;
+    font-family: "Goudy Old Style";
+    font-size: 18px;
+    line-height: 16px;
+    text-align: left;
+    width: 60%;
+    text-align: left;
+
+}
+.custom_prop_value
+{
+    line-height: 20px;
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+
+}
+.custom_props
+{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.custom_prop_holder
+{
+    text-align: center;
+    display: inline-block;
+    width: 49%;
+}

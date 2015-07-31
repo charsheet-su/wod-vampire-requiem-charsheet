@@ -14,6 +14,9 @@ function change_mode(mode) {
 
         show_dots('.other_traits_container');
         show_dots('.advantages');
+        show_dots('.merits');
+        show_dots('.flaws');
+        show_dots('.custom_props');
     }
     else //hide some elements and set some values to zero
     {
@@ -34,6 +37,9 @@ function change_mode(mode) {
 
         hide_dots('.other_traits_container');
         hide_dots('.advantages');
+        hide_dots('.merits');
+        hide_dots('.flaws');
+        hide_dots('.custom_props');
         //hide all empty dots
 
     }

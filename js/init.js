@@ -103,15 +103,19 @@ function send_dots(attr, value) {
     });
 }
 
-function create_dots(main_container, name, el_class, caption) {
+function create_dots(main_container, name, el_class, caption, points) {
     el_class = el_class || 'attr';
+    points = points || 5;
     //name near the select
     if (caption != undefined && caption != '') {
         var div1 = $('<div>' + caption + '</div>');
         div1.attr('class', el_class);
         main_container.append(div1);
     }
-    var select = $('<select><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>');
+    var select = $('<select><option value=""></option></select>');
+    //var i = 0;
+    for (var i = 1; i <= points; i++)
+        select.append('<option value="' + i + '">' + i + '</option>');
     var div2 = $('<div></div>');
     div2.attr('class', el_class + '_value');
     div2.append(select);
@@ -165,53 +169,30 @@ $(document).ready(function () {
     load_all();
 });
 
-function load_numina(complete) {
+
+function load_props(complete, json, title, field, container, dots) {
     var sp = $('<span></span>');
-    sp.attr('data-title', 'Select numina')
+    sp.attr('data-title', 'Select ' + title)
         .attr('data-type', 'select')
         .attr('data-pk', '1')
         .attr('data-prepend', 'None')
         .attr('data-emptytext', 'None')
         .attr('data-emptyclass', '')
-        .attr('data-source', 'get/advantages/numina.json');
+        .attr('data-source', json);
     var div = $('<div></div>');
-    div.attr('class', 'numina_name');
+    div.attr('class', field + '_name');
     div.append(sp);
     for (i = 0; i < 6; i++) {
         var div2 = div.clone();
         div2.find('span')
-            .attr('data-name', 'numina_name[' + i + ']')
+            .attr('data-name', field + '_name[' + i + ']')
             .editable();
-        $('.numina').append(div2);
-        create_dots($('.numina'), 'numina_value[' + i + ']', 'numina');
+        $(container).append(div2);
+        create_dots($(container), field + '_value[' + i + ']', field, undefined, dots);
     }
     complete.resolve();
 }
 
-function load_backgrounds(complete) {
-    var sp = $('<span></span>');
-    sp.attr('data-title', 'Select background')
-        .attr('data-type', 'select')
-        .attr('data-pk', '1')
-        .attr('data-prepend', 'None')
-        .attr('data-emptytext', 'None')
-        .attr('data-emptyclass', '')
-        .attr('data-source', 'get/advantages/backgrounds.json');
-
-    var div = $('<div></div>');
-    div.attr('class', 'background_name');
-    div.append(sp);
-    for (i = 0; i < 6; i++) {
-        var div2 = div.clone();
-        div2.find('span')
-            .attr('data-name', 'background_name[' + i + ']')
-            .editable();
-
-        $('.backgrounds').append(div2);
-        create_dots($('.backgrounds'), 'background_value[' + i + ']', 'background');
-    }
-    complete.resolve();
-}
 
 function set_traits(secondary, complete) {
     var sp = $('<span></span>');
@@ -234,6 +215,31 @@ function set_traits(secondary, complete) {
     }
     complete.resolve();
 }
+function load_custom_props(complete) {
+    var sp = $('<span></span>');
+    sp.attr('data-title', 'Your custom prop ')
+        .attr('data-type', 'text')
+        .attr('data-pk', '1')
+        .attr('data-emptytext', 'None')
+        .attr('data-emptyclass', '');
+    var div = $('<div></div>');
+    div.attr('class', 'custom_prop_name');
+    div.append(sp);
+    for (i = 0; i < 8; i++) {
+        var div0 = $('<div></div>');
+        div0.attr('class', 'custom_prop_holder');
+        var div2 = div.clone();
+        div2.find('span')
+            .attr('data-name', 'custom_prop_name[' + i + ']')
+            .editable();
+        div0.append(div2);
+        create_dots(div0, 'custom_prop_value[' + i + ']', 'custom_prop', undefined, 7);
+        $('.custom_props').append(div0);
+    }
+    complete.resolve();
+
+}
+
 function load_traits(complete) {
     var list = ['secondary/talents.json', 'secondary/skills.json', 'secondary/knowledges.json'];
     var data = {};
@@ -293,17 +299,30 @@ function load_all() {
 
     a = new $.Deferred();
     deferreds.push(a);
-    load_numina(a);
+    load_props(a, 'get/advantages/numina.json', 'numina', 'numina', '.numina');
 
 
     a = new $.Deferred();
     deferreds.push(a);
-    load_backgrounds(a);
+    load_props(a, 'get/advantages/backgrounds.json', 'background', 'background', '.backgrounds');
 
 
     a = new $.Deferred();
     deferreds.push(a);
     load_traits(a);
+
+    a = new $.Deferred();
+    deferreds.push(a);
+    load_props(a, 'get/merits.json', 'merit', 'merit', '.merits', 7);
+
+
+    a = new $.Deferred();
+    deferreds.push(a);
+    load_props(a, 'get/flaws.json', 'flaw', 'flaw', '.flaws', 7);
+
+    a = new $.Deferred();
+    deferreds.push(a);
+    load_custom_props(a);
 
     set_dots_fields();
 
