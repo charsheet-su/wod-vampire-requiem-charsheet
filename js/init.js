@@ -76,6 +76,10 @@ function send_dots(attr, value) {
     //attr=attr.replace('[','%5B').replace(']','%5D');
     //data[attr] = value;
 
+    if (if_revision()) {
+        ErrorPannel.show('You can not edit revision data! If you want it - restore revision and edit it.');
+        return;
+    }
     var data = new FormData();
     data.append('name', attr);
     data.append('value', value);
@@ -88,6 +92,10 @@ function send_dots(attr, value) {
         type: 'POST',
         success: function (data) {
             console.info(data);
+            if (data.error !== undefined) {
+                ErrorPannel.show(data.error);
+                return;
+            }
         },
         error: function (data) {
             alert("Error saving " + attr + "!");
@@ -268,6 +276,7 @@ function load_traits(complete) {
 }
 function load_all() {
     loadingPannel.show();
+    set_editable_fields();
     var deferreds = [];
     //set abilities
     var a = new $.Deferred();
@@ -296,6 +305,17 @@ function load_all() {
     deferreds.push(a);
     load_traits(a);
 
+    set_dots_fields();
+
+    //when all settings are loaded, we load charsheet data:
+    $.when.all(deferreds).then(function () {
+        load_saved();
+        load_useful();
+        loadingPannel.hide();
+    });
+}
+
+function set_dots_fields() {
     $('select[name="Humanity"]').barrating('show', {
         wrapperClass: 'br-wrapper-f',
         showSelectedRating: false,
@@ -320,13 +340,80 @@ function load_all() {
             send_dots('Willpower_current', value);
         }
     });
+}
 
-    //when all settings are loaded, we load charsheet data:
-    $.when.all(deferreds).then(function () {
-        load_saved();
-        loadingPannel.hide();
+function load_useful() {
+    $.ajax({
+        url: '/js/useful.html',
+        type: 'get',
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            $('.useful_things').html(data);
+        },
+        error: function (data) {
+            alert("Error loading useful things!");
+        }
     });
 }
+
+function set_editable_fields() {
+    //defaults
+    $.fn.editable.defaults.url = '/api/save/';
+    //var f = 'bootstrap3';
+    $.fn.editable.defaults.mode = 'popup';
+    $.fn.editable.defaults.success = function (response, newValue) {
+        if (response.error != undefined)
+            ErrorPannel.show(response.error);
+        return response;
+    };
+    $.fn.editable.defaults.validate = function (value) {
+        if (if_revision()) {
+            return 'You can not edit revision data! If you want it - restore revision and edit it.';
+        }
+    }
+
+    $('span[data-name="char_name"]').editable();
+    $('span[data-name="player_name"]').editable();
+    $('span[data-name="chronicle"]').editable();
+    $('span[data-name="concept"]').editable();
+    $('span[data-name="residence"]').editable();
+    $('span[data-name="experience"]').editable({
+        emptytext: '&nbsp;'
+    });
+
+
+    $('span[data-name="sex"]').editable({
+        autotext: 'never',
+        name: 'sex',
+        source: [
+            {value: 'M', text: 'M'},
+            {value: 'F', text: 'F'}
+        ]
+    });
+
+
+    $('.health-table').find('span').editable({
+        //$('#health[0]').editable({
+        //prepend: "□",
+        emptytext: '&nbsp;',
+        title: 'select damage',
+        pk: 1,
+        type: 'select',
+        source: [
+            {value: ' ', text: ' '},
+            {value: '/', text: '/'},
+            {value: 'X', text: 'X'},
+            {value: '*', text: '*'}
+        ]
+    });
+
+
+    $('span[data-name="nature"]').editable();
+    $('span[data-name="demeanor"]').editable();
+    $('span[data-name="age"]').editable();
+}
+
 function load_saved() {
     var jqxhr = $.get("/api/load")
         .success(function (data) {

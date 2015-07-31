@@ -1,8 +1,19 @@
 function change_mode(mode) {
     if (mode == 0)//edit
     {
-        //just reload everything from scratch
+        //just reload character data from scratch
         load_saved();
+        //display back all elements
+
+
+        //display editables
+        $('.list span.editable').each(function () {
+            if ($(this).css('display') == 'none')
+                $(this).css('display', 'inline-block');
+        });
+
+        show_dots('.other_traits_container');
+        show_dots('.advantages');
     }
     else //hide some elements and set some values to zero
     {
@@ -15,11 +26,39 @@ function change_mode(mode) {
             .barrating('set', 0)
             .barrating('clear');
 
-        //hide non used traits
+        //hide all non used editables
+        $('.list span.editable').each(function () {
+            if ($(this).html() == 'None')
+                $(this).css('display', 'none');
+        });
 
-        //hide non used backgrouds
+        hide_dots('.other_traits_container');
+        hide_dots('.advantages');
+        //hide all empty dots
 
-        //hide non used numina
     }
 
+}
+function hide_dots(container) {
+    $(container + ' select option[value=""]:selected').each(function () {
+        //console.log($(this));
+        $(this).parent().barrating('destroy');
+        $(this).parent().css('display', 'none');
+    });
+}
+function show_dots(container) {
+    //display empty dots
+    $(container + ' select option[value=""]:selected').each(function () {
+        var a = $(this).parent().next();
+        if (a.attr('class') != 'br-widget') {
+            $(this).parent().css('display', 'inline-block');
+            $(this).parent().barrating('show', {
+                wrapperClass: 'br-wrapper-f',
+                showSelectedRating: false,
+                onSelect: function (value, text) {
+                    send_dots($(this).parent().attr('name'), value);
+                }
+            });
+        }
+    });
 }

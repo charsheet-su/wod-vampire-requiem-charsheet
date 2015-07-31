@@ -46,7 +46,7 @@
     background-repeat: no-repeat;
     /*width: 2441px;
     height: 3211px;*/
-    display: block;
+    display: inline-block;
     line-height: 1;
 }
 
@@ -54,8 +54,17 @@
     padding: 60px; /*for background */
 }
 
-ins {color:green;background:#dfd;text-decoration:none}
-del {color:red;background:#fdd;text-decoration:none}
+ins {
+    color: green;
+    background: #dfd;
+    text-decoration: none
+}
+
+del {
+    color: red;
+    background: #fdd;
+    text-decoration: none
+}
 
 @page {
     size: 21cm 29.7cm;
@@ -83,6 +92,12 @@ body {
     vertical-align: top;
     line-height: 12px;
     font-size: 10px;
+}
+
+.list-align {
+    text-align: center;
+    width: 100%;
+    display: block;
 }
 
 @media print {

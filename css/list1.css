@@ -92,8 +92,7 @@
     display: inline-block;
 }
 
-.other_traits
-{
+.other_traits {
     line-height: 1.4;
 }
 
@@ -148,7 +147,6 @@
 .experience {
     font-family: "Goudy Old Style";
     font-size: 18px;
-
     background-image: url("../img/bg-exp.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -156,6 +154,7 @@
     display: inline-block;
     width: 200px;
     height: 20px;
+    line-height: 20px;
 }
 
 .prop {

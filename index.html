@@ -37,16 +37,12 @@
     <script src="x-editable/typeahead.js"></script>
 
     <link href="css/list1.css" rel="stylesheet">
-    <script>
-        var f = 'bootstrap3';
-        $.fn.editable.defaults.mode = 'popup';
-    </script>
-
     <link href="css/dots.css" rel="stylesheet">
     <link href="css/charlist.css" rel="stylesheet">
     <script src="barrating/jquery.barrating.js"></script>
 </head>
 <body>
+<div class="list-align">
 <div class="list">
 <div class="list-inner">
 <div class="main-header">MORTALS</div>
@@ -259,79 +255,13 @@
 </div>
 </div>
 </div>
-<div class="container theme-showcase non-printable" role="main" style="margin-top: 200px">
-    <h1>Useful things</h1>
-
-    <h2>Change viewing mode</h2>
-
-    <p>Print mode removes empty elements (as "none", or empty dots) and temporary values which you can change during
-        session - such as willpower, health, exp, etc.</p>
-
-    <p>Everything after "useful things" won't be printed anyway.</p>
-
-    <button class="btn btn-default" type="button" onclick="change_mode(1)">Print mode</button>
-    <button class="btn btn-default" type="button" onclick="change_mode(0)">Edit mode</button>
-
-    <h2>Revisions</h2>
-
-    <p>It'a really cool staff. You can save named versions of your character sheets and compare them. Especially useful
-        for shared editing.</p>
-    You can save current version as revision - just type some comment to remember, why you did it.
-    <div class="input-group">
-        <input class="form-control" type="text" placeholder="Enter some comment" name="revision_comment">
-<span class="input-group-btn">
-<button class="btn btn-success" onclick="save_revision()" type="button">Save</button>
-</span>
-    </div>
-
-    <table class="table table-striped revisions">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Author</th>
-            <th>Date</th>
-            <th>Comment</th>
-            <th>Compare this</th>
-            <th>Compare with</th>
-            <th>View</th>
-            <th>Restore</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <div align="right">
-    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="compare_revisions()">Compare</button></div>
-    <div class="compare_revisions"></div>
-
-    <h2>Comments</h2>
-
-    <p>If you want to discuss your character sheet with your master or your friends, you can easily do it here!</p>
-
-    <div class="input-group">
-        <input class="form-control" type="text" placeholder="Enter some comment" name="comment">
-<span class="input-group-btn">
-<button class="btn btn-success" onclick="add_comment()" type="button">Add comment</button>
-</span>
-    </div>
-
-    <table class="table table-striped comments">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Author</th>
-            <th>Date</th>
-            <th>Comment</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
 </div>
-<script src="js/editables-init.js"></script>
+<div class="container theme-showcase non-printable useful_things" role="main" style="margin-top: 200px">
+    <!--here will be different useful things - revisions, comments, print mode-->
+</div>
+<!--load all charsheet data, character data, useful things-->
 <script src="js/init.js"></script>
+<!--load print mode-->
 <script src="js/mode.js"></script>
-<script src="js/revisions.js"></script>
-<script src="js/comments.js"></script>
 </body>
 </html>
