@@ -113,3 +113,8 @@ body {
 .editable-click, a.editable-click, a.editable-click:hover {
     border-bottom: none;
 }
+
+.list-sep
+{
+    width: 100%; height: 50px;display: block;
+}
