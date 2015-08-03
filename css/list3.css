@@ -1,0 +1,8 @@
+div.allies, div.influence,div.contacts-major,div.mentor {
+    width: 49%;
+    display: inline-block;
+    height: 100px;
+    vertical-align: top;
+    font-family: "Goudy Old Style";
+    font-size: 18px;
+}

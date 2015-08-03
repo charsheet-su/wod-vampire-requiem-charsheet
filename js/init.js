@@ -431,6 +431,43 @@ function set_editable_fields() {
     $('span[data-name="nature"]').editable();
     $('span[data-name="demeanor"]').editable();
     $('span[data-name="age"]').editable();
+
+
+    $('span[data-name="derangements"]').editable();
+    $('span[data-name="languages"]').editable();
+    $('span[data-name="allies"]').editable();
+    $('span[data-name="influence"]').editable();
+    $('span[data-name="contacts-major"]').editable();
+    $('span[data-name="mentor"]').editable();
+
+    var t = $('.combat tbody');
+    for (var x = 0; x < 4; x++) {
+        var tr = $('<tr></tr>');
+        for (var y = 0; y < 7; y++) {
+            var span = $('<span data-name="combat[' + x + '][' + y + ']"  data-emptyclass=""' +
+            ' data-type="text" data-pk="1" data-emptytext="None" data-title="Enter"></span>');
+            var td = $('<td>&nbsp;</td>');
+            span.editable();
+            td.append(span);
+            tr.append(td);
+        }
+        t.append(tr);
+    }
+
+
+    var t = $('.armor tbody');
+    for (var x = 0; x < 2; x++) {
+        var tr = $('<tr></tr>');
+        for (var y = 0; y < 4; y++) {
+            var span = $('<span data-name="armor[' + x + '][' + y + ']"  data-emptyclass=""' +
+            ' data-type="text" data-pk="1" data-emptytext="None" data-title="Enter"></span>');
+            var td = $('<td>&nbsp;</td>');
+            span.editable();
+            td.append(span);
+            tr.append(td);
+        }
+        t.append(tr);
+    }
 }
 
 function load_saved() {
