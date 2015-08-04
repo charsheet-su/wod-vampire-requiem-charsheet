@@ -94,3 +94,12 @@ div.character_sketch {
     cursor: inherit;
     display: block;
 }
+img.group_chart
+{
+    display: none;
+}
+
+img.character_sketch
+{
+    display: none;
+}

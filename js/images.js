@@ -13,7 +13,7 @@ function remove_image(type) {
                 return;
             }
             else//default image
-                $('img[class="' + type + '"]').attr('src', 'img/' + type + '.jpg');
+                $('img[class="' + type + '"]').css('display', 'none');
         },
         error: function (res) {
             alert("Error uploading image!" + res);
@@ -61,8 +61,9 @@ $("document").ready(function () {
                     alert("Error uploading image!" + res.error);
                     return;
                 }
-                else if (res.uri)
-                    $('img[class="' + to + '"]').attr('src', res.uri);
+                else if (res.uri) {
+                    $('img[class="' + to + '"]').attr('src', res.uri).css('display', 'block');
+                }
             },
             error: function (res) {
                 alert("Error uploading image!" + res);

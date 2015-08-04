@@ -20,14 +20,6 @@ function change_mode(mode) {
         $('.group_chart .btn').css('display', 'inline-block');
         $('.character_sketch .btn').css('display', 'inline-block');
 
-
-        var a = $('img[class="group_chart"]');
-        if (a.attr('src') == 'img/group_chart.jpg')
-            a.css('display', 'block');
-
-        a = $('img[class="character_sketch"]');
-        if (a.attr('src') == 'img/character_sketch.jpg')
-            a.css('display', 'block');
     }
     else //hide some elements and set some values to zero
     {
@@ -53,15 +45,6 @@ function change_mode(mode) {
         hide_dots('.custom_props');
         $('.group_chart .btn').css('display', 'none');
         $('.character_sketch .btn').css('display', 'none');
-
-        var a = $('img[class="group_chart"]');
-        if (a.attr('src') == 'img/group_chart.jpg')
-            a.css('display', 'none');
-
-        a = $('img[class="character_sketch"]');
-        if (a.attr('src') == 'img/character_sketch.jpg')
-            a.css('display', 'none');
-        //if()
 
     }
 

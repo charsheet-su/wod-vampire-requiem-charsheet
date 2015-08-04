@@ -471,10 +471,10 @@ function load_saved() {
             $.each(data, function (index, val) {
 
                 if (index === 'character_sketch') {
-                    $('.character_sketch').attr('src', val);
+                    $('img[class="character_sketch"]').attr('src', val).css('display', 'block');
                 }
                 if (index === 'group_chart') {
-                    $('.group_chart').attr('src', val);
+                    $('img[class="group_chart"]').attr('src', val).css('display', 'block');
                 }
                 //group_chart
 
