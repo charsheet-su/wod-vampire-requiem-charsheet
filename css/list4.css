@@ -49,6 +49,7 @@ div.descr_value {
     font-family: "Goudy Old Style";
     font-size: 18px;
     width: 60%;
+    text-align: left;
 }
 
 div.group_chart {
