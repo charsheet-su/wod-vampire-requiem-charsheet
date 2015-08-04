@@ -425,8 +425,8 @@ function set_editable_fields() {
     var e = ['nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
         'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
         'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
-        'misc', 'residence_details','prelude','goals','description','date_of_birth','place_of_birth','apparent_age',
-        'hair','eyes','nationality','race','height','weight'];
+        'misc', 'residence_details', 'prelude', 'goals', 'description', 'date_of_birth', 'place_of_birth', 'apparent_age',
+        'hair', 'eyes', 'nationality', 'race', 'height', 'weight'];
     e.forEach(function (entry) {
         $('span[data-name="' + entry + '"]').editable();
     });
@@ -469,6 +469,15 @@ function load_saved() {
                 return;
             }
             $.each(data, function (index, val) {
+
+                if (index === 'character_sketch') {
+                    $('.character_sketch').attr('src', val);
+                }
+                if (index === 'group_chart') {
+                    $('.group_chart').attr('src', val);
+                }
+                //group_chart
+
                 //console.log(index);
                 //console.log(val);
                 //load editables

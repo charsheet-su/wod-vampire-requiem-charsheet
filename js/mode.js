@@ -11,12 +11,23 @@ function change_mode(mode) {
             if ($(this).css('display') == 'none')
                 $(this).css('display', 'inline-block');
         });
-
+        //show empty dots
         show_dots('.other_traits_container');
         show_dots('.advantages');
         show_dots('.merits');
         show_dots('.flaws');
         show_dots('.custom_props');
+        $('.group_chart .btn').css('display', 'inline-block');
+        $('.character_sketch .btn').css('display', 'inline-block');
+
+
+        var a = $('img[class="group_chart"]');
+        if (a.attr('src') == 'img/group_chart.jpg')
+            a.css('display', 'block');
+
+        a = $('img[class="character_sketch"]');
+        if (a.attr('src') == 'img/character_sketch.jpg')
+            a.css('display', 'block');
     }
     else //hide some elements and set some values to zero
     {
@@ -34,13 +45,23 @@ function change_mode(mode) {
             if ($(this).html() == 'None')
                 $(this).css('display', 'none');
         });
-
+        //hide all empty dots
         hide_dots('.other_traits_container');
         hide_dots('.advantages');
         hide_dots('.merits');
         hide_dots('.flaws');
         hide_dots('.custom_props');
-        //hide all empty dots
+        $('.group_chart .btn').css('display', 'none');
+        $('.character_sketch .btn').css('display', 'none');
+
+        var a = $('img[class="group_chart"]');
+        if (a.attr('src') == 'img/group_chart.jpg')
+            a.css('display', 'none');
+
+        a = $('img[class="character_sketch"]');
+        if (a.attr('src') == 'img/character_sketch.jpg')
+            a.css('display', 'none');
+        //if()
 
     }
 

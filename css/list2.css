@@ -1,6 +1,7 @@
 .flaws, div.derangements, div.languages, .merits {
     width: 50%;
     display: inline-block;
+    vertical-align: top;
 }
 
 .derangements, .languages {

@@ -1,5 +1,4 @@
-div.prelude
-{
+div.prelude {
     width: 100%;
     display: inline-block;
     height: 180px;
@@ -7,53 +6,52 @@ div.prelude
     font-family: "Goudy Old Style";
     font-size: 18px;
 }
-div.goals
-{
+
+div.goals {
     width: 100%;
     display: inline-block;
-    height: 100px;
+    height: 80px;
     vertical-align: top;
     font-family: "Goudy Old Style";
     font-size: 18px;
 }
 
-div.description2
-{
+div.description2 {
     width: 50%;
     display: inline-block;
-    height: 200px;
+    height: 180px;
     vertical-align: top;
     font-family: "Goudy Old Style";
     font-size: 18px;
 }
-div.description1
-{
+
+div.description1 {
     width: 50%;
     display: inline-block;
-    height: 200px;
+    height: 180px;
     vertical-align: top;
     font-family: "Goudy Old Style";
     font-size: 0;
 }
-div.descr_name
-{
+
+div.descr_name {
     display: inline-block;
     vertical-align: top;
     font-family: "Goudy Old Style";
     font-size: 18px;
-    width:40%;
+    width: 40%;
     text-align: left;
 }
-div.descr_value
-{
+
+div.descr_value {
     display: inline-block;
     vertical-align: top;
     font-family: "Goudy Old Style";
     font-size: 18px;
-    width:60%;
+    width: 60%;
 }
-div.group_chart
-{
+
+div.group_chart {
     width: 50%;
     display: inline-block;
     height: 300px;
@@ -61,12 +59,38 @@ div.group_chart
     font-family: "Goudy Old Style";
     font-size: 18px;
 }
-div.character_sketch
-{
+
+div.character_sketch {
     width: 50%;
     display: inline-block;
     height: 300px;
     vertical-align: top;
     font-family: "Goudy Old Style";
     font-size: 18px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.file_upload .btn {
+    font-family: "Percolator expert";
+    font-size: 20px;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }

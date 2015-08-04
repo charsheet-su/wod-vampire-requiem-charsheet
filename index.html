@@ -555,12 +555,24 @@
         <div class="header-sub"><span>Visuals</span></div>
         <div class="group_chart">
             <div class="prop-header-nobg" style="width: 100%">
-                <span>Group chart</span>
+                <span>Group chart</span><br>
+                <img src="img/group_chart.jpg" width="90%" align="left" class="group_chart">
+
+                <div class="file_upload"><span class="btn-file btn btn-default">Choose image
+                    <input type="file" id="group_chart"/></span>
+                    <span class="btn btn-default" onclick="remove_image('group_chart')">Remove image</span>
+                </div>
             </div>
         </div>
         <div class="character_sketch">
             <div class="prop-header-nobg" style="width: 100%">
-                <span>Character sketch</span>
+                <span>Character sketch</span><br>
+                <img src="img/character_sketch.jpg" width="90%" align="right" class="character_sketch">
+
+                <div class="file_upload"><span class="btn btn-default btn-file">Choose image
+                    <input type="file" id="character_sketch"/></span>
+                    <span class="btn btn-default" onclick="remove_image('character_sketch')">Remove image</span>
+                </div>
             </div>
         </div>
     </div>
@@ -574,5 +586,6 @@
 <script src="js/init.js"></script>
 <!--load print mode-->
 <script src="js/mode.js"></script>
+<script src="js/images.js"></script>
 </body>
 </html>
