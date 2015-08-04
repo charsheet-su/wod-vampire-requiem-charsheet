@@ -19,14 +19,15 @@
 }
 
 .numina, .backgrounds, .virtues {
-    width: 32%;
+    width: 33.3%;
     display: inline-block;
+    vertical-align: top;
 }
 
 .background_name {
     font-family: "Goudy Old Style";
     font-size: 18px;
-    line-height: 18px;
+    line-height: 20px;
     display: inline-block;
     width: 50%;
     text-align: left;
@@ -41,7 +42,7 @@
     font-family: "Goudy Old Style";
     text-align: left;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 20px;
     display: inline-block;
     width: 65%;
 }
@@ -55,7 +56,7 @@
     font-family: "Goudy Old Style";
     text-align: left;
     font-size: 18px;
-    line-height: 16px;
+    line-height: 20px;
     display: inline-block;
     width: 65%;
 }
@@ -63,28 +64,15 @@
 .trait_value {
     display: inline-block;
     width: 35%;
-    line-height: 16px;
 }
 
-.other_traits_container {
-    width: 32%;
-    text-align: center;
-    display: inline-block;
-}
 
 .other_traits {
     line-height: 1.4;
 }
 
-.humanity_willpower_container {
-    width: 32%;
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.health_exp_container {
-    width: 32%;
+.humanity_willpower_container,.other_traits_container,.health_exp_container {
+    width: 33.3%;
     text-align: center;
     display: inline-block;
     vertical-align: top;
@@ -100,28 +88,32 @@
     width: 100%;
     display: inline-block;
     font-family: "Goudy Old Style";
-    font-size: 18px;
-    line-height: 1.3;
+    font-size: 0;
 }
 
 .health-value {
     display: inline-block;
     width: 60%;
     text-align: left;
+    line-height: 22px;
+    font-size: 18px;
+    padding-left: 5px;
 }
 
 .health-sub {
     display: inline-block;
     width: 20%;
+    font-size: 18px;
 }
 
 .health-control {
     text-align: center;
     display: inline-block;
-    width: 15%;
+    width: 20%;
     font-size: 14px;
     font-weight: bold;
     height: 6px;
+    padding-right: 12px;
 }
 
 .experience {
@@ -143,32 +135,31 @@
     width: 14%;
     text-align: left;
     font-size: 18px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    line-height: 22px;
 }
 
 .prop_value {
     font-family: "Percolator expert";
     font-style: italic;
     display: inline-block;
-    width: 18%;
+    width: 19.3%;
     text-align: center;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    line-height: 22px;
     font-size: 18px;
 }
 
 .attr {
     font-family: "Goudy Old Style";
     display: inline-block;
-    width: 16%;
+    width: 16.6%;
     text-align: left;
     font-size: 18px;
+    line-height: 20px;
 }
 
 .attr_value {
     display: inline-block;
-    width: 16%;
+    width: 16.6%;
 }
 
 .virtue {
@@ -177,11 +168,10 @@
     width: 50%;
     text-align: left;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 35px;
 }
 
 .virtue_value {
-    line-height: 40px;
     display: inline-block;
     width: 50%;
     text-align: center;
@@ -190,44 +180,14 @@
 .abl {
     font-family: "Goudy Old Style";
     display: inline-block;
-    width: 16%;
+    width: 16.6%;
     text-align: left;
     font-size: 18px;
     line-height: 20px;
 }
 
 .abl_value {
-    line-height: 20px;
+    line-height: 12px;
     display: inline-block;
-    width: 16%;
-}
-
-.prop-header {
-    font-family: "Percolator expert";
-    display: inline-block;
-    width: 32%;
-    text-align: center;
-    font-size: 22px;
-    padding-bottom: 4px;
-    line-height: 18px;
-    background-image: url("../img/h2_bg_big.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.prop-header-nobg {
-    font-family: "Percolator expert";
-    display: inline-block;
-    width: 32%;
-    text-align: center;
-    font-size: 22px;
-    padding-bottom: 4px;
-    line-height: 18px;
-}
-
-.prop-header span {
-    background-color: #fff;
-    padding-left: 3px;
-    padding-right: 3px;
+    width: 16.6%;
 }

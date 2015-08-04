@@ -1,5 +1,5 @@
 .flaws, div.derangements, div.languages, .merits {
-    width: 49%;
+    width: 50%;
     display: inline-block;
 }
 
@@ -23,16 +23,10 @@
 .merit_value, .flaw_value {
     line-height: 20px;
     display: inline-block;
-    width: 30%;
+    width: 40%;
     text-align: center;
 }
 
-.header-lit {
-    font-family: "Percolator expert";
-    font-size: 20px;
-    text-align: left;
-    padding-bottom: 10px;
-}
 
 .custom_prop_name {
     display: inline-block;
@@ -48,7 +42,7 @@
 .custom_prop_value {
     line-height: 20px;
     display: inline-block;
-    width: 30%;
+    width: 40%;
     text-align: center;
 
 }
@@ -62,11 +56,11 @@
 .custom_prop_holder {
     text-align: center;
     display: inline-block;
-    width: 49%;
+    width: 50%;
 }
 
 table.combat tr td,table.armor tr td {
-    line-height: 2;
+    line-height: 28px;
     padding: 0;
 }
 

@@ -205,7 +205,7 @@ function set_traits(secondary, complete) {
     var div = $('<div></div>');
     div.attr('class', 'trait_name');
     div.append(sp);
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < 10; i++) {
         var div2 = div.clone();
         div2.find('span')
             .attr('data-name', 'trait_name[' + i + ']')
@@ -425,7 +425,8 @@ function set_editable_fields() {
     var e = ['nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
         'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
         'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
-        'misc', 'residence_details','prelude','goals','description'];
+        'misc', 'residence_details','prelude','goals','description','date_of_birth','place_of_birth','apparent_age',
+        'hair','eyes','nationality','race','height','weight'];
     e.forEach(function (entry) {
         $('span[data-name="' + entry + '"]').editable();
     });

@@ -17,7 +17,6 @@
     font-family: Percolator;
     text-align: center;
     font-size: 40px;
-    padding-top: 5px;
 }
 
 .header-sub {
@@ -28,6 +27,14 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    line-height: 34px;
+}
+
+.header-lit {
+    font-family: "Percolator expert";
+    font-size: 20px;
+    text-align: left;
+    line-height: 30px;
 }
 
 .header-sub span {
@@ -51,7 +58,8 @@
 }
 
 .list-inner {
-    padding: 60px; /*for background */
+    padding: 65px; /*for background */
+    font-size:0; /* to avoid margins for inline divs*/
 }
 
 ins {
@@ -117,4 +125,34 @@ body {
 .list-sep
 {
     width: 100%; height: 50px;display: block;
+}
+
+
+.prop-header {
+    font-family: "Percolator expert";
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 4px;
+    line-height: 18px;
+    background-image: url("../img/h2_bg_big.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.prop-header-nobg {
+    font-family: "Percolator expert";
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.prop-header span {
+    background-color: #fff;
+    padding-left: 3px;
+    padding-right: 3px;
 }

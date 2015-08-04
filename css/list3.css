@@ -1,6 +1,6 @@
 div.allies, div.influence,div.contacts-major,div.mentor,div.resources,div.contacts-minor,div.fame,div.status,
 div.other_backgrounds,div.gear,div.equipment,div.vehicles,div.misc {
-    width: 49%;
+    width: 50%;
     display: inline-block;
     height: 90px;
     vertical-align: top;
