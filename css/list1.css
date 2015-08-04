@@ -216,6 +216,16 @@
     background-position: center;
 }
 
+.prop-header-nobg {
+    font-family: "Percolator expert";
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 4px;
+    line-height: 18px;
+}
+
 .prop-header span {
     background-color: #fff;
     padding-left: 3px;

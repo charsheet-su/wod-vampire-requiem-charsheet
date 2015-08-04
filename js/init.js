@@ -425,7 +425,7 @@ function set_editable_fields() {
     var e = ['nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
         'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
         'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
-        'misc', 'residence_details'];
+        'misc', 'residence_details','prelude','goals','description'];
     e.forEach(function (entry) {
         $('span[data-name="' + entry + '"]').editable();
     });
