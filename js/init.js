@@ -392,11 +392,6 @@ function set_editable_fields() {
         }
     }
 
-    $('span[data-name="char_name"]').editable();
-    $('span[data-name="player_name"]').editable();
-    $('span[data-name="chronicle"]').editable();
-    $('span[data-name="concept"]').editable();
-    $('span[data-name="residence"]').editable();
     $('span[data-name="experience"]').editable({
         emptytext: '&nbsp;'
     });
@@ -404,7 +399,6 @@ function set_editable_fields() {
 
     $('span[data-name="sex"]').editable({
         autotext: 'never',
-        name: 'sex',
         source: [
             {value: 'M', text: 'M'},
             {value: 'F', text: 'F'}
@@ -427,18 +421,14 @@ function set_editable_fields() {
         ]
     });
 
-
-    $('span[data-name="nature"]').editable();
-    $('span[data-name="demeanor"]').editable();
-    $('span[data-name="age"]').editable();
-
-
-    $('span[data-name="derangements"]').editable();
-    $('span[data-name="languages"]').editable();
-    $('span[data-name="allies"]').editable();
-    $('span[data-name="influence"]').editable();
-    $('span[data-name="contacts-major"]').editable();
-    $('span[data-name="mentor"]').editable();
+    //init simple editables which do not require params
+    var e = ['nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
+        'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
+        'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
+        'misc', 'residence_details'];
+    e.forEach(function (entry) {
+        $('span[data-name="' + entry + '"]').editable();
+    });
 
     var t = $('.combat tbody');
     for (var x = 0; x < 4; x++) {
