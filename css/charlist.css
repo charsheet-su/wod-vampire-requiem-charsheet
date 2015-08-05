@@ -23,16 +23,40 @@
     font-family: "Percolator expert";
     text-align: center;
     font-size: 28px;
-    background-image: url("../img/h1_bg_big.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    line-height: 34px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
 }
-@media print
+
+.header-sub-img {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+.header-sub-placeholder {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 25px;
+}
+
+.header-sub-bg {
+    position: absolute;
+    width: 100%;
+}
+.header-sub-bg img
 {
-    * {-webkit-print-color-adjust:exact;}
+    height: 20px;
 }
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+    }
+}
+
 .header-lit {
     font-family: "Percolator expert";
     font-size: 20px;
@@ -40,29 +64,35 @@
     line-height: 30px;
 }
 
-.header-sub span {
-    background-color: #fff;
-    padding-left: 3px;
-    padding-right: 3px;
-}
 
 .list {
     /*background-image: url(back.png);*/
     width: 750px;
     height: 1000px;
 
-    background-image: url(../img/back_big.png);
+    /*background-image: url(../img/back_big.png);
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
     /*width: 2441px;
     height: 3211px;*/
     display: inline-block;
     line-height: 1;
+    position: relative;
 }
 
 .list-inner {
     padding: 65px; /*for background */
-    font-size:0; /* to avoid margins for inline divs*/
+    font-size: 0; /* to avoid margins for inline divs*/
+    /* for image background*/
+    position: absolute;
+    top: 0;
+}
+
+.list-align {
+    text-align: center;
+    width: 100%;
+    display: none;
+    position: relative;
 }
 
 ins {
@@ -105,12 +135,6 @@ body {
     font-size: 10px;
 }
 
-.list-align {
-    text-align: center;
-    width: 100%;
-    display: none;
-}
-
 @media print {
     .non-printable {
         display: none;
@@ -125,42 +149,45 @@ body {
     border-bottom: none;
 }
 
-.list-sep
-{
-    width: 100%; height: 50px;display: block;
+.list-sep {
+    width: 100%;
+    height: 50px;
+    display: block;
 }
-
 
 .prop-header {
     font-family: "Percolator expert";
-    display: inline-block;
-    width: 32%;
     text-align: center;
     font-size: 22px;
-    padding-bottom: 4px;
-    line-height: 18px;
-    background-image: url("../img/h2_bg_big.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    position: absolute;
+    top: 0px;
+    width: 100%;
 }
 
-.prop-header-nobg {
-    font-family: "Percolator expert";
+.prop-header-img {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+.prop-header-placeholder {
     display: inline-block;
-    width: 32%;
-    text-align: center;
-    font-size: 22px;
-    line-height: 26px;
+    position: relative;
+    width: 100%;
+    height: 25px;
 }
 
-.prop-header span {
-    background-color: #fff;
-    padding-left: 3px;
-    padding-right: 3px;
+.prop-header-bg {
+    position: absolute;
+    width: 100%;
 }
-
-.useful_things
+.prop-header-bg img
 {
+    height: 20px;
+}
+
+
+.useful_things {
     display: none;
 }
