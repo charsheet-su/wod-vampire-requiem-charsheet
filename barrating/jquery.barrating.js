@@ -94,10 +94,10 @@
                         html = $(this).data('html');
                         if (html) { text = html; }
 
-                        $a = $('<a />', { 'href': '#', 'data-rating-value': val, 'data-rating-text': text });
-                        $span = $('<span />', { 'html': (self.options.showValues) ? text : '' });
+                        $a = $('<img />', { 'src': self.options.unSelectedImage, 'data-rating-value': val, 'data-rating-text': text });
+                        //$span = $('<span />', { 'html': (self.options.showValues) ? text : '' });
 
-                        $w.append($a.append($span));
+                        $w.append($a);
                     }
 
                 });
@@ -152,6 +152,11 @@
                 $w.find('a').removeClass('br-selected br-current');
 
                 // add classes
+                $w.find('img[data-rating-value="' + self.$elem.data('barrating').currentRatingValue + '"]')
+                    .attr('src',self.options.selectedImage)[nextAllorPreviousAll()]()
+                    .attr('src',self.options.selectedImage);
+
+                // add classes
                 $w.find('a[data-rating-value="' + self.$elem.data('barrating').currentRatingValue + '"]')
                     .addClass('br-selected br-current')[nextAllorPreviousAll()]()
                     .addClass('br-selected');
@@ -166,19 +171,25 @@
 
                     event.preventDefault();
 
-                    $all.removeClass('br-active br-selected');
-                    $a.addClass('br-selected')[nextAllorPreviousAll()]()
-                        .addClass('br-selected');
+                    $all.attr('src',self.options.unSelectedImage);
+                    $a.attr('src',self.options.selectedImage)[nextAllorPreviousAll()]()
+                        .attr('src',self.options.selectedImage);
 
                     value = $a.attr('data-rating-value');
                     text = $a.attr('data-rating-text');
 
                     // is current and deselectable?
-                    if ($a.hasClass('br-current') && self.$elem.data('barrating').deselectable) {
+                    if (($a.hasClass('br-current') && self.$elem.data('barrating').deselectable)) {
+                        $a.attr('src',self.options.unSelectedImage)[nextAllorPreviousAll()]()
+                            .attr('src',self.options.unSelectedImage);
+
                         $a.removeClass('br-selected br-current')[nextAllorPreviousAll()]()
                             .removeClass('br-selected br-current');
                         value = ''; text = '';
                     } else {
+                        $all.attr('src',self.options.unSelectedImage);
+                        $a.attr('src',self.options.selectedImage);
+
                         $all.removeClass('br-current');
                         $a.addClass('br-current');
                     }
@@ -207,9 +218,9 @@
                     mouseenter: function() {
                         var $a = $(this);
 
-                        $all.removeClass('br-active br-selected');
-                        $a.addClass('br-active')[nextAllorPreviousAll()]()
-                            .addClass('br-active');
+                        $all.attr('src',self.options.unSelectedImage);
+                        $a.attr('src',self.options.selectedImage)[nextAllorPreviousAll()]()
+                            .attr('src',self.options.selectedImage);
 
                         showSelectedRating($a.attr('data-rating-text'));
                     }
@@ -220,7 +231,7 @@
             var attachMouseLeaveHandler = function($all, $widget) {
                 $widget.on({
                     mouseleave: function() {
-                        $all.removeClass('br-active');
+                        $all.attr('src',self.options.unSelectedImage);
                         showSelectedRating();
                         applyStyle($widget);
                     }
@@ -265,7 +276,7 @@
 
                 showSelectedRating();
 
-                $all = $widget.find('a');
+                $all = $widget.find('img');
 
                 if (self.options.fastClicks) {
                     fastClicks($all);
@@ -392,8 +403,10 @@
             }
         });
     };
-
+//.attr('src',self.options.selectedImage)
     $.fn.barrating.defaults = {
+        selectedImage: 'img/dot_big_1.png',
+        unSelectedImage: 'img/dot_big_0.png',
         theme:'',
         initialRating:null, // initial rating
         showValues:false, // display rating values on the bars?

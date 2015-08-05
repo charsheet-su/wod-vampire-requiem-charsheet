@@ -4,6 +4,7 @@
     height: 12px;
     display: inline-block;
 }
+
 .br-wrapper-f .br-widget a {
     background-image: url("../img/dot_big.png");
     width: 12px;
@@ -14,11 +15,13 @@
     background-size: cover;
     background-position: top;
 }
+
 .br-wrapper-f .br-widget a:hover,
 .br-wrapper-f .br-widget a.br-active,
 .br-wrapper-f .br-widget a.br-selected {
     background-position: bottom;
 }
+
 .br-wrapper-f .br-widget .br-current-rating {
     clear: both;
     width: 330px;
@@ -28,10 +31,17 @@
     padding: .5em 0;
     color: #646464;
 }
+
 .br-wrapper-f .br-readonly a.br-active,
 .br-wrapper-f .br-readonly a.br-selected {
     background-color: #50e3c2;
 }
+
+.br-wrapper-f img {
+    width: 12px;
+    margin-left: 1px;
+}
+
 /* Center in container */
 /*WTF?
 .br-wrapper-f {
@@ -47,6 +57,7 @@
     height: 12px;
     display: inline-block;
 }
+
 .br-wrapper-f2 .br-widget a {
     background-image: url("../img/checkbox_big.png");
     width: 12px;
@@ -64,6 +75,7 @@
 .br-wrapper-f2 .br-widget a.br-selected {
     background-position: bottom;
 }
+
 .br-wrapper-f2 .br-widget .br-current-rating {
     clear: both;
     width: 330px;
@@ -73,7 +85,13 @@
     padding: .5em 0;
     color: #646464;
 }
+
 .br-wrapper-f2 .br-readonly a.br-active,
 .br-wrapper-f2 .br-readonly a.br-selected {
     background-color: #50e3c2;
+}
+
+.br-wrapper-f2 img {
+    width: 12px;
+    margin-left: 1px;
 }

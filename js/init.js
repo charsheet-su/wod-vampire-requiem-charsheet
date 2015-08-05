@@ -368,6 +368,8 @@ function set_dots_fields() {
     $('select[name="Willpower_current"]').barrating('show', {
         wrapperClass: 'br-wrapper-f2',
         showSelectedRating: false,
+        selectedImage: 'img/checkbox_big_1.png',
+        unSelectedImage: 'img/checkbox_big_0.png',
         onSelect: function (value, text) {
             send_dots('Willpower_current', value);
         }
