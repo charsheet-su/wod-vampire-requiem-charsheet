@@ -29,7 +29,6 @@
     text-align: center;
 }
 
-
 .custom_prop_name {
     display: inline-block;
     font-family: "Goudy Old Style";
@@ -61,19 +60,24 @@
     width: 50%;
 }
 
-table.combat tr td,table.armor tr td {
-    line-height: 28px;
+table.combat tr td, table.armor tr td {
+    line-height: 26px;
     padding: 0;
+    vertical-align: middle;
+    font-size: 0;
+    font-family: "Goudy Old Style";
 }
 
-table.combat thead tr td,table.armor thead tr td {
-    font-family: "Goudy Old Style";
-    font-size: 18px;
+table.combat thead tr td, table.armor thead tr td {
     border: 0;
 }
 
-table.combat tbody tr td,table.armor tbody tr td {
+table.combat tbody tr td, table.armor tbody tr td {
     border: 2px solid #000;
-    font-family: "Goudy Old Style";
+}
+
+table.combat tbody tr td span, table.armor tbody tr td span, table.combat thead tr td span, table.armor thead tr td span {
+    width: 100%;
+    display: inline-block;
     font-size: 18px;
 }
