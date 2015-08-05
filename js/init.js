@@ -14,6 +14,7 @@ if (jQuery.when.all === undefined) {
     }
 }
 
+//just a little something to show while loading
 var loadingPannel;
 loadingPannel = loadingPannel || (function () {
     var lpDialog = $("" +
@@ -41,6 +42,7 @@ loadingPannel = loadingPannel || (function () {
     };
 })();
 
+//we use it to show errors
 var ErrorPannel;
 ErrorPannel = ErrorPannel || (function () {
     var lpDialog = $("" +
@@ -71,6 +73,7 @@ ErrorPannel = ErrorPannel || (function () {
     };
 })();
 
+//here we send dot values to server with ajax
 function send_dots(attr, value) {
     //var data = {};
     //attr=attr.replace('[','%5B').replace(']','%5D');
@@ -103,6 +106,7 @@ function send_dots(attr, value) {
     });
 }
 
+
 function create_dots(main_container, name, el_class, caption, points) {
     el_class = el_class || 'attr';
     points = points || 5;
@@ -131,6 +135,7 @@ function create_dots(main_container, name, el_class, caption, points) {
     main_container.append(div2);
 }
 
+//load simple data like attributes
 function set_data(list, el_class, main_container, complete) {
     var data = {};
     //function get_data(deferred, path) {
@@ -169,7 +174,7 @@ $(document).ready(function () {
     load_all();
 });
 
-
+//load data with editable name
 function load_props(complete, json, title, field, container, dots) {
     var sp = $('<span></span>');
     sp.attr('data-title', 'Select ' + title)
@@ -215,6 +220,7 @@ function set_traits(secondary, complete) {
     }
     complete.resolve();
 }
+
 function load_custom_props(complete) {
     var sp = $('<span></span>');
     sp.attr('data-title', 'Your custom prop ')
@@ -237,7 +243,6 @@ function load_custom_props(complete) {
         $('.custom_props').append(div0);
     }
     complete.resolve();
-
 }
 
 function load_traits(complete) {
@@ -272,31 +277,30 @@ function load_traits(complete) {
                 //console.log(item);
             });
         });
-        return res;
-    }).then(function (res) {
-        //console.log(res);
-        //return res;
-        set_traits(res, complete);
+        set_traits(res, complete)
     })
-
 }
 function load_all() {
     loadingPannel.show();
     set_editable_fields();
     var deferreds = [];
+
     //set abilities
     var a = new $.Deferred();
     deferreds.push(a);
     set_data(['abilities/talents.json', 'abilities/skills.json', 'abilities/knowledges.json'], 'abl', '.abilities', a);
+
     //set attributes
     a = new $.Deferred();
     deferreds.push(a);
     set_data(['attributes/physical.json', 'attributes/social.json', 'attributes/mental.json'], 'attr', '.attributes', a);
+
     //set virtues
     a = new $.Deferred();
     deferreds.push(a);
     set_data(['advantages/virtues.json'], 'virtue', '.virtues', a);
 
+    //set numina
     a = new $.Deferred();
     deferreds.push(a);
     load_props(a, 'get/advantages/numina.json', 'numina', 'numina', '.numina');
@@ -328,12 +332,10 @@ function load_all() {
 
     //when all settings are loaded, we load charsheet data:
     $.when.all(deferreds).then(function () {
-
         deferreds = [];
         a = new $.Deferred();
         deferreds.push(a);
         load_saved(a);
-
         load_useful();//load bottom panel
 
         $.when.all(deferreds).then(function () {
@@ -344,6 +346,7 @@ function load_all() {
     });
 }
 
+//set simple fields
 function set_dots_fields() {
     $('select[name="Humanity"]').barrating('show', {
         wrapperClass: 'br-wrapper-f',
@@ -486,26 +489,17 @@ function load_saved(complete) {
                     if (index === 'group_chart') {
                         $('img[class="group_chart"]').attr('src', val).css('display', 'block');
                     }
-                    //group_chart
-
-                    //console.log(index);
-                    //console.log(val);
                     //load editables
 
                     var a = $('span[data-name="' + index + '"]');
                     if (a != undefined && val) {
                         a.editable('setValue', val);
                     }
-                    // a.attr('value',val)
+
                     //try to set dots
                     a = $('select[name="' + index + '"]');
-                    //console.log(a);
 
-                    //if (!a.is('select')) {
-                    //    $.error('select is not select!');
-                    //}
-                    if (a != undefined) {
-                        //console.log('setting dots: ' + index + ' = ' + val);
+                    if (a != undefined && a.is('select')) {
                         a.barrating('set', val);
                     }
                 }
