@@ -39,7 +39,7 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    height: 25px;
+    height: 30px;
 }
 
 .header-sub-bg {
@@ -164,6 +164,14 @@ body {
     width: 100%;
 }
 
+.prop-header-nobg {
+    font-family: "Percolator expert";
+    text-align: center;
+    font-size: 22px;
+    width: 33.3%;
+    display: inline-block;
+}
+
 .prop-header-img {
     width: 100%;
     position: absolute;
@@ -189,5 +197,4 @@ body {
 
 
 .useful_things {
-    display: none;
 }

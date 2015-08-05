@@ -382,7 +382,6 @@ function load_useful() {
         processData: false,
         success: function (data) {
             $('.useful_things').html(data);
-            $('.useful_things').css('display', 'block');
         },
         error: function (data) {
             alert("Error loading useful things!");

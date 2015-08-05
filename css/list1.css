@@ -10,6 +10,7 @@
 .abilities, .advantages, .attributes {
     width: 100%;
     text-align: center;
+    line-height: 12px;
 }
 
 .props {
@@ -139,15 +140,16 @@
 
 .experience {
     font-family: "Goudy Old Style";
-    font-size: 18px;
-    background-image: url("../img/bg-exp.png");
+    font-size: 20px;
+    /*background-image: url("../img/bg-exp.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+    background-position: center;*/
     display: inline-block;
     width: 200px;
     height: 20px;
-    line-height: 20px;
+    line-height: 24px;
+    position: relative;
 }
 
 .prop {
@@ -175,7 +177,6 @@
     width: 16.6%;
     text-align: left;
     font-size: 18px;
-    line-height: 20px;
 }
 
 .attr_value {
