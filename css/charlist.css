@@ -117,14 +117,14 @@ body {
 }
 
 .checkbox_vtm {
-    background-image: url("../img/checkbox_big.png");
     width: 14px;
     height: 14px;
     display: inline-block;
-
+    position: relative;
+    /*background-image: url("../img/checkbox_big.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: top;*/
     vertical-align: middle;
     line-height: 1;
 }
