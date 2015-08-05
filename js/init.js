@@ -328,9 +328,19 @@ function load_all() {
 
     //when all settings are loaded, we load charsheet data:
     $.when.all(deferreds).then(function () {
-        load_saved();
-        load_useful();
-        loadingPannel.hide();
+
+        deferreds = [];
+        a = new $.Deferred();
+        deferreds.push(a);
+        load_saved(a);
+
+        load_useful();//load bottom panel
+
+        $.when.all(deferreds).then(function () {
+            //when everything is loaded, we display it
+            loadingPannel.hide();
+            $('.list-align').css('display', 'block');
+        });
     });
 }
 
@@ -369,6 +379,7 @@ function load_useful() {
         processData: false,
         success: function (data) {
             $('.useful_things').html(data);
+            $('.useful_things').css('display', 'block');
         },
         error: function (data) {
             alert("Error loading useful things!");
@@ -461,7 +472,7 @@ function set_editable_fields() {
     }
 }
 
-function load_saved() {
+function load_saved(complete) {
     var jqxhr = $.get("/api/load")
         .success(function (data) {
             if (data.error != undefined) {
@@ -469,36 +480,37 @@ function load_saved() {
                 return;
             }
             $.each(data, function (index, val) {
+                    if (index === 'character_sketch') {
+                        $('img[class="character_sketch"]').attr('src', val).css('display', 'block');
+                    }
+                    if (index === 'group_chart') {
+                        $('img[class="group_chart"]').attr('src', val).css('display', 'block');
+                    }
+                    //group_chart
 
-                if (index === 'character_sketch') {
-                    $('img[class="character_sketch"]').attr('src', val).css('display', 'block');
-                }
-                if (index === 'group_chart') {
-                    $('img[class="group_chart"]').attr('src', val).css('display', 'block');
-                }
-                //group_chart
+                    //console.log(index);
+                    //console.log(val);
+                    //load editables
 
-                //console.log(index);
-                //console.log(val);
-                //load editables
+                    var a = $('span[data-name="' + index + '"]');
+                    if (a != undefined && val) {
+                        a.editable('setValue', val);
+                    }
+                    // a.attr('value',val)
+                    //try to set dots
+                    a = $('select[name="' + index + '"]');
+                    //console.log(a);
 
-                var a = $('span[data-name="' + index + '"]');
-                if (a != undefined && val) {
-                    a.editable('setValue', val);
+                    //if (!a.is('select')) {
+                    //    $.error('select is not select!');
+                    //}
+                    if (a != undefined) {
+                        //console.log('setting dots: ' + index + ' = ' + val);
+                        a.barrating('set', val);
+                    }
                 }
-                // a.attr('value',val)
-                //try to set dots
-                a = $('select[name="' + index + '"]');
-                //console.log(a);
-
-                //if (!a.is('select')) {
-                //    $.error('select is not select!');
-                //}
-                if (a != undefined) {
-                    //console.log('setting dots: ' + index + ' = ' + val);
-                    a.barrating('set', val);
-                }
-            })
+            )
+            complete.resolve();
         }
     )
 
