@@ -78,7 +78,10 @@ function send_dots(attr, value) {
     //var data = {};
     //attr=attr.replace('[','%5B').replace(']','%5D');
     //data[attr] = value;
-
+    if (check_devel()) {
+        console.log('Saving ' + attr + ' = ' + value);
+        return;
+    }
     if (if_revision()) {
         ErrorPannel.show('You can not edit revision data! If you want it - restore revision and edit it.');
         return;
@@ -376,7 +379,16 @@ function set_dots_fields() {
     });
 }
 
+//check if script is running from development environment
+function check_devel() {
+    if (window.location.href.indexOf('http://charsheet.su/') === -1)
+        return true;
+    return false;
+}
+
 function load_useful() {
+    if (check_devel)
+        return;//do not load for development environment
     $.ajax({
         url: '/js/useful.html',
         type: 'get',
@@ -393,15 +405,27 @@ function load_useful() {
 
 function set_editable_fields() {
     //defaults
-    $.fn.editable.defaults.url = '/api/save/';
-    //var f = 'bootstrap3';
-    $.fn.editable.defaults.mode = 'popup';
-    $.fn.editable.defaults.success = function (response, newValue) {
-        if (response.error != undefined)
-            ErrorPannel.show(response.error);
-        return response;
-    };
+    if (check_devel()) {//just display message about saving
+        $.fn.editable.defaults.success = function (response, newValue) {
+            console.log('Saving ' + $(this).attr('data-name') + ' = ' + newValue);
+        };
+    }
+    else {
+        $.fn.editable.defaults.url = '/api/save/';
+        $.fn.editable.defaults.mode = 'popup';
+        $.fn.editable.defaults.success = function (response, newValue) {
+            if (response.error != undefined)
+                ErrorPannel.show(response.error);
+            return response;
+        };
+    }
+
     $.fn.editable.defaults.validate = function (value) {
+
+        if (check_devel()) {
+            return;//nothing to do for local development
+        }
+
         if (if_revision()) {
             return 'You can not edit revision data! If you want it - restore revision and edit it.';
         }
@@ -477,6 +501,10 @@ function set_editable_fields() {
 }
 
 function load_saved(complete) {
+    if (check_devel) {
+        complete.resolve();
+        return;//do not load for development environment
+    }
     var jqxhr = $.get("/api/load")
         .success(function (data) {
             if (data.error != undefined) {
