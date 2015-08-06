@@ -464,7 +464,7 @@ function set_editable_fields() {
     var t = $('.armor tbody');
     for (var x = 0; x < 2; x++) {
         var tr = $('<tr></tr>');
-        for (var y = 0; y < 4; y++) {
+        for (var y = 0; y < 7; y++) {
             var span = $('<span data-name="armor[' + x + '][' + y + ']"  data-emptyclass=""' +
             ' data-type="text" data-pk="1" data-emptytext="None" data-title="Enter"></span>');
             var td = $('<td>&nbsp;</td>');
