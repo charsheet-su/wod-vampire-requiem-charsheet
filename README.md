@@ -23,7 +23,7 @@ Contents of the project:
 * get - folder for ajax files which contain data for this sheet - for example, list of traits, attributes or skills.
 * js - different javascript.
   * images.js - used for handling images - uploading, removing.
-* mode.js - used to switch from print mode to edit mode.
+  * mode.js - used to switch from print mode to edit mode.
 * x-editable - X-editable library without any modifications.
 
 Of cause, for saving and loading your character sheet data you will need to publish your repositiry on http://charsheet.su
