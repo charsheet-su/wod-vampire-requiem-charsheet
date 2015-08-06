@@ -10,7 +10,7 @@ Bootstrap 3
 X-editable https://vitalets.github.io/x-editable/   
 Jquery bar rating http://antenna.io/demo/jquery-bar-rating/examples/   
 
-You are free to fork this repository, make pull requests and make new character sheets.
+You are free to fork this repository, make pull requests and make new character sheets - of cause, those will be added to web site.
 
 FAQ:
 
