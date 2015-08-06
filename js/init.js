@@ -387,7 +387,7 @@ function check_devel() {
 }
 
 function load_useful() {
-    if (check_devel)
+    if (check_devel())
         return;//do not load for development environment
     $.ajax({
         url: '/js/useful.html',
@@ -501,7 +501,7 @@ function set_editable_fields() {
 }
 
 function load_saved(complete) {
-    if (check_devel) {
+    if (check_devel()) {
         complete.resolve();
         return;//do not load for development environment
     }
