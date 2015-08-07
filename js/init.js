@@ -381,7 +381,7 @@ function set_dots_fields() {
 
 //check if script is running from development environment
 function check_devel() {
-    if (window.location.href.indexOf('http://charsheet.su/') === -1)
+    if (window.location.href.indexOf('charsheet.su/') === -1)
         return true;
     return false;
 }
