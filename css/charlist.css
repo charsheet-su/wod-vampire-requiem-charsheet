@@ -114,6 +114,7 @@ del {
 
 body {
     margin: 0;
+    letter-spacing: 0;
 }
 
 .checkbox_vtm {
