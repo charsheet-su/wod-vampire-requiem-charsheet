@@ -6,6 +6,7 @@ div.prelude {
     font-family: "Goudy Old Style";
     font-size: 18px;
     line-height: 1.2;
+    text-align: left;
 }
 
 div.goals {
@@ -25,6 +26,7 @@ div.description2 {
     font-family: "Goudy Old Style";
     font-size: 18px;
     line-height: 1.2;
+    text-align: left;
 }
 
 div.description1 {
