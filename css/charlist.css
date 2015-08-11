@@ -13,6 +13,10 @@
     src: url("../fonts/Goudy%20Old%20Style%20Regular.ttf");
 }
 
+.bg-image
+{
+    width: 100%;
+}
 .main-header {
     font-family: Percolator;
     text-align: center;
@@ -46,15 +50,9 @@
     position: absolute;
     width: 100%;
 }
-.header-sub-bg img
-{
-    height: 20px;
-}
 
-@media print {
-    * {
-        -webkit-print-color-adjust: exact;
-    }
+.header-sub-bg img {
+    height: 20px;
 }
 
 .header-lit {
@@ -64,26 +62,18 @@
     line-height: 30px;
 }
 
-
 .list {
-    /*background-image: url(back.png);*/
     width: 750px;
     height: 1000px;
-
-    /*background-image: url(../img/back_big.png);
-    background-size: contain;
-    background-repeat: no-repeat;*/
-    /*width: 2441px;
-    height: 3211px;*/
     display: inline-block;
     line-height: 1;
     position: relative;
+    margin-top:30px;
 }
 
 .list-inner {
     padding: 65px; /*for background */
     font-size: 0; /* to avoid margins for inline divs*/
-    /* for image background*/
     position: absolute;
     top: 0;
 }
@@ -95,6 +85,7 @@
     position: relative;
 }
 
+/* for revision comparing*/
 ins {
     color: green;
     background: #dfd;
@@ -107,14 +98,8 @@ del {
     text-decoration: none
 }
 
-@page {
-    size: 21cm 29.7cm;
-    margin: 0; /* change the margins as you want them to be. */
-}
-
 body {
     margin: 0;
-    letter-spacing: 0;
 }
 
 .checkbox_vtm {
@@ -122,10 +107,6 @@ body {
     height: 14px;
     display: inline-block;
     position: relative;
-    /*background-image: url("../img/checkbox_big.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;*/
     vertical-align: middle;
     line-height: 1;
 }
@@ -134,16 +115,6 @@ body {
     vertical-align: top;
     line-height: 12px;
     font-size: 10px;
-}
-
-@media print {
-    .non-printable {
-        display: none;
-    }
-
-    .list {
-        page-break-inside: avoid;
-    }
 }
 
 .editable-click, a.editable-click, a.editable-click:hover {
@@ -191,11 +162,10 @@ body {
     position: absolute;
     width: 100%;
 }
-.prop-header-bg img
-{
+
+.prop-header-bg img {
     height: 20px;
 }
-
 
 .useful_things {
     margin-top: 200px;

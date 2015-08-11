@@ -41,11 +41,12 @@
     <link href="css/list4.css" rel="stylesheet">
     <link href="css/dots.css" rel="stylesheet">
     <link href="css/charlist.css" rel="stylesheet">
+    <link href="css/print.css" rel="stylesheet">
     <script src="barrating/jquery.barrating.js"></script>
 </head>
 <body>
 <div class="list-align">
-<div class="list"><img src="img/back_big.png" width="100%">
+<div class="list"><img src="img/back_big.png" class="bg-image">
 
 <div class="list-inner">
 <div class="main-header">MORTALS</div>
@@ -293,9 +294,9 @@
     </div>
 
     <div style="margin-top: 5px;position:relative;">
-            <img src="img/bg-exp.png" style="width: 180px;position: absolute;">
+        <img src="img/bg-exp.png" style="width: 180px;position: absolute;">
         <span class="experience" data-name="experience" data-type="text" data-title="Enter experience"
-                                                                                                data-pk="1"> </span>
+              data-pk="1"> </span>
     </div>
 </div>
 </div>
@@ -305,7 +306,7 @@
 <div class="list-sep"></div>
 
 
-<div class="list"><img src="img/back_big.png" width="100%">
+<div class="list"><img src="img/back_big.png" class="bg-image">
 
     <div class="list-inner">
         <div class="main-header">MORTALS</div>
@@ -419,7 +420,7 @@
 <div class="list-sep"></div>
 
 
-<div class="list"><img src="img/back_big.png" width="100%">
+<div class="list"><img src="img/back_big.png" class="bg-image">
 
     <div class="list-inner">
         <div class="main-header">MORTALS</div>
@@ -581,7 +582,7 @@
 <div class="list-sep"></div>
 
 
-<div class="list"><img src="img/back_big.png" width="100%">
+<div class="list"><img src="img/back_big.png" class="bg-image">
 
     <div class="list-inner">
         <div class="main-header">MORTALS</div>
@@ -683,9 +684,9 @@
                 <span>Group chart</span><br>
                 <img src="" width="90%" align="left" class="group_chart">
 
-                <div class="file_upload"><span class="btn-file btn btn-default">Choose image
+                <div class="file_upload"><span class="btn-file btn btn-default hidden-print">Choose image
                     <input type="file" id="group_chart"/></span>
-                    <span class="btn btn-default" onclick="remove_image('group_chart')">Remove image</span>
+                    <span class="btn btn-default hidden-print" onclick="remove_image('group_chart')">Remove image</span>
                 </div>
             </div>
         </div>
@@ -694,9 +695,10 @@
                 <span>Character sketch</span><br>
                 <img src="" width="90%" align="right" class="character_sketch">
 
-                <div class="file_upload"><span class="btn btn-default btn-file">Choose image
+                <div class="file_upload"><span class="btn btn-default btn-file hidden-print">Choose image
                     <input type="file" id="character_sketch"/></span>
-                    <span class="btn btn-default" onclick="remove_image('character_sketch')">Remove image</span>
+                    <span class="btn btn-default hidden-print"
+                          onclick="remove_image('character_sketch')">Remove image</span>
                 </div>
             </div>
         </div>
@@ -704,7 +706,7 @@
 </div>
 </div>
 
-<div class="container theme-showcase non-printable useful_things" role="main">
+<div class="container theme-showcase hidden-print useful_things" role="main">
     <!--here will be different useful things - revisions, comments, print mode-->
 </div>
 <!--load all charsheet data, character data, useful things-->

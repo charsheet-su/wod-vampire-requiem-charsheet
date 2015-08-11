@@ -93,19 +93,17 @@ div.character_sketch {
     min-height: 100%;
     font-size: 100px;
     text-align: right;
-    filter: alpha(opacity=0);
     opacity: 0;
     outline: none;
     background: white;
     cursor: inherit;
     display: block;
 }
-img.group_chart
-{
+
+img.group_chart {
     display: none;
 }
 
-img.character_sketch
-{
+img.character_sketch {
     display: none;
 }

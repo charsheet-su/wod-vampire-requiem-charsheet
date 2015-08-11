@@ -7,7 +7,7 @@
 .derangements, .languages {
     height: 100px;
     vertical-align: top;
-    font-family: "Times New Roman";
+    font-family: "Times New* Roman";
     font-size: 16px;
     line-height: 18px;
 }
@@ -19,7 +19,6 @@
     line-height: 16px;
     text-align: left;
     width: 60%;
-    text-align: left;
 }
 
 .merit_value, .flaw_value {
@@ -36,7 +35,6 @@
     line-height: 16px;
     text-align: left;
     width: 60%;
-    text-align: left;
 
 }
 

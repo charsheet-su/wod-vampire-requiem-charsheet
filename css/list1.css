@@ -67,12 +67,11 @@
     width: 35%;
 }
 
-
 .other_traits {
     line-height: 1.4;
 }
 
-.humanity_willpower_container,.other_traits_container,.health_exp_container {
+.humanity_willpower_container, .other_traits_container, .health_exp_container {
     width: 33.3%;
     text-align: center;
     display: inline-block;
@@ -116,23 +115,19 @@
     height: 6px;
     padding-right: 12px;
 }
-.health-control img
-{
-    width:14px;
+
+.health-control img {
+    width: 14px;
     position: relative;
     left: 14px;
 }
-.health-control span
-{
+
+.health-control span {
 
     width: 14px;
     height: 14px;
     display: inline-block;
     position: relative;
-    /*background-image: url("../img/checkbox_big.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;*/
     vertical-align: middle;
     line-height: 14px;
     font-size: 12px;
@@ -141,10 +136,6 @@
 .experience {
     font-family: "Goudy Old Style";
     font-size: 20px;
-    /*background-image: url("../img/bg-exp.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;*/
     display: inline-block;
     width: 200px;
     height: 20px;
