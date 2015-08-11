@@ -17,8 +17,6 @@ function change_mode(mode) {
         show_dots('.merits');
         show_dots('.flaws');
         show_dots('.custom_props');
-        $('.group_chart .btn').css('display', 'inline-block');
-        $('.character_sketch .btn').css('display', 'inline-block');
 
     }
     else //hide some elements and set some values to zero
@@ -43,8 +41,6 @@ function change_mode(mode) {
         hide_dots('.merits');
         hide_dots('.flaws');
         hide_dots('.custom_props');
-        $('.group_chart .btn').css('display', 'none');
-        $('.character_sketch .btn').css('display', 'none');
 
     }
 
