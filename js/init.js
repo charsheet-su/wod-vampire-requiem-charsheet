@@ -512,6 +512,8 @@ function load_saved(complete) {
                 return;
             }
             $.each(data, function (index, val) {
+                    if (index == 'char_name')
+                        document.title = val + ' - CharSheet.su';
                     if (index === 'character_sketch') {
                         $('img[class="character_sketch"]').attr('src', val).css('display', 'block');
                     }
