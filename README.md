@@ -1,6 +1,6 @@
-# WOD-Mortal-charsheet
+# WOD vampire character sheet with requiem styling
 
-It is the first character sheet, created for http://charsheet.su.   
+It is the second character sheet, created for http://charsheet.su.   
 It is based on Mr Gone's character sheets (http://mrgone.rocksolidshells.com/) so credit for design goes to him.
 
 What I used for this character sheet:

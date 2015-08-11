@@ -42,14 +42,14 @@
     <link href="css/charlist.css" rel="stylesheet">
     <link href="css/print.css" rel="stylesheet">
     <script src="js/jquery.barrating.js"></script>
-    <title>Mortal Character sheet</title>
+    <title>Vampire Character sheet</title>
 </head>
 <body>
 <div class="list-align">
 <div class="list"><img src="img/back_big.png" class="bg-image">
 
 <div class="list-inner">
-<div class="main-header">MORTALS</div>
+<div class="main-header">VAMPIRE: THE MASQUERADE</div>
 <div class="props">
     <div class="prop">Name:
     </div>
@@ -66,9 +66,9 @@
     </div>
 
 
-    <div class="prop">Age:
+    <div class="prop">Clan:
     </div>
-    <div class="prop_value"><span data-name="age" data-type="text" data-title="Enter age" data-pk="1">18</span></div>
+    <div class="prop_value"><span data-name="clan" data-type="text" data-title="Enter clan" data-pk="1"></span></div>
 
 
     <div class="prop">Player:
@@ -82,10 +82,10 @@
             <span data-name="demeanor" data-type="select" data-value="5" data-source="get/basic/nature.json" data-pk="1"
                   data-title="Select Demeanor">Child</span></div>
 
-    <div class="prop">Sex:
+    <div class="prop">Generation:
     </div>
-    <div class="prop_value"><span data-name="sex" data-type="select" data-value="" data-pk="1"
-                                  data-title="Select sex">F</span></div>
+    <div class="prop_value"><span data-name="generation" data-type="select" data-value="" data-pk="1"
+                                  data-title="Select generation">14</span></div>
 
     <div class="prop">Chronicle:
     </div>
@@ -98,17 +98,26 @@
                                   data-title="Enter concept">All is fine</span>
     </div>
 
-    <div class="prop">Residence:
+    <div class="prop">Sire:
     </div>
-    <div class="prop_value"><span data-name="residence" data-type="text" data-pk="1"
-                                  data-title="Enter residence">Omsk</span>
+    <div class="prop_value"><span data-name="sire" data-type="text" data-pk="1"
+                                  data-title="Enter sire">Kain</span>
     </div>
 </div>
 <div class="header-sub-placeholder">
     <img src="img/h1_bg_big.png" class="header-sub-img">
 
-    <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
-    <div class="header-sub"><span>Attributes</span></div>
+    <div class="header-sub"><span>
+
+        <svg height="40" width="200">
+            <text
+                  font-size="28px" y="25" x="30" font-family="Percolator expert"
+                  fill="#ffffff" >
+                Attributes
+            </text>
+        </svg>
+
+    </span></div>
 </div>
 <div class="prop-header-nobg"><span>Physical</span></div>
 <div class="prop-header-nobg"><span>Social</span></div>
@@ -117,13 +126,9 @@
 <div class="attributes">
 </div>
 
-
-<img src="img/h1_bg_big.png" class="header-sub-img">
-
 <div class="header-sub-placeholder">
     <img src="img/h1_bg_big.png" class="header-sub-img">
 
-    <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
     <div class="header-sub"><span>Abilities</span></div>
 </div>
 
@@ -134,13 +139,9 @@
 <div class="abilities">
 </div>
 
-
-<img src="img/h1_bg_big.png" class="header-sub-img">
-
 <div class="header-sub-placeholder">
     <img src="img/h1_bg_big.png" class="header-sub-img">
 
-    <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
     <div class="header-sub"><span>Advantages</span></div>
 </div>
 
@@ -309,13 +310,11 @@
 <div class="list"><img src="img/back_big.png" class="bg-image">
 
     <div class="list-inner">
-        <div class="main-header">MORTALS</div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
+        <div class="main-header">VAMPIRE: THE MASQUERADE</div>
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="200px"></div>
             <div class="header-sub"><span>Merits & Flaws</span></div>
         </div>
         <div class="merits">
@@ -333,16 +332,13 @@
             <div class="flaw_name header-lit">Flaw name</div>
             <div class="flaw_value header-lit">Flaw bonus</div>
         </div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="250px"></div>
             <div class="header-sub"><span>Other and Custom</span></div>
         </div>
         <div class="custom_props"></div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
@@ -365,12 +361,10 @@
                   data-placeholder="languages spoken"
                   data-title="Enter languages" data-emptytext="None"></span>
         </div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="100px"></div>
             <div class="header-sub"><span>Combat</span></div>
         </div>
         <table class="table table-striped combat" style="width: 100%">
@@ -389,12 +383,10 @@
             <tr></tr>
             </tbody>
         </table>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="100px"></div>
             <div class="header-sub"><span>Armor</span></div>
         </div>
         <table class="table table-striped armor" style="width: 100%">
@@ -423,13 +415,11 @@
 <div class="list"><img src="img/back_big.png" class="bg-image">
 
     <div class="list-inner">
-        <div class="main-header">MORTALS</div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
+        <div class="main-header">VAMPIRE: THE MASQUERADE</div>
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="290px"></div>
             <div class="header-sub"><span>Expanded backgrounds</span></div>
         </div>
 
@@ -520,12 +510,10 @@
                   data-placeholder="other"
                   data-title="Enter other data value" data-emptytext="None"></span>
         </div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
             <div class="header-sub"><span>Posessions</span></div>
         </div>
 
@@ -563,12 +551,10 @@
                   data-title="Enter misc data" data-emptytext="None"></span>
         </div>
         <div class="residence_details">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
 
             <div class="header-sub-placeholder">
                 <img src="img/h1_bg_big.png" class="header-sub-img">
 
-                <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
                 <div class="header-sub"><span>Residence</span></div>
             </div>
             <span data-emptyclass="" data-name="residence_details" data-type="textarea" data-pk="1"
@@ -585,13 +571,11 @@
 <div class="list"><img src="img/back_big.png" class="bg-image">
 
     <div class="list-inner">
-        <div class="main-header">MORTALS</div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
+        <div class="main-header">VAMPIRE: THE MASQUERADE</div>
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
             <div class="header-sub"><span>History</span></div>
         </div>
 
@@ -612,12 +596,10 @@
                   data-placeholder="goals"
                   data-title="Enter goals" data-emptytext="None"></span>
         </div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="150px"></div>
             <div class="header-sub"><span>Description</span></div>
         </div>
         <div class="description1">
@@ -671,12 +653,10 @@
                                         data-placeholder="description"
                                         data-title="Enter full description" data-emptytext="None"></span>
         </div>
-        <img src="img/h1_bg_big.png" class="header-sub-img">
 
         <div class="header-sub-placeholder">
             <img src="img/h1_bg_big.png" class="header-sub-img">
 
-            <div class="header-sub-bg"><img src="img/whitepx.gif" width="100px"></div>
             <div class="header-sub">Visuals<span></span></div>
         </div>
         <div class="group_chart">

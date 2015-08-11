@@ -13,14 +13,23 @@
     src: url("../fonts/Goudy%20Old%20Style%20Regular.ttf");
 }
 
+@font-face {
+    font-family: "Morpheus";
+    src: url(../fonts/morpheus.ttf);
+}
+@font-face {
+    font-family: "Babes in Toyland";
+    src: url(../fonts/BabesInToylandNF.otf);
+}
 .bg-image
 {
     width: 100%;
 }
 .main-header {
-    font-family: Percolator;
+    font-family: Morpheus;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
+    color: #6d1a12;
 }
 
 .header-sub {
@@ -30,13 +39,15 @@
     position: absolute;
     top: 0px;
     width: 100%;
+    line-height: 30px;
+    color: #fff !important;
 }
 
 .header-sub-img {
     width: 100%;
     position: absolute;
-    top: 10px;
     left: 0px;
+    top: 5px;
 }
 
 .header-sub-placeholder {
@@ -44,15 +55,6 @@
     position: relative;
     width: 100%;
     height: 30px;
-}
-
-.header-sub-bg {
-    position: absolute;
-    width: 100%;
-}
-
-.header-sub-bg img {
-    height: 20px;
 }
 
 .header-lit {
