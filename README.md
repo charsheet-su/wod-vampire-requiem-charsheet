@@ -19,6 +19,7 @@ Contents of the project:
   * /dots.css - css for displaying dots. Suddenly, yeah?
   * charlist.css - global css.
   * list1.css,list2.css, etc - css, grouped by the number of the list.
+  * print.css - special styles for printing - hide elements, make font smaller, etc.
 * fonts, img - self descriped folders.
 * get - folder for ajax files which contain data for this sheet - for example, list of traits, attributes or skills.
 * js - different javascript.
