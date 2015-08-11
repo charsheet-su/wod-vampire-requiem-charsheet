@@ -1,0 +1,14 @@
+@media print {
+    .list {
+        page-break-inside: avoid;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+@page {
+    size: 21cm 29.7cm;
+    margin: 0;
+}
