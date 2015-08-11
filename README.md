@@ -42,3 +42,6 @@ FAQ:
 
 Q: Why do you use images instead of backgrounds?   
 A: Because otherwise browsers don't allow to print background.   
+
+Q: Why do you use SVG for some blocks?   
+A: Because this way browser does not change text color when printing.
