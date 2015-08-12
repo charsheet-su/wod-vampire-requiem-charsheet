@@ -12,7 +12,7 @@ function change_mode(mode) {
                 $(this).css('display', 'inline-block');
         });
         //show empty dots
-        show_dots('.other_traits_container');
+        show_dots('.other_traits');
         show_dots('.advantages');
         show_dots('.merits');
         show_dots('.flaws');
@@ -29,6 +29,9 @@ function change_mode(mode) {
         $('select[name="Willpower_current"]')
             .barrating('set', 0)
             .barrating('clear');
+        $('select[name="Bloodpool"]')
+            .barrating('set', 0)
+            .barrating('clear');
 
         //hide all non used editables
         $('.list span.editable').each(function () {
@@ -36,7 +39,7 @@ function change_mode(mode) {
                 $(this).css('display', 'none');
         });
         //hide all empty dots
-        hide_dots('.other_traits_container');
+        hide_dots('.other_traits');
         hide_dots('.advantages');
         hide_dots('.merits');
         hide_dots('.flaws');

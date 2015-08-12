@@ -78,6 +78,7 @@
     font-size: 0; /* to avoid margins for inline divs*/
     position: absolute;
     top: 0;
+    width: 100%;
 }
 
 .list-align {
