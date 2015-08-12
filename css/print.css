@@ -1,8 +1,13 @@
 @media print {
+
+    html, body {
+        width: 100%;
+        height: 297mm;
+    }
+
     .list {
         page-break-inside: avoid;
         width: 100%;
-        margin:0;
         height: 100%;
     }
 

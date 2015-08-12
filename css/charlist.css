@@ -24,12 +24,14 @@
 .bg-image
 {
     width: 100%;
+    height: 100%;
 }
 .main-header {
     font-family: Morpheus;
     text-align: center;
     font-size: 30px;
     color: #6d1a12;
+    height: 35px;
 }
 
 .header-sub {
@@ -39,7 +41,7 @@
     position: absolute;
     top: 0px;
     width: 100%;
-    line-height: 30px;
+    line-height: 25px;
     color: #fff !important;
 }
 
@@ -47,7 +49,6 @@
     width: 100%;
     position: absolute;
     left: 0px;
-    top: 5px;
 }
 
 .header-sub-placeholder {
@@ -55,6 +56,8 @@
     position: relative;
     width: 100%;
     height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .header-lit {
@@ -66,15 +69,17 @@
 
 .list {
     width: 750px;
-    height: 1000px;
+    height: 1061px;
     display: inline-block;
     line-height: 1;
     position: relative;
-    margin-top:30px;
 }
 
 .list-inner {
-    padding: 65px; /*for background */
+    padding-left: 80px; /*for background */
+    padding-right: 60px; /*for background */
+    padding-top: 65px; /*for background */
+    padding-bottom: 65px; /*for background */
     font-size: 0; /* to avoid margins for inline divs*/
     position: absolute;
     top: 0;
@@ -86,6 +91,7 @@
     width: 100%;
     display: none;
     position: relative;
+    margin: 0;
 }
 
 /* for revision comparing*/
