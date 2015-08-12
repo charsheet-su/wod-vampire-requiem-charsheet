@@ -18,6 +18,7 @@
 .br-wrapper-f img {
     width: 12px;
     margin-left: 1px;
+    margin-top: 1px;
 }
 
 /* for pseudo checkbox*/
@@ -40,4 +41,5 @@
 .br-wrapper-f2 img {
     width: 12px;
     margin-left: 1px;
+    margin-top: 1px;
 }

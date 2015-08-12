@@ -304,7 +304,7 @@ function load_all() {
     a = new $.Deferred();
     deferreds.push(a);
     //set_data(['advantages/virtues.json'], 'virtue', '.virtues', a);
-    load_props(a, 'get/advantages/virtues.json', 'virtue', 'virtue', '.virtues',5, 3);
+    load_props(a, 'get/advantages/virtues.json', 'virtue', 'virtue', '.virtues', 5, 3);
 
     //set disciplines
     a = new $.Deferred();
@@ -388,7 +388,7 @@ function set_dots_fields() {
         selectedImage: 'img/checkbox_big_1.png',
         unSelectedImage: 'img/checkbox_big_0.png',
         onSelect: function (value, text) {
-            send_dots('Willpower_current', value);
+            send_dots('Bloodpool', value);
         }
     });
 }
@@ -475,13 +475,20 @@ function set_editable_fields() {
     });
 
     //init simple editables which do not require params
-    var e = ['embrace_date','path','clan', 'generation', 'sire', 'nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
+    var e = ['embrace_date', 'path', 'clan', 'generation', 'sire', 'nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts - major',
         'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
         'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
         'misc', 'residence_details', 'prelude', 'goals', 'description', 'date_of_birth', 'place_of_birth', 'apparent_age',
         'hair', 'eyes', 'nationality', 'race', 'height', 'weight'];
     e.forEach(function (entry) {
         $('span[data-name="' + entry + '"]').editable();
+    });
+
+
+    $('span[data-name="bloodpool_size"]').editable({
+        success: function (response, newValue) {
+            setBloodPoolSize(newValue);
+        }
     });
 
     var t = $('.combat tbody');
@@ -514,6 +521,23 @@ function set_editable_fields() {
     }
 }
 
+function setBloodPoolSize(x) {
+    var s = $('select[name="Bloodpool"]');
+    s.empty();
+    for (var i = 0; i < x; i++) {
+        s.append('<option value="' + i + '">' + i + '</option>');
+    }
+    s.barrating('destroy');
+    s.barrating('show', {
+        wrapperClass: 'br-wrapper-f2',
+        showSelectedRating: false,
+        selectedImage: 'img/checkbox_big_1.png',
+        unSelectedImage: 'img/checkbox_big_0.png',
+        onSelect: function (value, text) {
+            send_dots('Bloodpool', value);
+        }
+    });
+}
 function load_saved(complete) {
     if (check_devel()) {
         complete.resolve();
@@ -539,6 +563,8 @@ function load_saved(complete) {
                     var a = $('span[data-name="' + index + '"]');
                     if (a != undefined && val) {
                         a.editable('setValue', val);
+                        if (index == 'bloodpool_size')
+                            setBloodPoolSize(val);
                     }
 
                     //try to set dots
