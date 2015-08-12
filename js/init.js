@@ -381,8 +381,8 @@ function set_dots_fields() {
         }
     });
 
-
-    $('select[name="Bloodpool"]').barrating('show', {
+    var s = $('select[name="Bloodpool"]');
+    s.barrating('destroy').barrating('show', {
         wrapperClass: 'br-wrapper-f2',
         showSelectedRating: false,
         selectedImage: 'img/checkbox_big_1.png',
@@ -523,7 +523,9 @@ function set_editable_fields() {
 
 function setBloodPoolSize(x) {
     var s = $('select[name="Bloodpool"]');
+    var val = s.val();
     s.empty();
+    s.append('<option value=""></option>');
     for (var i = 0; i < x; i++) {
         s.append('<option value="' + i + '">' + i + '</option>');
     }
@@ -533,6 +535,7 @@ function setBloodPoolSize(x) {
         showSelectedRating: false,
         selectedImage: 'img/checkbox_big_1.png',
         unSelectedImage: 'img/checkbox_big_0.png',
+        initialRating: val,
         onSelect: function (value, text) {
             send_dots('Bloodpool', value);
         }
