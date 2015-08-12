@@ -20,7 +20,7 @@
     margin-top: 10px;
 }
 
-.numina, .backgrounds, .virtues {
+.disciplines, .backgrounds, .virtues {
     width: 33.3%;
     display: inline-block;
     vertical-align: top;
@@ -44,7 +44,7 @@
     vertical-align: top;
 }
 
-.numina_name {
+.discipline_name {
     font-family: "Goudy Old Style";
     text-align: left;
     font-size: 18px;
@@ -54,7 +54,7 @@
     width: 65%;
 }
 
-.numina_value {
+.discipline_value {
     display: inline-block;
     width: 35%;
     line-height: 20px;
@@ -80,15 +80,26 @@
 
 .other_traits {
     line-height: 1.4;
-}
-
-.humanity_willpower_container, .other_traits_container, .health_exp_container {
     width: 33.3%;
     text-align: center;
     display: inline-block;
     vertical-align: top;
 }
 
+.humanity_willpower_container, .health_exp_container {
+    width: 33.3%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+.path,.willpower,.bloodpool
+{
+    font-size: 18px;
+    font-family: "Morpheus";
+    color: #581a12;
+    margin-top: 15px;
+
+}
 .other {
     width: 100%;
     display: inline-block;
@@ -196,7 +207,7 @@
     vertical-align: top;
 }
 
-.virtue {
+.virtue_name {
     font-family: "Goudy Old Style";
     display: inline-block;
     width: 50%;

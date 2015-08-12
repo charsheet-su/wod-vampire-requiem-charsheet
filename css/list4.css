@@ -1,7 +1,7 @@
 div.prelude {
     width: 100%;
     display: inline-block;
-    height: 180px;
+    height: 150px;
     vertical-align: top;
     font-family: "Times New Roman";
     font-size: 16px;
@@ -22,7 +22,7 @@ div.goals {
 div.description2 {
     width: 50%;
     display: inline-block;
-    height: 180px;
+    height: 210px;
     vertical-align: top;
     font-family: "Times New Roman";
     font-size: 16px;
@@ -33,7 +33,7 @@ div.description2 {
 div.description1 {
     width: 50%;
     display: inline-block;
-    height: 180px;
+    height: 210px;
     vertical-align: top;
     font-size: 0;
     line-height: 21px;

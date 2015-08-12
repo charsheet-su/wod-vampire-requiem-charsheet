@@ -178,7 +178,9 @@ $(document).ready(function () {
 });
 
 //load data with editable name
-function load_props(complete, json, title, field, container, dots) {
+function load_props(complete, json, title, field, container, dots, max) {
+    if (max == undefined)
+        max = 6;
     var sp = $('<span></span>');
     sp.attr('data-title', 'Select ' + title)
         .attr('data-type', 'select')
@@ -190,7 +192,7 @@ function load_props(complete, json, title, field, container, dots) {
     var div = $('<div></div>');
     div.attr('class', field + '_name');
     div.append(sp);
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < max; i++) {
         var div2 = div.clone();
         div2.find('span')
             .attr('data-name', field + '_name[' + i + ']')
@@ -301,12 +303,13 @@ function load_all() {
     //set virtues
     a = new $.Deferred();
     deferreds.push(a);
-    set_data(['advantages/virtues.json'], 'virtue', '.virtues', a);
+    //set_data(['advantages/virtues.json'], 'virtue', '.virtues', a);
+    load_props(a, 'get/advantages/virtues.json', 'virtue', 'virtue', '.virtues',5, 3);
 
-    //set numina
+    //set disciplines
     a = new $.Deferred();
     deferreds.push(a);
-    load_props(a, 'get/advantages/numina.json', 'numina', 'numina', '.numina');
+    load_props(a, 'get/advantages/disciplines.json', 'discipline', 'discipline', '.disciplines');
 
 
     a = new $.Deferred();
@@ -331,7 +334,6 @@ function load_all() {
     deferreds.push(a);
     load_custom_props(a);
 
-    set_dots_fields();
 
     //when all settings are loaded, we load charsheet data:
     $.when.all(deferreds).then(function () {
@@ -342,6 +344,7 @@ function load_all() {
         load_useful();//load bottom panel
 
         $.when.all(deferreds).then(function () {
+            set_dots_fields();
             //when everything is loaded, we display it
             loadingPannel.hide();
             $('.list-align').css('display', 'block');
@@ -369,6 +372,17 @@ function set_dots_fields() {
     });
 
     $('select[name="Willpower_current"]').barrating('show', {
+        wrapperClass: 'br-wrapper-f2',
+        showSelectedRating: false,
+        selectedImage: 'img/checkbox_big_1.png',
+        unSelectedImage: 'img/checkbox_big_0.png',
+        onSelect: function (value, text) {
+            send_dots('Willpower_current', value);
+        }
+    });
+
+
+    $('select[name="Bloodpool"]').barrating('show', {
         wrapperClass: 'br-wrapper-f2',
         showSelectedRating: false,
         selectedImage: 'img/checkbox_big_1.png',
@@ -461,7 +475,7 @@ function set_editable_fields() {
     });
 
     //init simple editables which do not require params
-    var e = ['clan','generation','sire','nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
+    var e = ['embrace_date','path','clan', 'generation', 'sire', 'nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts-major',
         'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
         'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
         'misc', 'residence_details', 'prelude', 'goals', 'description', 'date_of_birth', 'place_of_birth', 'apparent_age',

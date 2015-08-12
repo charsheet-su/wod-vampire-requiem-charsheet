@@ -130,20 +130,22 @@ body {
 }
 
 .prop-header {
-    font-family: "Percolator expert";
+    font-family: "Morpheus";
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     position: absolute;
     top: 0px;
     width: 100%;
+    color: #581a12;
 }
 
 .prop-header-nobg {
-    font-family: "Percolator expert";
+    font-family: "Morpheus";
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     width: 33.3%;
     display: inline-block;
+    color: #581a12;
 }
 
 .prop-header-img {
