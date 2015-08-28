@@ -32,16 +32,17 @@
     line-height: 20px;
     vertical-align: top;
     display: inline-block;
-    width: 50%;
+    width: 60%;
     text-align: left;
 }
 
 .background_value {
     display: inline-block;
-    width: 50%;
+    width: 40%;
     vertical-align: top;
     line-height: 20px;
     vertical-align: top;
+    text-align: left;
 }
 
 .discipline_name {
@@ -51,14 +52,15 @@
     line-height: 20px;
     vertical-align: top;
     display: inline-block;
-    width: 50%;
+    width: 60%;
 }
 
 .discipline_value {
     display: inline-block;
-    width: 50%;
+    width: 40%;
     line-height: 20px;
     vertical-align: top;
+    text-align: left;
 }
 
 .trait_name {
@@ -68,14 +70,15 @@
     line-height: 20px;
     vertical-align: top;
     display: inline-block;
-    width: 65%;
+    width: 60%;
 }
 
 .trait_value {
     display: inline-block;
-    width: 35%;
+    width: 40%;
     line-height: 20px;
     vertical-align: top;
+    text-align: left;
 }
 
 .other_traits {
