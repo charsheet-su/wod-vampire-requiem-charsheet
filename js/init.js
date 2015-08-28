@@ -475,7 +475,8 @@ function set_editable_fields() {
     });
 
     //init simple editables which do not require params
-    var e = ['weakness','embrace_date', 'path', 'clan', 'generation', 'sire', 'nature', 'demeanor', 'age', 'derangements', 'languages', 'languages', 'allies', 'influence', 'contacts - major',
+    var e = ['weakness', 'embrace_date', 'path', 'clan', 'generation', 'sire', 'nature', 'demeanor', 'age', 'derangements',
+        'languages', 'languages', 'allies', 'influence', 'contacts-major',
         'mentor', 'residence', 'concept', 'chronicle', 'player_name', 'char_name', 'fame', 'status', 'resources',
         'contacts-minor', 'other1_name', 'other2_name', 'other1_value', 'other2_value', 'gear', 'equipment', 'vehicles',
         'misc', 'residence_details', 'prelude', 'goals', 'description', 'date_of_birth', 'place_of_birth', 'apparent_age',
