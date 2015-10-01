@@ -404,7 +404,7 @@ function load_useful() {
     if (check_devel())
         return;//do not load for development environment
     $.ajax({
-        url: '/js/useful.html',
+        url: '/js/useful.php',
         type: 'get',
         contentType: false,
         processData: false,
