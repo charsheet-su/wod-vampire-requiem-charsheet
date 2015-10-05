@@ -27,10 +27,8 @@ function change_mode(mode) {
         $('span[data-name="experience"]').editable('setValue', "");
         //reset used willpower
         $('select[name="Willpower_current"]')
-            .barrating('set', 0)
             .barrating('clear');
         $('select[name="Bloodpool"]')
-            .barrating('set', 0)
             .barrating('clear');
 
         //hide all non used editables

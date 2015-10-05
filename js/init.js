@@ -575,6 +575,7 @@ function load_saved(complete) {
                     a = $('select[name="' + index + '"]');
 
                     if (a != undefined && a.is('select')) {
+                        a.val(val);
                         a.barrating('set', val);
                     }
                 }
