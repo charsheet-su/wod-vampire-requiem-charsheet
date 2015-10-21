@@ -32,17 +32,17 @@
     line-height: 20px;
     vertical-align: top;
     display: inline-block;
-    width: 60%;
+    width: 50%;
     text-align: left;
 }
 
 .background_value {
     display: inline-block;
-    width: 40%;
+    width: 50%;
     vertical-align: top;
     line-height: 20px;
     vertical-align: top;
-    text-align: left;
+    text-align: center;
 }
 
 .discipline_name {
@@ -52,15 +52,15 @@
     line-height: 20px;
     vertical-align: top;
     display: inline-block;
-    width: 60%;
+    width: 50%;
 }
 
 .discipline_value {
     display: inline-block;
-    width: 40%;
+    width: 50%;
     line-height: 20px;
     vertical-align: top;
-    text-align: left;
+    text-align: center;
 }
 
 .trait_name {

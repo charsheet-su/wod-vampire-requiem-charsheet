@@ -1,5 +1,103 @@
 /*For dots */
 
+@font-face {
+    font-family: "Dots";
+    src: url(../fonts/dots.otf);
+}
+
+.br-wrapper-f {
+
+    display: inline-block;
+}
+
+.br-wrapper-f .br-widget .br-current-rating {
+    text-align: center;
+}
+
+.br-wrapper-f .br-widget {
+    height: 12px;
+    white-space: nowrap;
+    font-family: Dots;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.br-wrapper-f .br-widget a {
+    text-decoration: none;
+    height: 14px;
+    width: 14px;
+    font-size: 18px;
+    margin-right: 2px;
+    float: left;
+}
+
+.br-wrapper-f .br-widget a:after {
+    content: "A";
+    color: #000;
+}
+
+.br-wrapper-f .br-widget a.br-active:after {
+    content: "B";
+    color: #390000;
+}
+
+.br-wrapper-f .br-widget a.br-selected:after {
+    content: "B";
+    color: #390000;
+}
+
+.br-wrapper-f .br-widget .br-current-rating {
+    display: none;
+}
+
+/* for pseudo checkbox*/
+
+.br-wrapper-f2 {
+
+    display: inline-block;
+}
+
+.br-wrapper-f2 .br-widget .br-current-rating {
+    text-align: center;
+}
+
+.br-wrapper-f2 .br-widget {
+    height: 14px;
+    font-family: Dots;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: 800;
+}
+
+.br-wrapper-f2 .br-widget a {
+    text-decoration: none;
+    height: 18px;
+    width: 14px;
+    font-size: 20px;
+    margin-right: 2px;
+    float: left;
+}
+
+.br-wrapper-f2 .br-widget a:after {
+    content: "C";
+    color: #000;
+}
+
+.br-wrapper-f2 .br-widget a.br-active:after {
+    content: "D";
+    color: #390000;
+}
+
+.br-wrapper-f2 .br-widget a.br-selected:after {
+    content: "D";
+    color: #390000;
+}
+
+.br-wrapper-f2 .br-widget .br-current-rating {
+    display: none;
+}
+
+/*
 .br-wrapper-f .br-widget {
     height: 12px;
     display: inline-block;
@@ -19,10 +117,10 @@
     width: 12px;
     margin-left: 1px;
     margin-top: 1px;
-}
+}*/
 
 /* for pseudo checkbox*/
-
+/*
 .br-wrapper-f2 .br-widget {
     height: 12px;
     display: inline-block;
@@ -42,4 +140,4 @@
     width: 12px;
     margin-left: 1px;
     margin-top: 1px;
-}
+}*/

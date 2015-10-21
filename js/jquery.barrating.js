@@ -1,5 +1,5 @@
 /**
- * jQuery Bar Rating Plugin v1.1.0
+ * jQuery Bar Rating Plugin v1.1.2
  *
  * http://github.com/antennaio/jquery-bar-rating
  *
@@ -9,12 +9,20 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  */
-(function ($) {
-    var BarRating, root;
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node/CommonJS
+        module.exports = factory(require('jquery'));
+    } else {
+        // browser globals
+        factory(jQuery);
+    }
+}(function ($) {
 
-    root = typeof window !== "undefined" && window !== null ? window : global;
-
-    root.BarRating = BarRating = (function() {
+    var BarRating = (function() {
 
         function BarRating() {
             var self = this;
@@ -26,7 +34,7 @@
                 if (self.options.theme !== '') {
                     classes.push('br-theme-' + self.options.theme);
                 }
-                
+
                 self.$elem.wrap($('<div />', {
                     'class': classes.join(' ')
                 }));
@@ -50,32 +58,62 @@
                 return option;
             };
 
+            // get data
+            var getData = function(key) {
+                var data = self.$elem.data('barrating');
+
+                if (typeof key !== 'undefined') {
+                    return data[key];
+                }
+
+                return data;
+            };
+
+            // set data
+            var setData = function(key, value) {
+                if (value !== null && typeof value === 'object') {
+                    self.$elem.data('barrating', value);
+                } else {
+                    self.$elem.data('barrating')[key] = value;
+                }
+            };
+
             // save data on element
             var saveDataOnElement = function() {
                 var $opt = findInitialOption();
 
-                self.$elem.data('barrating', {
-
+                setData(null, {
                     userOptions: self.options,
 
                     // initial rating based on the OPTION value
-                    currentRatingValue: $opt.val(),
-                    currentRatingText: ($opt.data('html')) ? $opt.data('html') : $opt.text(),
+                    ratingValue: $opt.val(),
+                    ratingText: ($opt.data('html')) ? $opt.data('html') : $opt.text(),
 
                     // rating will be restored by calling clear method
                     originalRatingValue: $opt.val(),
-                    originalRatingText: ($opt.data('html')) ? $opt.data('html') : $opt.text()
+                    originalRatingText: ($opt.data('html')) ? $opt.data('html') : $opt.text(),
 
+                    // read-only state
+                    readOnly: self.options.readonly,
+
+                    // first OPTION empty - allow deselecting of ratings
+                    deselectable: (!self.$elem.find('option:first').val()) ? true : false
                 });
-
-                // first OPTION empty - allow deselecting of ratings
-                self.$elem.data('barrating').deselectable =
-                    (!self.$elem.find('option:first').val()) ? true : false;
             };
 
             // remove data on element
             var removeDataOnElement = function() {
                 self.$elem.removeData('barrating');
+            };
+
+            // return current rating text
+            var ratingText = function() {
+                return getData('ratingText');
+            };
+
+            // return current rating value
+            var ratingValue = function() {
+                return getData('ratingValue');
             };
 
             // build widget and return jQuery element
@@ -84,7 +122,7 @@
 
                 // create A elements that will replace OPTIONs
                 self.$elem.find('option').each(function() {
-                    var val, text, html, $a, $span;
+                    var val, text, html, $a;
 
                     val = $(this).val();
 
@@ -94,8 +132,12 @@
                         html = $(this).data('html');
                         if (html) { text = html; }
 
-                        $a = $('<img />', { 'src': self.options.unSelectedImage, 'data-rating-value': val, 'data-rating-text': text });
-                        //$span = $('<span />', { 'html': (self.options.showValues) ? text : '' });
+                        $a = $('<a />', {
+                            'href': '#',
+                            'data-rating-value': val,
+                            'data-rating-text': text,
+                            'html': (self.options.showValues) ? text : ''
+                        });
 
                         $w.append($a);
                     }
@@ -138,7 +180,7 @@
             // display the currently selected rating
             var showSelectedRating = function(text) {
                 // text undefined?
-                text = text ? text : self.$elem.data('barrating').currentRatingText;
+                text = text ? text : ratingText();
 
                 // update .br-current-rating div
                 if (self.options.showSelectedRating) {
@@ -147,69 +189,60 @@
             };
 
             // apply style by setting classes on elements
-            var applyStyle = function($w) {
+            var applyStyle = function() {
                 // remove classes
-                //$w.find('a').removeClass('br-selected br-current');
+                self.$widget.find('a').removeClass('br-selected br-current');
 
                 // add classes
-                $w.find('img')
-                    .attr('src',self.options.unSelectedImage);
+                self.$widget.find('a[data-rating-value="' + ratingValue() + '"]')
+                    .addClass('br-selected br-current')[nextAllorPreviousAll()]()
+                    .addClass('br-selected');
+            };
 
-                // add classes
-                $w.find('img[data-rating-value="' + self.$elem.data('barrating').currentRatingValue + '"]')
-                    .attr('src',self.options.selectedImage)[nextAllorPreviousAll()]()
-                    .attr('src',self.options.selectedImage);
-
-                // add classes
-                //$w.find('a[data-rating-value="' + self.$elem.data('barrating').currentRatingValue + '"]')
-                //    .addClass('br-selected br-current')[nextAllorPreviousAll()]()
-                //    .addClass('br-selected');
+            // check if the element is deselectable?
+            var isDeselectable = function($element) {
+                return ($element.hasClass('br-current') && getData('deselectable'));
             };
 
             // handle click events
-            var attachClickHandler = function($all) {
-                $all.on('click', function(event) {
+            var attachClickHandler = function($elements) {
+                $elements.on('click.barrating', function(event) {
                     var $a = $(this),
                         value,
                         text;
 
                     event.preventDefault();
 
-                    $all.attr('src',self.options.unSelectedImage);
-                    $a.attr('src',self.options.selectedImage)[nextAllorPreviousAll()]()
-                        .attr('src',self.options.selectedImage);
+                    $elements.removeClass('br-active br-selected');
+                    $a.addClass('br-selected')[nextAllorPreviousAll()]()
+                        .addClass('br-selected');
 
                     value = $a.attr('data-rating-value');
                     text = $a.attr('data-rating-text');
 
                     // is current and deselectable?
-                    if (($a.hasClass('br-current') && self.$elem.data('barrating').deselectable)) {
-                        $a.attr('src',self.options.unSelectedImage)[nextAllorPreviousAll()]()
-                            .attr('src',self.options.unSelectedImage);
-
+                    if (isDeselectable($a)) {
                         $a.removeClass('br-selected br-current')[nextAllorPreviousAll()]()
                             .removeClass('br-selected br-current');
                         value = ''; text = '';
                     } else {
-                        $all.attr('src',self.options.unSelectedImage);
-                        $a.attr('src',self.options.selectedImage);
-
-                        $all.removeClass('br-current');
+                        $elements.removeClass('br-current');
                         $a.addClass('br-current');
                     }
 
                     // remember selected rating
-                    self.$elem.data('barrating').currentRatingValue = value;
-                    self.$elem.data('barrating').currentRatingText = text;
+                    setData('ratingValue', value);
+                    setData('ratingText', text);
 
                     setSelectFieldValue(value);
                     showSelectedRating(text);
 
                     // onSelect callback
                     self.options.onSelect.call(
-                        this,
-                        self.$elem.data('barrating').currentRatingValue,
-                        self.$elem.data('barrating').currentRatingText
+                        self,
+                        ratingValue(),
+                        ratingText(),
+                        event
                     );
 
                     return false;
@@ -217,36 +250,32 @@
             };
 
             // handle mouseenter events
-            var attachMouseEnterHandler = function($all) {
-                $all.on({
-                    mouseenter: function() {
-                        var $a = $(this);
+            var attachMouseEnterHandler = function($elements) {
+                $elements.on('mouseenter.barrating', function() {
+                    var $a = $(this);
 
-                        $all.attr('src',self.options.unSelectedImage);
-                        $a.attr('src',self.options.selectedImage)[nextAllorPreviousAll()]()
-                            .attr('src',self.options.selectedImage);
+                    $elements.removeClass('br-active br-selected');
+                    $a.addClass('br-active')[nextAllorPreviousAll()]()
+                        .addClass('br-active');
 
-                        showSelectedRating($a.attr('data-rating-text'));
-                    }
+                    showSelectedRating($a.attr('data-rating-text'));
                 });
             };
 
             // handle mouseleave events
-            var attachMouseLeaveHandler = function($all, $widget) {
-                $widget.on({
-                    mouseleave: function() {
-                        $all.attr('src',self.options.unSelectedImage);
-                        showSelectedRating();
-                        applyStyle($widget);
-                    }
+            var attachMouseLeaveHandler = function($elements) {
+                self.$widget.on('mouseleave.barrating', function() {
+                    $elements.removeClass('br-active');
+                    showSelectedRating();
+                    applyStyle();
                 });
             };
 
             // somewhat primitive way to remove 300ms click delay on touch devices
             // for a more advanced solution consider setting `fastClicks` option to false
             // and using a library such as fastclick (https://github.com/ftlabs/fastclick)
-            var fastClicks = function($all) {
-                $all.on('touchstart', function(event) {
+            var fastClicks = function($elements) {
+                $elements.on('touchstart.barrating', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
 
@@ -255,17 +284,48 @@
             };
 
             // disable clicks
-            var disableClicks = function($all) {
-                $all.on('click', function(event) {
+            var disableClicks = function($elements) {
+                $elements.on('click.barrating', function(event) {
                     event.preventDefault();
                 });
             };
 
-            this.show = function() {
-                var $widget, $all;
+            var attachHandlers = function($elements) {
+                // attach click event handler
+                attachClickHandler($elements);
 
+                if (self.options.hoverState) {
+                    // attach mouseenter event handler
+                    attachMouseEnterHandler($elements);
+
+                    // attach mouseleave event handler
+                    attachMouseLeaveHandler($elements);
+                }
+            };
+
+            var detachHandlers = function($elements) {
+                // remove event handlers in the ".barrating" namespace
+                $elements.off('.barrating');
+            };
+
+            var setupHandlers = function(readonly) {
+                $elements = self.$widget.find('a');
+
+                if (fastClicks) {
+                    fastClicks($elements);
+                }
+
+                if (readonly) {
+                    detachHandlers($elements);
+                    disableClicks($elements);
+                } else {
+                    attachHandlers($elements);
+                }
+            };
+
+            this.show = function() {
                 // run only once
-                if (self.$elem.data('barrating')) return;
+                if (getData()) return;
 
                 // wrap element
                 wrapElement();
@@ -274,77 +334,79 @@
                 saveDataOnElement();
 
                 // build & append widget to the DOM
-                $widget = buildWidget();
-                $widget.insertAfter(self.$elem);
-                applyStyle($widget);
+                self.$widget = buildWidget();
+                self.$widget.insertAfter(self.$elem);
+
+                applyStyle();
 
                 showSelectedRating();
 
-                $all = $widget.find('img');
-
-                if (self.options.fastClicks) {
-                    fastClicks($all);
-                }
-
-                if (self.options.readonly) {
-
-                    // do not react to click events if rating is read-only
-                    disableClicks($all);
-
-                } else {
-
-                    // attach click event handler
-                    attachClickHandler($all);
-
-                    // attach mouseenter event handler
-                    attachMouseEnterHandler($all);
-
-                     // attach mouseleave event handler
-                    attachMouseLeaveHandler($all, $widget);
-
-                }
+                setupHandlers(self.options.readonly);
 
                 // hide the select field
                 self.$elem.hide();
             };
 
+            this.readonly = function(state) {
+                if (typeof state !== 'boolean' || getData('readOnly') == state) return;
+
+                setupHandlers(state);
+                setData('readOnly', state);
+                self.$widget.toggleClass('br-readonly');
+            };
+
             this.set = function(value) {
-                if (!this.$elem.find('option[value="' + value + '"]').val()) return;
+                var options = getData('userOptions');
+
+                if (!self.$elem.find('option[value="' + value + '"]').val()) return;
 
                 // set data
-                this.$elem.data('barrating').currentRatingValue = value;
-                this.$elem.data('barrating').currentRatingText = this.$elem.find('option[value="' + value + '"]').text();
+                setData('ratingValue', value);
+                setData('ratingText', self.$elem.find('option[value="' + value + '"]').text());
 
-                setSelectFieldValue(this.$elem.data('barrating').currentRatingValue);
-                showSelectedRating(this.$elem.data('barrating').currentRatingText);
+                setSelectFieldValue(ratingValue());
+                showSelectedRating(ratingText());
 
-                applyStyle(this.$widget);
+                applyStyle();
+
+                // onSelect callback
+                /*options.onSelect.call(
+                    this,
+                    ratingValue(),
+                    ratingText()
+                );*/
             };
 
             this.clear = function() {
+                var options = getData('userOptions');
+
                 // restore original data
-                this.$elem.data('barrating').currentRatingValue = this.$elem.data('barrating').originalRatingValue;
-                this.$elem.data('barrating').currentRatingText = this.$elem.data('barrating').originalRatingText;
+                setData('ratingValue', getData('originalRatingValue'));
+                setData('ratingText', getData('originalRatingText'));
 
-                setSelectFieldValue(this.$elem.data('barrating').currentRatingValue);
-                showSelectedRating(this.$elem.data('barrating').currentRatingText);
+                setSelectFieldValue(ratingValue());
+                showSelectedRating(ratingText());
 
-                applyStyle(this.$widget);
+                applyStyle();
 
                 // onClear callback
-                this.$elem.data('barrating').userOptions.onClear.call(
+                options.onClear.call(
                     this,
-                    this.$elem.data('barrating').currentRatingValue,
-                    this.$elem.data('barrating').currentRatingText
+                    ratingValue(),
+                    ratingText()
                 );
             };
 
             this.destroy = function() {
-                var value = this.$elem.data('barrating').currentRatingValue;
-                var text = this.$elem.data('barrating').currentRatingText;
-                var options = this.$elem.data('barrating').userOptions;
+                var value = ratingValue();
+                var text = ratingText();
+                var options = getData('userOptions');
 
-                this.$widget.off().remove();
+                // detach handlers
+                detachHandlers(self.$widget.find('a'));
+
+                // remove widget
+                self.$widget.remove();
 
                 // remove data
                 removeDataOnElement();
@@ -353,7 +415,7 @@
                 unwrapElement();
 
                 // show the element
-                this.$elem.show();
+                self.$elem.show();
 
                 // onDestroy callback
                 options.onDestroy.call(
@@ -367,6 +429,7 @@
         BarRating.prototype.init = function (options, elem) {
             this.$elem = $(elem);
             this.options = $.extend({}, $.fn.barrating.defaults, options);
+
             return this.options;
         };
 
@@ -395,7 +458,7 @@
                     }
                 }
 
-            // no method supplied or only options supplied
+                // no method supplied or only options supplied
             } else if (typeof method === 'object' || !method) {
                 options = method;
                 plugin.init(options, this);
@@ -406,19 +469,18 @@
             }
         });
     };
-//.attr('src',self.options.selectedImage)
+
     $.fn.barrating.defaults = {
-        selectedImage: 'img/dot_big_1.png',
-        unSelectedImage: 'img/dot_big_0.png',
         theme:'',
         initialRating:null, // initial rating
         showValues:false, // display rating values on the bars?
-        showSelectedRating:true, // append a div with a rating to the widget?
+        showSelectedRating:false, // append a div with a rating to the widget?
         reverse:false, // reverse the rating?
         readonly:false, // make the rating ready-only?
         fastClicks:true, // remove 300ms click delay on touch devices?
+        hoverState:true, // change state on hover?
         wrapperClass:'br-wrapper', // class applied to wrapper div
-        onSelect:function (value, text) {
+        onSelect:function (value, text, event) {
         }, // callback fired when a rating is selected
         onClear:function (value, text) {
         }, // callback fired when a rating is cleared
@@ -426,6 +488,6 @@
         } // callback fired when a widget is destroyed
     };
 
-    return $.fn.barrating.defaults;
+    $.fn.barrating.BarRating = BarRating;
 
-})(jQuery);
+}));
