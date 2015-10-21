@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Dots";
+    src: url(../fonts/dots.otf);
+}
 
 .prop_value input {
     width: 100px;
@@ -145,10 +149,21 @@
     vertical-align: top;
 }
 
-.health-control img {
+.health-control span.checkbox {
     width: 14px;
     position: relative;
-    left: 14px;
+    left: 7px;
+    font-family: "Dots";
+    font-style: normal;
+    font-size: 22px;
+    top: 1px;
+    margin: 0;
+}
+
+.health-control span.checkbox:after {
+    content: "C";
+    color: #000;
+
 }
 
 .health-control span {
@@ -157,7 +172,7 @@
     height: 14px;
     display: inline-block;
     position: relative;
-    vertical-align: middle;
+    vertical-align: top;
     line-height: 14px;
     font-size: 12px;
 }
