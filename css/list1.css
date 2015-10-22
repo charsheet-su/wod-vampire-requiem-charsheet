@@ -152,11 +152,10 @@
 .health-control span.checkbox {
     width: 14px;
     position: relative;
-    left: 7px;
+    left: 8px;
     font-family: "Dots";
     font-style: normal;
-    font-size: 22px;
-    top: 1px;
+    font-size: 20px;
     margin: 0;
 }
 

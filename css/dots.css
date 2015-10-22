@@ -25,9 +25,8 @@
 .br-wrapper-f .br-widget a {
     text-decoration: none;
     height: 14px;
-    width: 14px;
-    font-size: 18px;
-    margin-right: 2px;
+    width: 13px;
+    font-size: 16px;
     float: left;
 }
 
@@ -72,9 +71,8 @@
 .br-wrapper-f2 .br-widget a {
     text-decoration: none;
     height: 18px;
-    width: 14px;
-    font-size: 20px;
-    margin-right: 2px;
+    width: 13px;
+    font-size: 18px;
     float: left;
 }
 
