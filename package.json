@@ -1,0 +1,56 @@
+{
+  "name": "charsheet-vampire-requiem",
+  "version": "0.0.1",
+  "description": "Charsheet.su - character sheet for vampire in requiem styling",
+  "keywords": [
+    "vampire",
+    "wod"
+  ],
+  "scripts": {
+    "lint": "node ./node_modules/eslint/bin/eslint.js ./src/js/images.js ./src/js/index.js ./src/js/init.js ./src/js/mode.js",
+    "build-dev": "node ./node_modules/webpack/bin/webpack.js --env=dev --progress --profile --colors",
+    "build": "node ./node_modules/webpack/bin/webpack.js --env=prod --progress --profile --colors",
+    "prepublish": "npm run build",
+    "test": "npm run build-dev && npm run lint",
+    "update-dev": "git pull origin master && npm run build-dev && chown charsheet:charsheet . -R",
+    "update-prod": "git pull origin master && npm run build && chown charsheet:charsheet . -R"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jehy/wod-vampire-requiem-charsheet"
+  },
+  "author": "Jehy",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "moment": "^2.18.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "select2": "^4.0.3",
+    "typeahead.js": "^0.11.1",
+    "x-editable": "^1.5.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.2.0",
+    "webpack-bundle-analyzer": "^2.8.2"
+  }
+}

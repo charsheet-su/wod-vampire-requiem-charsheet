@@ -2,53 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU">
 <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <!-- momentjs -->
-    <script src="x-editable/moment.min.js"></script>
-
-    <!-- select2 -->
-    <link href="x-editable/select2.css" rel="stylesheet">
-    <script src="x-editable/select2.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <!-- bootstrap-datetimepicker
-    <link href="x-editable/datetimepicker.css" rel="stylesheet">
-    <script src="x-editable/bootstrap-datetimepicker.js"></script>
-    -->
-    <!-- x-editable (bootstrap 3) -->
-    <link href="x-editable/bootstrap-editable.css" rel="stylesheet">
-    <script src="x-editable/bootstrap-editable.js"></script>
-
-    <!-- select2 bootstrap -->
-    <link href="x-editable/select2-bootstrap.css" rel="stylesheet">
-
-    <!-- typeaheadjs -->
-    <link href="x-editable/typeahead.js-bootstrap.css" rel="stylesheet">
-    <script src="x-editable/typeahead.js"></script>
-    <link href="css/list1.css" rel="stylesheet">
-    <link href="css/list2.css" rel="stylesheet">
-    <link href="css/list3.css" rel="stylesheet">
-    <link href="css/list4.css" rel="stylesheet">
-    <link href="css/dots.css" rel="stylesheet">
-    <link href="css/charlist.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet">
-    <script src="js/jquery.barrating.js"></script>
     <title>Vampire Character sheet</title>
 </head>
 <body>
 <div class="list-align">
 
 <div class="list-sep  hidden-print"></div>
-<div class="list"><img src="img/back_big.png" class="bg-image">
+<div class="list"><img src="<%= require('../img/back_big.png') %>" class="bg-image">
 
 <div class="list-inner">
 <div class="main-header">
@@ -85,7 +45,7 @@
         </svg>
     </div>
     <div class="prop_value">
-            <span data-name="nature" data-type="select" data-value="5" data-source="get/basic/nature.json" data-pk="1"
+            <span data-name="nature" data-type="select" data-value="5" data-pk="1"
                   data-title="Select nature"></span>
     </div>
 
@@ -124,7 +84,7 @@
         </svg>
     </div>
     <div class="prop_value">
-            <span data-name="demeanor" data-type="select" data-value="5" data-source="get/basic/nature.json" data-pk="1"
+            <span data-name="demeanor" data-type="select" data-value="5" data-pk="1"
                   data-title="Select Demeanor"></span></div>
 
     <div class="prop">
@@ -179,7 +139,7 @@
     </div>
 </div>
 <div class="header-sub-placeholder">
-    <img src="img/h1_bg_big.png" class="header-sub-img">
+    <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
     <div class="header-sub"><span>
 
@@ -225,7 +185,7 @@
 </div>
 
 <div class="header-sub-placeholder">
-    <img src="img/h1_bg_big.png" class="header-sub-img">
+    <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
     <div class="header-sub"><span><svg height="30" width="200">
         <text
@@ -264,7 +224,7 @@
 </div>
 
 <div class="header-sub-placeholder">
-    <img src="img/h1_bg_big.png" class="header-sub-img">
+    <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
     <div class="header-sub"><span><svg height="30" width="200">
         <text
@@ -319,7 +279,7 @@
 </div>
 
 <div class="header-sub-placeholder">
-    <img src="img/h1_bg_big.png" class="header-sub-img">
+    <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
     <div class="header-sub"><span><svg height="30" width="800">
         <text
@@ -347,7 +307,7 @@
 
 <div class="humanity_willpower_container">
     <div class="path"><span data-name="path" data-type="select" data-title="Enter path" data-pk="1"
-                            data-source="get/paths.json">Humanity</span></div>
+                            >Humanity</span></div>
     <br>
 
     <div style="margin-top: 10px;">
@@ -512,7 +472,7 @@
     </svg>
 
     <div style="position:relative;margin-top:5px;">
-        <img src="img/bg-exp.png" style="width: 180px;position: absolute;">
+        <img src="<%= require('../img/bg-exp.png') %>" style="width: 180px;position: absolute;">
         <span class="experience" data-name="experience" data-type="text" data-title="Enter experience"
               data-pk="1"> </span>
     </div>
@@ -524,7 +484,7 @@
 <div class="list-sep  hidden-print"></div>
 
 
-<div class="list"><img src="img/back_big.png" class="bg-image">
+<div class="list"><img src="<%= require('../img/back_big.png') %>" class="bg-image">
 
     <div class="list-inner">
         <div class="main-header">
@@ -534,7 +494,7 @@
         </div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="200">
@@ -571,7 +531,7 @@
         </div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="220">
@@ -586,7 +546,7 @@
         <div class="custom_props"></div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">&nbsp;<span></span></div>
         </div>
@@ -616,7 +576,7 @@
         </div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="110">
@@ -646,7 +606,7 @@
         </table>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="150">
@@ -681,7 +641,7 @@
 <div class="list-sep  hidden-print"></div>
 
 
-<div class="list"><img src="img/back_big.png" class="bg-image">
+<div class="list"><img src="<%= require('../img/back_big.png') %>" class="bg-image">
 
 <div class="list-inner">
 <div class="main-header">
@@ -691,7 +651,7 @@
 </div>
 
 <div class="header-sub-placeholder">
-    <img src="img/h1_bg_big.png" class="header-sub-img">
+    <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
     <div class="header-sub">
         <svg height="30" width="300">
@@ -825,7 +785,7 @@
 </div>
 
 <div class="header-sub-placeholder">
-    <img src="img/h1_bg_big.png" class="header-sub-img">
+    <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
     <div class="header-sub">
         <svg height="30" width="200">
@@ -890,7 +850,7 @@
 <div class="residence_details">
 
     <div class="header-sub-placeholder">
-        <img src="img/h1_bg_big.png" class="header-sub-img">
+        <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
         <div class="header-sub">
             <svg height="30" width="200">
@@ -913,7 +873,7 @@
 <div class="list-sep  hidden-print"></div>
 
 
-<div class="list"><img src="img/back_big.png" class="bg-image">
+<div class="list"><img src="<%= require('../img/back_big.png') %>" class="bg-image">
 
     <div class="list-inner">
         <div class="main-header">
@@ -923,7 +883,7 @@
         </div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="200">
@@ -963,7 +923,7 @@
         </div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="200">
@@ -1033,7 +993,7 @@
         </div>
 
         <div class="header-sub-placeholder">
-            <img src="img/h1_bg_big.png" class="header-sub-img">
+            <img src="<%= require('../img/h1_bg_big.png') %>" class="header-sub-img">
 
             <div class="header-sub">
                 <svg height="30" width="200">
@@ -1083,10 +1043,5 @@
 <div class="container theme-showcase hidden-print useful_things" role="main">
     <!--here will be different useful things - revisions, comments, print mode-->
 </div>
-<!--load all charsheet data, character data, useful things-->
-<script src="js/init.js"></script>
-<!--load print mode-->
-<script src="js/mode.js"></script>
-<script src="js/images.js"></script>
 </body>
 </html>
