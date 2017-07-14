@@ -4,6 +4,8 @@
 [![dependencies Status](https://david-dm.org/jehy/wod-vampire-requiem-charsheet/status.svg)](https://david-dm.org/jehy/wod-vampire-requiem-charsheet)
 [![devDependencies Status](https://david-dm.org/jehy/wod-vampire-requiem-charsheet/dev-status.svg)](https://david-dm.org/jehy/wod-vampire-requiem-charsheet?type=dev)
 
+![screenshot](screenshot.png)
+
 It is a vampire character sheet with requiem styling, created for [Charsheet.su](http://charsheet.su).   
 It is based on wonderful [Mr Gone's character sheets](http://mrgone.rocksolidshells.com/) 
  so credit for design goes to him.
