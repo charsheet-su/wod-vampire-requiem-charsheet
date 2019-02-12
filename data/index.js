@@ -1,21 +1,22 @@
-const
-  knowledges    = require('./abilities/knowledges.json'),
-  skills        = require('./abilities/skills.json'),
-  talents       = require('./abilities/talents.json'),
-  backgrounds   = require('./advantages/backgrounds.json'),
-  disciplines   = require('./advantages/disciplines.json'),
-  virtues       = require('./advantages/virtues.json'),
-  mental        = require('./attributes/mental.json'),
-  physical      = require('./attributes/physical.json'),
-  social        = require('./attributes/social.json'),
-  nature        = require('./basic/nature.json'),
-  knowledgesSec = require('./secondary/knowledges.json'),
-  skillsSec     = require('./secondary/skills.json'),
-  talentsSec    = require('./secondary/talents.json'),
-  flaws         = require('./flaws.json'),
-  mock          = require('./mock.json'),
-  paths         = require('./paths.json'),
-  merits        = require('./merits.json');
+'use strict';
+
+const knowledges = require('./abilities/knowledges.json');
+const skills = require('./abilities/skills.json');
+const talents = require('./abilities/talents.json');
+const backgrounds = require('./advantages/backgrounds.json');
+const disciplines = require('./advantages/disciplines.json');
+const virtues = require('./advantages/virtues.json');
+const mental = require('./attributes/mental.json');
+const physical = require('./attributes/physical.json');
+const social = require('./attributes/social.json');
+const nature = require('./basic/nature.json');
+const knowledgesSec = require('./secondary/knowledges.json');
+const skillsSec = require('./secondary/skills.json');
+const talentsSec = require('./secondary/talents.json');
+const flaws = require('./flaws.json');
+const mock = require('./mock.json');
+const paths = require('./paths.json');
+const merits = require('./merits.json');
 
 module.exports = {
   knowledges,
