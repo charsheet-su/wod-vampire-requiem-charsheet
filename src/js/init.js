@@ -1,9 +1,10 @@
-const Promise        = require('bluebird'),
-  requestPromise = require('request-promise'),
-  sheetData      = require('../../data/index'),
-  isDevel        = (window.location.href.indexOf('charsheet.su/') === -1),
-  isRevision     = (window.location.pathname.split('/').length === 6),
-  viewModes      = {edit: 0};
+const Promise = require('bluebird');
+const requestPromise = require('request-promise');
+const sheetData = require('../../data/index');
+
+const isDevel = (window.location.href.indexOf('charsheet.su/') === -1);
+const isRevision = (window.location.pathname.split('/').length === 6);
+const viewModes = {edit: 0};
 
 
 /**
