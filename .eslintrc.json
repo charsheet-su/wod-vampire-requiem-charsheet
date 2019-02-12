@@ -1,6 +1,10 @@
 {
   "parserOptions": {
-    "sourceType": "script"
+    "ecmaVersion": 2018,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "jsx": false
+    }
   },
   "env": {
     "browser": false,
@@ -40,7 +44,7 @@
         ]
       }
     ],
-    "strict": "off",
+    "strict": "error",
     "object-curly-newline": "off",
     "prefer-destructuring": "warn",
     "one-var": "off",
@@ -56,10 +60,8 @@
     "no-unused-vars": "warn",
     "object-shorthand": "warn",
     "no-param-reassign": "warn",
-    "no-console": "warn",
     "newline-per-chained-call": "off",
     "no-continue": "off",
-    "no-multi-spaces": "off",
     "max-len": [
       "error",
       140
