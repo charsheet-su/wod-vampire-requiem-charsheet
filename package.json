@@ -10,10 +10,8 @@
     "lint": "node ./node_modules/eslint/bin/eslint.js ./src/js webpack.config.js webpack.dev.js webpack.prod.js data",
     "build-dev": "node ./node_modules/webpack/bin/webpack.js --env=dev --progress --profile --colors",
     "build": "node ./node_modules/webpack/bin/webpack.js --env=prod --progress --profile --colors",
-    "prepublish": "npm run build",
     "test": "npm run lint&& npm run build-dev",
-    "update-dev": "git pull origin master && npm run build-dev && chown charsheet:charsheet . -R",
-    "update-prod": "git pull origin master && npm run build && chown charsheet:charsheet . -R"
+    "update-prod": "git pull origin master && npm i && npm run build && chown charsheet:charsheet . -R"
   },
   "repository": {
     "type": "git",
