@@ -1,5 +1,5 @@
 import '../css/custom/charlist.css';
-import '../css/custom/dots.css';
+import 'charsheet-dots';
 import '../css/custom/list1.css';
 import '../css/custom/list2.css';
 import '../css/custom/list3.css';
@@ -22,7 +22,7 @@ window.$ = $;
 window.jQuery = $;
 require('bootstrap');
 require('./images');
-require('./jquery.barrating');
+require('jquery-bar-rating');
 require('./init');
 
 

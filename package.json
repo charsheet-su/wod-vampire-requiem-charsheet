@@ -1,6 +1,6 @@
 {
   "name": "charsheet-vampire-requiem",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Charsheet.su - character sheet for vampire in requiem styling",
   "keywords": [
     "vampire",
@@ -21,7 +21,10 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.3",
+    "bootstrap": "^3.4.0",
+    "charsheet-dots": "git+https://github.com/charsheet-su/Charsheet-Dots.git",
     "jquery": "^3.3.1",
+    "jquery-bar-rating": "^1.2.2",
     "jquery-ui": "^1.12.1",
     "moment": "^2.24.0",
     "request": "^2.88.0",
@@ -34,7 +37,6 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.5",
-    "bootstrap": "^3.4.0",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
     "eslint": "^5.13.0",
