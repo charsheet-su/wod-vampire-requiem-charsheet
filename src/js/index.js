@@ -16,6 +16,12 @@ import '../../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 
 import '../../node_modules/select2/dist/css/select2.css';
 
+import LazyLoad from 'vanilla-lazyload';
+
+const myLazyLoad = new LazyLoad({
+  elements_selector: '.lazy',
+});
+
 const $ = require('jquery');
 
 window.$ = $;
