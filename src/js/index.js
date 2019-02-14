@@ -18,24 +18,21 @@ import '../../node_modules/select2/dist/css/select2.css';
 
 import LazyLoad from 'vanilla-lazyload';
 
+import 'jquery';
+import 'bootstrap';
+import './images';
+import 'jquery-bar-rating';
+import './init';
+
+
+import 'x-editable/src/inputs/datetime/bootstrap-datetimepicker/js/bootstrap-datetimepicker';
+import 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable';
+
+import 'jquery-ui';
+import 'moment';
+import 'select2';
+import 'typeahead.js';
+
 const myLazyLoad = new LazyLoad({
   elements_selector: '.lazy',
 });
-
-const $ = require('jquery');
-
-window.$ = $;
-window.jQuery = $;
-require('bootstrap');
-require('./images');
-require('jquery-bar-rating');
-require('./init');
-
-
-require('x-editable/src/inputs/datetime/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js');
-require('x-editable/dist/bootstrap3-editable/js/bootstrap-editable');
-
-require('jquery-ui');
-require('moment');
-require('select2');
-require('typeahead.js');

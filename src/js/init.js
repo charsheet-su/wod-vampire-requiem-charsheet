@@ -1,7 +1,11 @@
-const Promise = require('bluebird');
-const requestPromise = require('request-promise');
-const sheetData = require('wod-data-vampire');
-const mockData = require('../../data/mock.json');
+import * as Promise from 'bluebird';
+import * as requestPromise from 'request-promise';
+import * as sheetData from 'wod-data-vampire';
+import $ from 'jquery';
+import mockData from '../../data/mock.json';
+
+window.jQuery = $;
+window.$ = $;
 
 const isDevel = (window.location.href.indexOf('charsheet.su/') === -1);
 const isRevision = (window.location.pathname.split('/').length === 6);
@@ -193,6 +197,7 @@ function loadProps(json, title, field, container, dots, max) {
 
 function setTraits(secondary) {
   const sp = $('<span></span>');
+  const otherTraits = $('.other_traits');
   sp.attr('data-title', 'Select trait')
     .attr('data-type', 'select')
     .attr('data-pk', '1')
@@ -207,8 +212,8 @@ function setTraits(secondary) {
     div2.find('span')
       .attr('data-name', `trait_name[${i}]`)
       .editable({source: secondary});
-    $('.other_traits').append(div2);
-    createDots($('.other_traits'), `trait_value[${i}]`, 'trait');
+    otherTraits.append(div2);
+    createDots(otherTraits, `trait_value[${i}]`, 'trait');
   }
 }
 
@@ -554,8 +559,8 @@ function loadAll() {
   loadSaved().then(() => {
     // when everything is loaded, we display it
     setDotsFields();
-    loadingPannel.hide();
     $('.list-align').css('display', 'block');
+    loadingPannel.hide();
   });
 }
 

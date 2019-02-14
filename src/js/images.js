@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 function readURL(input, to) {
 
   if (!(input.files && input.files[0])) {
