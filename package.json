@@ -7,7 +7,7 @@
     "wod"
   ],
   "scripts": {
-    "lint": "node ./node_modules/eslint/bin/eslint.js ./src/js webpack.config.js webpack.dev.js webpack.prod.js data",
+    "lint": "node ./node_modules/eslint/bin/eslint.js ./src/js webpack.config.js webpack.dev.js webpack.prod.js",
     "build-dev": "node ./node_modules/webpack/bin/webpack.js --env=dev --progress --profile --colors",
     "build": "node ./node_modules/webpack/bin/webpack.js --env=prod --progress --profile --colors",
     "test": "npm run lint&& npm run build-dev",
