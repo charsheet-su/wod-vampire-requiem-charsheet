@@ -1,5 +1,3 @@
-import * as Promise from 'bluebird';
-import * as requestPromise from 'request-promise';
 import * as sheetData from 'wod-data-vampire';
 import * as commons from 'charsheet-commons';
 import $ from 'jquery';
@@ -25,43 +23,6 @@ function barratingValidator(value) {
     return 'You can not edit revision data! If you want it - restore revision and edit it.';
   }
   return null;
-}
-
-
-// here we send dot values to server with ajax
-function sendDots(attr, value) {
-  // var data = {};
-  // attr=attr.replace('[','%5B').replace(']','%5D');
-  // data[attr] = value;
-  if (commons.options.isDevel()) {
-    console.log(`Saving ${attr} = ${value}`);
-    return;
-  }
-  if (commons.options.isRevision()) {
-    errorPanel.show('You can not edit revision data! If you want it - restore revision and edit it.');
-    return;
-  }
-  const options = {
-    method: 'POST',
-    uri: `${window.location.protocol}//${window.location.hostname}/api/save/`,
-    form: {
-      name: attr, value,
-    },
-    json: true,
-    headers: {},
-  };
-
-  requestPromise(options)
-    .then((data)=> {
-      if (data.error !== undefined) {
-        errorPanel.show(`Error sending dots: ${data.error}`);
-      }
-      // POST succeeded...
-    })
-    .catch((err)=> {
-      errorPanel.show(`Error sending dots: ${JSON.stringify(err)}`);
-      // POST failed...
-    });
 }
 
 
@@ -91,7 +52,7 @@ function createDots(mainContainer, name, elClass, caption, points) {
     validate: barratingValidator,
     silent: true,
     onSelect(value, text) {
-      sendDots(name, value);
+      commons.dataClient.sendDot(name, value);
     },
   })
     .attr('name', name);
@@ -214,7 +175,7 @@ function setBloodPoolSize(x) {
     unSelectedImage: 'img/checkbox_big_0.png',
     initialRating: val,
     onSelect(value, text) {
-      sendDots('Bloodpool', value);
+      commons.dataClient.sendDot('Bloodpool', value);
     },
   });
 }
@@ -317,82 +278,50 @@ function setEditableFields() {
   }());
 }
 
-function fetchSavedData() {
 
-  if (commons.options.isDevel()) {
-    // do not load for development environment
-    return Promise.resolve(mockData);
-  }
-  const options = {
-    uri: `${window.location.protocol}//${window.location.hostname}/api/load`,
-    json: true, // Automatically parses the JSON string in the response
-  };
-
-  return requestPromise(options);
-}
-
-function loadSaved() {
-  return fetchSavedData()
-    .then((data)=> {
-      if (data.error !== undefined) {
-        errorPanel.show(`Error fetching data: ${data.error}`);
-        return;
+async function loadSaved() {
+  try {
+    const data = await commons.dataClient.load(mockData);
+    if (data.error !== undefined) {
+      errorPanel.show(`Error fetching data: ${data.error}`);
+      return;
+    }
+    const keys = Object.keys(data);
+    keys.forEach((index)=> {
+      const val = data[index];
+      if (index === 'char_name') {
+        document.title = `${val} - CharSheet.su`;
       }
-      const keys = Object.keys(data);
-      keys.forEach((index)=> {
-        const val = data[index];
-        if (index === 'char_name') {
-          document.title = `${val} - CharSheet.su`;
-        }
-        if (index === 'character_sketch') {
-          $('img[class="character_sketch"]').attr('src', val).css('display', 'block');
-        }
-        if (index === 'group_chart') {
-          $('img[class="group_chart"]').attr('src', val).css('display', 'block');
-        }
-        // load editables
+      if (index === 'character_sketch') {
+        $('img[class="character_sketch"]').attr('src', val).css('display', 'block');
+      }
+      if (index === 'group_chart') {
+        $('img[class="group_chart"]').attr('src', val).css('display', 'block');
+      }
+      // load editables
 
-        let a = $(`span[data-name="${index}"]`);
-        if (a !== undefined && val) {
-          a.editable('setValue', val);
-          if (index === 'bloodpool_size') {
-            setBloodPoolSize(val);
-          }
+      let a = $(`span[data-name="${index}"]`);
+      if (a !== undefined && val) {
+        a.editable('setValue', val);
+        if (index === 'bloodpool_size') {
+          setBloodPoolSize(val);
         }
+      }
 
-        // try to set dots
-        a = $(`select[name="${index}"]`);
+      // try to set dots
+      a = $(`select[name="${index}"]`);
 
-        if (a !== undefined && a.is('select')) {
-          a.val(val);
-          a.barrating('set', val);
-        }
-      },
-      );
-    },
-    )
-    .catch(err=> errorPanel.show(`Error fetching data: ${err.toString()}`),
-    );
+      if (a !== undefined && a.is('select')) {
+        a.val(val);
+        a.barrating('set', val);
+      }
+    });
+  }
+  catch (err)
+  {
+    errorPanel.show(`Error fetching data: ${err.toString()}`);
+  }
 }
-
-function loadUseful() {
-  if (commons.options.isDevel()) {
-    return Promise.resolve();
-  }// do not load for development environment
-
-
-  const options = {
-    uri: `${window.location.protocol}//${window.location.hostname}/js/useful.php`,
-    json: false, // Automatically parses the JSON string in the response
-  };
-
-  return requestPromise(options)
-    .then((data)=> {
-      $('.useful_things').html(data);
-    })
-    .catch(err=> alert(`Error loading useful things! ${JSON.stringify(err)}`));
-}
-
 
 // set simple fields
 function setDotsFields() {
@@ -404,7 +333,7 @@ function setDotsFields() {
     validate: barratingValidator,
     silent: true,
     onSelect(value, text) {
-      sendDots('Humanity', value);
+      commons.dataClient.sendDot('Humanity', value);
     },
   });
 
@@ -417,7 +346,7 @@ function setDotsFields() {
     deselectable: true,
     silent: true,
     onSelect(value, text) {
-      sendDots('Willpower', value);
+      commons.dataClient.sendDot('Willpower', value);
     },
   });
 
@@ -431,7 +360,7 @@ function setDotsFields() {
     selectedImage: 'img/checkbox_big_1.png',
     unSelectedImage: 'img/checkbox_big_0.png',
     onSelect(value, text) {
-      sendDots('Willpower_current', value);
+      commons.dataClient.sendDot('Willpower_current', value);
     },
   });
 
@@ -446,7 +375,7 @@ function setDotsFields() {
     selectedImage: 'img/checkbox_big_1.png',
     unSelectedImage: 'img/checkbox_big_0.png',
     onSelect(value, text) {
-      sendDots('Bloodpool', value);
+      commons.dataClient.sendDot('Bloodpool', value);
     },
   });
 }
@@ -491,11 +420,11 @@ function loadAll() {
   loadProps(flawsFormatted, 'flaw', 'flaw', '.flaws', 7);
 
   loadCustomProps();
-  loadUseful();// load bottom panel
 
   loadSaved().then(() => {
     // when everything is loaded, we display it
     setDotsFields();
+    commons.onReady();
     $('.list-align').css('display', 'block');
     loadingPanel.hide();
   });
@@ -524,17 +453,17 @@ function showDots(container) {
         deselectable: true,
         silent: true,
         onSelect(value, text) {
-          sendDots($(this).parent().attr('name'), value);
+          commons.dataClient.sendDot($(this).parent().attr('name'), value);
         },
       });
     }
   });
 }
 
-function changeMode(mode) {
+async function changeMode(mode) {
   if (mode === viewModes.edit) {
     // just reload character data from scratch
-    loadSaved();
+    await loadSaved();
     // display back all elements
 
 
@@ -579,8 +508,6 @@ function changeMode(mode) {
 }
 
 window.changeMode = changeMode;
-window.sendDots = sendDots;
-window.loadSaved = loadSaved;
 
 $(document).ready(() => {
   console.log('document ready!');

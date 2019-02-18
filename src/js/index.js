@@ -20,7 +20,6 @@ import LazyLoad from 'vanilla-lazyload';
 
 import 'jquery';
 import 'bootstrap';
-import './images';
 import 'jquery-bar-rating';
 import './init';
 

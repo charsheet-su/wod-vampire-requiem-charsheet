@@ -42,11 +42,16 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
-      exclude: /node_modules/,
+      exclude: /node_modules/, // not transpiled normally :( TODO fix
       use: {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env'],
+          plugins: [
+            ['@babel/plugin-transform-runtime', { // transpile async funcs
+              regenerator: true,
+            }],
+          ],
         },
       },
     },
