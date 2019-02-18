@@ -22,6 +22,7 @@
   "dependencies": {
     "bluebird": "^3.5.3",
     "bootstrap": "^3.4.0",
+    "charsheet-commons": "git+https://github.com/charsheet-su/charsheet-commons.git#0.0.8",
     "charsheet-dots": "git+https://github.com/charsheet-su/Charsheet-Dots.git#1.0.0",
     "jquery": "^3.3.1",
     "jquery-bar-rating": "^1.2.2",

@@ -1,14 +1,14 @@
 import * as Promise from 'bluebird';
 import * as requestPromise from 'request-promise';
 import * as sheetData from 'wod-data-vampire';
+import * as commons from 'charsheet-commons';
 import $ from 'jquery';
 import mockData from '../../data/mock.json';
 
+const {loadingPanel, errorPanel} = commons.panels;
 window.jQuery = $;
 window.$ = $;
 
-const isDevel = (window.location.href.indexOf('charsheet.su/') === -1);
-const isRevision = (window.location.pathname.split('/').length === 6);
 const viewModes = {edit: 0};
 
 function capitalizeFirstLetter(string) {
@@ -17,78 +17,15 @@ function capitalizeFirstLetter(string) {
 
 function barratingValidator(value) {
 
-  if (isDevel) {
+  if (commons.options.isDevel()) {
     return null;// nothing to do for local development
   }
 
-  if (isRevision) {
+  if (commons.options.isRevision()) {
     return 'You can not edit revision data! If you want it - restore revision and edit it.';
   }
   return null;
 }
-
-/**
- * just a little something to show while loading
- * @type {{show, hide}}
- */
-const loadingPannel = (function loadingPannel() {
-  const lpDialog = $(`
-    <div class='modal' id='lpDialog' data-backdrop='static' data-keyboard='false'>
-    <div class='modal-dialog' >
-    <div class='modal-content'>
-    <div class='modal-header'><b>Loading...</b></div>
-    <div class='modal-body'>
-    <div class='progress'>
-    <div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='100' 
-    aria-valuemin='100' aria-valuemax='100' style='width:100%'>
-    Please Wait...
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>`);
-  return {
-    show() {
-      lpDialog.modal('show');
-    },
-    hide() {
-      lpDialog.modal('hide');
-    },
-  };
-}());
-
-/**
- * we use it to show errors
- * @type {{show, hide}}
- */
-const ErrorPannel = (function ErrorPannel() {
-  const lpDialog = $(`<div class='modal' id='lpDialog' data-backdrop='static' data-keyboard='false'>
-    <div class='modal-dialog' >
-    <div class='modal-content'>
-    <div class='modal-header'><b>Error!</b></div>
-    <div class='modal-body'>
-    <div class='alert alert-danger' role='alert'>
-    Some error text
-    </div>
-    <div class='modal-footer'>
-    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>`);
-  return {
-    show(error) {
-
-      lpDialog.find('.alert').html(error);
-      lpDialog.modal('show');
-    },
-    hide() {
-      lpDialog.modal('hide');
-    },
-  };
-}());
 
 
 // here we send dot values to server with ajax
@@ -96,12 +33,12 @@ function sendDots(attr, value) {
   // var data = {};
   // attr=attr.replace('[','%5B').replace(']','%5D');
   // data[attr] = value;
-  if (isDevel) {
+  if (commons.options.isDevel()) {
     console.log(`Saving ${attr} = ${value}`);
     return;
   }
-  if (isRevision) {
-    ErrorPannel.show('You can not edit revision data! If you want it - restore revision and edit it.');
+  if (commons.options.isRevision()) {
+    errorPanel.show('You can not edit revision data! If you want it - restore revision and edit it.');
     return;
   }
   const options = {
@@ -117,12 +54,12 @@ function sendDots(attr, value) {
   requestPromise(options)
     .then((data)=> {
       if (data.error !== undefined) {
-        ErrorPannel.show(`Error sending dots: ${data.error}`);
+        errorPanel.show(`Error sending dots: ${data.error}`);
       }
       // POST succeeded...
     })
     .catch((err)=> {
-      ErrorPannel.show(`Error sending dots: ${JSON.stringify(err)}`);
+      errorPanel.show(`Error sending dots: ${JSON.stringify(err)}`);
       // POST failed...
     });
 }
@@ -284,7 +221,7 @@ function setBloodPoolSize(x) {
 
 function setEditableFields() {
   // defaults
-  if (isDevel) { // just display message about saving
+  if (commons.options.isDevel()) { // just display message about saving
     $.fn.editable.defaults.success = function (response, newValue) {
       console.log(`Saving ${$(this).attr('data-name')} = ${newValue}`);
     };
@@ -293,7 +230,7 @@ function setEditableFields() {
     $.fn.editable.defaults.mode = 'popup';
     $.fn.editable.defaults.success = function (response, newValue) {
       if (response.error !== undefined) {
-        ErrorPannel.show(`Error saving data: ${response.error}`);
+        errorPanel.show(`Error saving data: ${response.error}`);
       }
       return response;
     };
@@ -382,7 +319,7 @@ function setEditableFields() {
 
 function fetchSavedData() {
 
-  if (isDevel) {
+  if (commons.options.isDevel()) {
     // do not load for development environment
     return Promise.resolve(mockData);
   }
@@ -398,7 +335,7 @@ function loadSaved() {
   return fetchSavedData()
     .then((data)=> {
       if (data.error !== undefined) {
-        ErrorPannel.show(`Error fetching data: ${data.error}`);
+        errorPanel.show(`Error fetching data: ${data.error}`);
         return;
       }
       const keys = Object.keys(data);
@@ -434,12 +371,12 @@ function loadSaved() {
       );
     },
     )
-    .catch(err=> ErrorPannel.show(`Error fetching data: ${err.toString()}`),
+    .catch(err=> errorPanel.show(`Error fetching data: ${err.toString()}`),
     );
 }
 
 function loadUseful() {
-  if (isDevel) {
+  if (commons.options.isDevel()) {
     return Promise.resolve();
   }// do not load for development environment
 
@@ -517,7 +454,7 @@ function setDotsFields() {
 
 function loadAll() {
   console.log('loading defaults');
-  loadingPannel.show();
+  loadingPanel.show();
   setEditableFields();
 
   // set abilities
@@ -560,7 +497,7 @@ function loadAll() {
     // when everything is loaded, we display it
     setDotsFields();
     $('.list-align').css('display', 'block');
-    loadingPannel.hide();
+    loadingPanel.hide();
   });
 }
 
