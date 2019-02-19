@@ -11,7 +11,8 @@
     "build-dev": "node ./node_modules/webpack/bin/webpack.js --env=dev --progress --profile --colors",
     "build": "node ./node_modules/webpack/bin/webpack.js --env=prod --progress --profile --colors",
     "test": "npm run lint&& npm run build-dev",
-    "update-prod": "git pull origin master && npm i && npm run build && chown charsheet:charsheet . -R"
+    "update-prod": "git pull origin master && npm i && npm run build && chown charsheet:charsheet . -R",
+    "ncu": "ncu -a --reject bootstrap"
   },
   "repository": {
     "type": "git",
@@ -22,29 +23,27 @@
   "dependencies": {
     "bluebird": "^3.5.3",
     "bootstrap": "^3.4.0",
-    "charsheet-commons": "git+https://github.com/charsheet-su/charsheet-commons.git#0.0.11",
+    "charsheet-commons": "git+https://github.com/charsheet-su/charsheet-commons.git#0.0.17",
     "charsheet-dots": "git+https://github.com/charsheet-su/Charsheet-Dots.git#1.0.0",
     "jquery": "^3.3.1",
     "jquery-bar-rating": "^1.2.2",
     "jquery-ui": "^1.12.1",
     "moment": "^2.24.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.2",
     "select2": "^4.0.6-rc.1",
     "typeahead.js": "^0.11.1",
-    "vanilla-lazyload": "^10.20.0",
+    "vanilla-lazyload": "^10.20.1",
     "wod-data-vampire": "git+https://github.com/charsheet-su/wod-data-vampire.git#0.0.2",
     "x-editable": "^1.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/runtime": "^7.3.1",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
-    "eslint": "^5.13.0",
+    "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "~13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-promise": "^4.0.1",
@@ -53,7 +52,7 @@
     "file-loader": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.29.3",
+    "webpack": "^4.29.5",
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3"
   }
