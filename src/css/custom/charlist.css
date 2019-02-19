@@ -78,7 +78,7 @@
 
 .list-inner {
     padding-left: 80px; /*for background */
-    padding-right: 60px; /*for background */
+    padding-right: 65px; /*for background */
     padding-top: 65px; /*for background */
     padding-bottom: 65px; /*for background */
     font-size: 0; /* to avoid margins for inline divs*/

@@ -63,6 +63,7 @@
 
 table.combat tr td, table.armor tr td {
     line-height: 26px;
+    height: 40px;
     padding: 0;
     vertical-align: middle;
     font-size: 0;
