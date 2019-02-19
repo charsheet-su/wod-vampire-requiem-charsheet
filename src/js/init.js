@@ -171,8 +171,6 @@ function setBloodPoolSize(x) {
     deselectable: true,
     validate: barratingValidator,
     silent: true,
-    selectedImage: 'img/checkbox_big_1.png',
-    unSelectedImage: 'img/checkbox_big_0.png',
     initialRating: val,
     onSelect(value, text) {
       commons.dataClient.sendDot('Bloodpool', value);
@@ -357,8 +355,6 @@ function setDotsFields() {
     deselectable: true,
     validate: barratingValidator,
     silent: true,
-    selectedImage: 'img/checkbox_big_1.png',
-    unSelectedImage: 'img/checkbox_big_0.png',
     onSelect(value, text) {
       commons.dataClient.sendDot('Willpower_current', value);
     },
@@ -372,8 +368,6 @@ function setDotsFields() {
     deselectable: true,
     validate: barratingValidator,
     silent: true,
-    selectedImage: 'img/checkbox_big_1.png',
-    unSelectedImage: 'img/checkbox_big_0.png',
     onSelect(value, text) {
       commons.dataClient.sendDot('Bloodpool', value);
     },
