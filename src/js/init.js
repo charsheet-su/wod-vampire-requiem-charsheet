@@ -474,7 +474,7 @@ async function changeMode(mode) {
       }
     });
     // show empty dots
-    showDots('.other_traits_container');
+    showDots('.other_traits');
     showDots('.advantages');
     showDots('.merits');
     showDots('.flaws');
@@ -499,7 +499,7 @@ async function changeMode(mode) {
       }
     });
     // hide all empty dots
-    hideDots('.other_traits_container');
+    hideDots('.other_traits');
     hideDots('.advantages');
     hideDots('.merits');
     hideDots('.flaws');
